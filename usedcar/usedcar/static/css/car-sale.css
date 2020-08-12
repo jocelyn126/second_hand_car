@@ -1,0 +1,81 @@
+/*!newcar-www:widget/c2b_sale_new/c2b_car_sale_top/c2b_car_sale_top.css*/
+.car_sale_top-head{width:100%;min-width:1210px;height:360px;background-image:url(../../static/images/salecar-banner.png);background:-webkit-image-set(url(//s5.xinstatic.com/static/newcar-www/widget/c2b_sale_new/c2b_car_sale_top/imgs/salecar-banner_bc02644.jpg) 1x,url(//s5.xinstatic.com/static/newcar-www/widget/c2b_sale_new/c2b_car_sale_top/imgs/salecar-banner@2x_4336628.jpg) 2x) no-repeat #fdfdfd;background:image-set(url(//s5.xinstatic.com/static/newcar-www/widget/c2b_sale_new/c2b_car_sale_top/imgs/salecar-banner_bc02644.jpg) 1x,url(//s5.xinstatic.com/static/newcar-www/widget/c2b_sale_new/c2b_car_sale_top/imgs/salecar-banner@2x_4336628.jpg) 2x) no-repeat #fdfdfd;background-repeat:no-repeat;background-position:center}
+.car_sale_top-head-content{width:1210px;height:320px;margin:0 auto;padding:30px 0;position:relative}
+.mt-number-animate{height:52px;font-size:52px;line-height:52px;color:#f85d00;overflow:hidden;display:inline-block;vertical-align:top;position:relative}
+.mt-number-animate .mt-number-animate-dom{width:14px;text-align:center;color:#1a1a1a;float:left;position:relative;top:0}
+.mt-number-animate .mt-number-animate-dot{display:block;width:10px;line-height:37px;color:#f85d00;float:left;text-align:center}
+.mt-number-animate .mt-number-animate-dom{width:30px;color:#f85d00}
+.mt-number-animate .mt-number-animate-dom .mt-number-animate-span{width:100%;float:left}
+.car_sale_top-con-left-text{width:890px;position:absolute;left:0;top:100px}
+.car_sale_top-con-left-text .car_sale_top-tip{text-align:center;font-size:62px;color:#1b1b1b;font-weight:100;font-family:PingFangSC;margin-left:280px}
+.car_sale_top-con-left-text .car_sale_top-tip .car_sale_top-bold{font-weight:500}
+.car_sale_top-con-left-text .car_sale_top-txt{text-align:center;font-size:28px;color:#b08f62;font-family:PingFangSC;margin:20px 0 40px 280px}
+.car_sale_top-con-left-text .car_sale_top-txt .car_sale_top-nol{font-weight:500}
+.car_sale_top-con-left-text .car_sale_top-flow{width:490px;height:83px;margin-left:340px}
+.car_sale_top-con-left-text .car_sale_top-flow .car_sale_top-pic{width:100%;display:block}
+.car_sale_top-con-right-btn{width:330px;height:240px;background:#fff;opacity:.95;border-radius:3px;box-shadow:1px 6px 14px 0 rgba(23,23,24,.1);padding:30px;position:absolute;right:0}
+.car_sale_top-con-right-btn .car_sale_top-s1,.car_sale_top-con-right-btn .car_sale_top-s2{font-size:16px;color:#b6986e;display:block;text-align:center}
+.car_sale_top-con-right-btn .car_sale_top-s2{margin:6px 0 20px;color:#999}
+.car_sale_top-con-right-btn .car_sale_top-s1 .car_sale_top-randomNum{font-size:44px;font-family:Arial}
+.car_sale_top-con-right-btn .car_sale_top-btn{display:block;width:300px;height:50px;line-height:50px;background:#b6986e;font-size:18px;color:#fff;text-align:center;margin-bottom:20px;cursor:pointer;margin-left:15px}
+.car_sale_top-con-right-btn .car_sale_top-car-btn{border-radius:3px;-webkit-radius:3px;background:#f85d00}
+.car_sale_top-con-right-btn .car_sale_top-p-appointment-un{border-radius:3px;-webkit-radius:3px;background:#ffdeb2}
+.car_sale_top-con-right-btn .car_sale_top-price-btn{width:296px;height:46px;line-height:46px;border-radius:3px;background-color:#fff;border:2px solid #f85d00;color:#f85d00}
+.car_sale_top-con-right-btn .car_sale_top-tel{font-size:14px;color:#999;text-align:center;display:block}
+.car_sale_top-tipsCon{width:1210px;margin:47px auto 62px;overflow:hidden}
+/*!newcar-www:widget/c2b_sale_new/carousel-list/carousel-list.css*/
+.new-carousel-list-carousel-list{border-top:1px solid #f2f2f2;width:100%;padding:0 0 50px}
+.new-carousel-list-carousel-list .new-carousel-list-wrap{width:1210px;margin:0 auto}
+.new-carousel-list-carousel-list .new-carousel-list-text-box{padding:50px 0 40px;background-image:url(../../static/images/text_01.png);background:-webkit-image-set(url(../../static/images/text_02.png) 1x,url(../../static/images/text_03.png) 2x);height:80px;background-repeat:no-repeat;background-position:center center}
+.new-carousel-list-carousel-list .new-carousel-list-big-title{font-size:24px;color:#585858;height:54px;position:relative;text-align:center;font-weight:700}
+.new-carousel-list-carousel-list .new-carousel-list-big-title:before{content:"";width:44px;height:3px;background:#f85d00;position:absolute;top:38px;left:50%;margin-left:-22px}
+.new-carousel-list-carousel-list .new-carousel-list-strong-title{font-size:30px;line-height:40px;color:#585858;text-align:center}
+.new-carousel-list-carousel-list .new-carousel-list-strong-title .new-carousel-list-img{margin-right:5px;vertical-align:-2px}
+.new-carousel-list-carousel-list .new-carousel-list-small-title{font-size:20px;line-height:30px;color:#585858;text-align:center}
+.new-carousel-list-carousel-list .new-carousel-list-small-title .new-carousel-list-img{margin-right:5px}
+.new-carousel-list-carousel-slider{width:1210px;margin:0 auto;overflow:hidden;height:290px}
+.new-carousel-list-slider-content{width:1210px;overflow:hidden;height:260px}
+.new-carousel-list-slider-inside{width:1320px;margin-left:-54px}
+.new-carousel-list-slider-content .new-carousel-list-item{width:659px;border-right:dashed 1px #e5e5e5;float:left;height:250px}
+.new-carousel-list-slider-content .new-carousel-list-item.new-carousel-list-no-ml .new-carousel-list-carinf,.new-carousel-list-slider-content .new-carousel-list-item.new-carousel-list-no-ml .new-carousel-list-quotation-city{margin-left:0}
+.new-carousel-list-slider-content .new-carousel-list-carinf{height:140px;margin:0 54px}
+.new-carousel-list-slider-content .new-carousel-list-quotation-city{padding:10px 0 0;margin-left:54px}
+.new-carousel-list-slider-content .new-carousel-list-img-box{width:210px;height:140px;float:left}
+.new-carousel-list-slider-content .new-carousel-list-img-box img{width:210px}
+.new-carousel-list-slider-content .new-carousel-list-car-content{padding-left:225px;width:320px}
+.new-carousel-list-slider-content .new-carousel-list-txt-panel{height:32px;line-height:32px;font-size:16px;color:#f85d00;display:block}
+.new-carousel-list-slider-content .new-carousel-list-cityname{border:1px solid #f85d00;height:20px;line-height:21px;font-size:14px;border-radius:2px;-weblit-border-radius:2px;display:inline-block;padding:0 3px}
+.new-carousel-list-slider-content .new-carousel-list-carname{width:318px;height:56px;font-size:20px;color:#585858;line-height:24px;padding:8px 0 0}
+.new-carousel-list-slider-content .new-carousel-list-year-mile{font-size:14px;color:#999;line-height:24px}
+.new-carousel-list-slider-content .new-carousel-list-colum02{clear:both}
+.new-carousel-list-quotation-text{font-size:16px;color:#999;line-height:22px}
+.new-carousel-list-slider-content .new-carousel-list-colum02 .new-carousel-list-text{font-size:16px;color:#999;line-height:20px;float:left;margin:12px 80px 0 0;height:20px;width:193px}
+.new-carousel-list-slider-content .new-carousel-list-colum02 .new-carousel-list-change-fz{color:#f85d00}
+.new-carousel-list-slider-content .new-carousel-list-colum02 .new-carousel-list-strong-panel{height:18px;border-radius:2px;border:solid 1px #aaa;display:inline-block;line-height:19px;padding:0 3px;margin-right:5px;font-size:14px}
+.new-carousel-list-special-panel{height:18px;border-radius:2px;background-color:#fff6f0;border:solid 1px #f85d00;line-height:19px;text-align:center;padding:0 3px;display:inline-block;font-size:14px;color:#f85d00;margin-right:5px}
+.new-carousel-list-deal{font-size:16px;display:inline-block;line-height:20px;margin-left:20px;background:#f85d00;color:#fff;padding:0 3px;border-radius:1px;-webkit-border-radius:1px}
+.new-carousel-list-deal .new-carousel-list-ic-deal{margin-right:5px}
+.new-carousel-list-hd{display:none;text-align:center;padding:10px 0 0}
+.new-carousel-list-hd .new-carousel-list-line{width:20px;height:4px;border-radius:2px;background-color:#e9e9e9;display:inline-block;margin:0 5px;cursor:pointer}
+.new-carousel-list-hd .new-carousel-list-on{background-color:#f85d00}
+.new-carousel-list-deal-quick{height:470px;background:#fafafa}
+/*!newcar-www:widget/c2b_sale_new/c2b_car_sale_introduce/c2b_car_sale_introduce.css*/
+.car_sale_introduce-deal-quick{height:470px;background:#fafafa}
+.car_sale_introduce-deal-quick-box{width:1210px;margin:0 auto;background-image:url(../../static/images/deal-quick.png);background:-webkit-image-set(url(../../static/images/deal-quick.png) 1x,url(../../static/images/deal-quick.png) 2x) no-repeat;background:image-set(url(../../static/images/deal-quick.png) 1x,url(../../static/images/deal-quick.png) 2x) no-repeat;background-repeat:no-repeat;background-position:0 center;height:470px}
+.car_sale_introduce-deal-quick-box .car_sale_introduce-deal-text{float:right;padding-top:155px}
+.car_sale_introduce-deal-title,.car_sale_introduce-safe-reliable-title{height:50px;font-size:28px;color:#585858;position:relative;font-weight:700}
+.car_sale_introduce-deal-title:before,.car_sale_introduce-safe-reliable-title:before{content:"";width:44px;height:3px;background:#f85d00;position:absolute;top:38px;left:0}
+.car_sale_introduce-deal-text .car_sale_introduce-text-small,.car_sale_introduce-safe-reliable-text .car_sale_introduce-text-small{height:33px;padding-top:12px;font-size:24px;color:#999;font-family:PingFangSC}
+.car_sale_introduce-safe-reliable-text{padding-top:165px}
+.car_sale_introduce-safe-reliable-box{width:1210px;margin:0 auto;height:500px;background-image:url(../../static/images/safe-reliable.png);background:-webkit-image-set(url(../../static/images/safe-reliable.jpg) 1x,url(../../static/images/safe-reliable.jpg) 2x) no-repeat;background:image-set(url(../../static/images/safe-reliable.jpg) 1x,url(../../static/images/safe-reliable.jpg) 2x) no-repeat;background-repeat:no-repeat;background-position:right center}
+/*!newcar-www:widget/c2b_sale_new/question/question.css*/
+.new-question-title{display:block;width:1210px;height:33px;margin:0 auto 35px;font-size:24px;color:#585858;position:relative;text-align:center}
+.new-question-title:before{content:"";width:26px;height:3px;background:#f85d00;position:absolute;top:30px;left:50%;margin-left:-13px}
+.new-question-questionCon{width:1210px;margin:0 auto;overflow:hidden}
+.new-question-quesli{width:580px;height:180px;float:left;border-top:1px solid #e5e5e5}
+.new-question-change-h270{height:270px}
+.new-question-change-h150{height:150px}
+.new-question-quesRight{float:right}
+.new-question-quesli .new-question-questip{padding:30px 0 22px;display:block;font-size:18px;color:#585858;line-height:18px}
+.new-question-quesli .new-question-questxt{line-height:30px;font-size:15px;color:#7a7a7a}
+/*!newcar-www:widget/c2b_sale_new/c2b_car_sale/c2b_car_sale.css*/

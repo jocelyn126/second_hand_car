@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>二手车服务保障|专业检测-Python智能</title>
+<meta http-equiv="Access-Control-Allow-Origin" content="http://car.xin.com">
+<meta name="keywords" content=" 二手车服务保障,二手车无事故承诺,二手车专业检测,二手车服务体系">
+<meta name="description" content="二手车，点击查阅旧卖车二手车详细运营服务体系。">
+<link rel="shortcut icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../base-windows.css">
+<script src="../../../static/js/jquery-1.js" type="text/javascript"></script>
+<script src="../../../static/js/SuperSlide.js"></script>
+<script src="../../../static/js/jquery.js" type="text/javascript"></script>
+<script src="../../../static/js/mod_c303114.js"></script>
+<script src="../../../static/js/footer_1d5c8d2.js"></script>
+<script src="../../../static/js/jquery_002.js"></script>
+<script src="../../../static/js/jsencrypt.js" type="text/javascript"></script>
+<script>
+    (function (window , jsvar) {
+        jsvar.XIN_STATIC_DOMAIN_A = '//127.0.0.1',
+        jsvar.XIN_STATIC_DOMAIN_E = '//127.0.0.1',
+        jsvar.XIN_STATIC_DOMAIN_F = '//127.0.0.1',
+        jsvar.cssjs_version = '17112101';
+        jsvar.rsaPublicKey = 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDQ4cGnnWenRjInefoHxp99woyN0kLTAKlgSaHuZ+AlW4tfQud+4MWxk2gq36854XO6XJ4E2py0F3Xi9Kf+uI+7Xv78F4UUiJ3slsBlGp7ywihEXE/Awo+m4t+NKx7foh2jIMbDoVGjTNNORiPVqI8rHWURZUUljQqbbWqZHXkSWwIDAQAB';
+    })(window, (window.jsvar = window.jsvar || {}));
+</script>
+<script src="../../../static/js/fix_url_params.js"></script>
+<script type="text/javascript">
+    var TOP_INFO = { location: { }, user: { }, half_city: [], url: '' };
+    var TOP_GET = { };
+                TOP_INFO.location = {"cityid":"3001","areaid":"6","big_areaid":"1","provinceid":"30","cityname":"\u676d\u5dde","ename":"hangzhou","shortname":"HT","service":"1","near":"1505,501,101,1501,3002,2401,1502,3015,902,3003","tianrun_code":"0571","zhigou":"1","is_visit":"1","longitude":"120.1550700","latitude":"30.2740840","city_rank":"1","city_group":"3","is_gold_partner":"-1","direct_rent_support":"1","salvaged_support":"1","isshow_c":"1","is_lease_back":"1","mortgage_service_fee":"60000","is_small_pub_house":"1","is_wz_mortgage":"1","is_purchase_direct":"1","is_purchase_origin":"1","is_ms_ex":"0","is_cc_show":"1","is_ms_trans":"0","updatetime":"2020-05-29 11:46:44"};
+                            var is_from_wap = /[?|&]from=wap/.test(window.location.search);
+
+    //from wap记录cookie
+    if (is_from_wap) {
+        $.cookie('access_from', 'wap', { path: '/', expires: 0 });
+    }
+    if ($.cookie('access_from') == 'wap') {
+        is_from_wap = true;
+    }
+
+    //手机端自动跳转
+    if (!is_from_wap && /Android|iP[ao]d|iPhone/gi.test(navigator.userAgent)) {
+        var reg = new RegExp("/*?" + TOP_INFO.location.ename, "g");
+        var path = window.location.pathname.replace(reg, '');
+        var param = window.location.search;
+
+        //特别页面跳转
+        var con_name = 'service';
+        var act_name = 'index';
+        var mdomain = '//m.xin.com';
+        if(!/^https?/.test(mdomain)){
+            mdomain = ('https:' == document.location.protocol ? 'https:' : 'http:') + mdomain;
+        }
+        //首页跳转
+        if (con_name == 'home' && act_name == 'index') {
+            window.location.href = mdomain + location.pathname + param;
+        } else if (con_name == 'search' && act_name == 'fullprice') { // 全价车
+            var reg = new RegExp (/^\//);
+            if(reg.test(location.pathname)){
+                window.location.href = mdomain + location.pathname + param;
+            }else{
+                window.location.href = mdomain + '/' + location.pathname + param;
+            }
+        } else if (con_name == 'search' && act_name == 'halfprice') { //付一半跳转
+            var uri = location.pathname.replace('/h/', '/');
+            uri = uri.indexOf('sn_') != -1 ? uri.replace('sn_', 'sn_v5') : uri + 'sn_v5/';
+            window.location.href = mdomain + uri + param;
+        }else if (con_name == 'car' && act_name == 'index'){
+            window.location.href = mdomain + path + param;
+        //商铺页跳转
+        }else if (con_name == 'dealer' && act_name == 'index') {
+            window.location.href = mdomain + path + param;
+        //文章详情页跳转
+        }else if (con_name == 'article' && act_name == 'view') {
+            var act_arr = window.location.pathname.split('/');
+            for (i = act_arr.length - 1; i >= 0; i--) {
+                if (!!act_arr[i]) {
+                    window.location.href = mdomain + '/article/article_detail/' + act_arr[i] + param;
+                    break;
+                }
+            }
+        }else if (con_name == 'article' && act_name == 'listing') { //活动列表页面跳转
+            var act_arr = window.location.pathname.split('/');
+            for (i = act_arr.length - 1; i >= 0; i--) {
+                if (!!act_arr[i]) {
+                    window.location.href = mdomain + '/article/index/' + act_arr[i] + param;
+                    break;
+                }
+            }
+        }
+    }
+    
+    // 初始化诸葛统计数据参数
+    var is_hf = 'service'=='halfprice' ? 1 : 0;
+    var search_q = '';
+    var search_ot = ''.indexOf('y1') != -1 ? '全国其他城市' : (''.indexOf('y2') != -1 ? '周边城市' : '');
+    var search_count = '';
+    var zg_page_flag = 0;
+
+    //可信网站
+    function KNET_change(eleId) {
+        var str= document.getElementById(eleId).href;
+        var str1 =str.substring(0,(str.length-6));
+        str1+=KNET_RndNum(6); 
+        document.getElementById(eleId).href=str1;
+    }
+    function KNET_RndNum(k) {
+        var rnd=""; 
+        for (var i=0;i < k;i++) {
+            rnd+=Math.floor(Math.random()*10); 
+        }
+        return rnd;
+    }
+    function win_add_pageid(num){
+        window.pageid = num;
+    }
+</script>
+
+<link href="../../../static/css/jquery-ui.css" rel="stylesheet" type="text/css">
+<link href="../../../static/css/base.css" rel="stylesheet" type="text/css">
+<link href="../../../static/css/common.css" rel="stylesheet" type="text/css">
+
+<!--  <link href="//s5.xinstatic.com/xin/css/popup.css?v=17112101" rel="stylesheet" type="text/css">
+<link href="//s5.xinstatic.com/xin/css/page2016.css?v=17112101" rel="stylesheet" type="text/css"> -->
+<link href="../../../static/css/popup.css" rel="stylesheet" type="text/css">
+<link href="../../../static/css/page.css" rel="stylesheet" type="text/css">
+
+
+<link rel="stylesheet" href="../../../static/css/city.css">
+<link href="../../../static/css/footer.css" rel="stylesheet">
+
+<link href="../../../static/css/joinus_header.css" rel="stylesheet" type="text/css">
+<link href="../../../static/css/joinus_footer.css" rel="stylesheet" type="text/css">
+<script src="../../../static/js/popup.js" type="text/javascript"></script>
+<script src="../../../static/js/jquery-ui.js" type="text/javascript"></script>
+<script src="../../../static/js/tab.js"></script>
+<!-- <script id="mainPageScript" src="/assets/js/main_page.js?v=17112101" data-no-location=""></script> -->
+<script id="mainPageScript" src="../../../static/js/main_page_6a764ba.js" data-no-location=""></script>
+<script src="../../../static/js/city.js"></script>
+<script>
+//var suggest = null;
+</script>
+
+<script>
+    $('#regA').click(function () {
+        _hmt.push(['_trackEvent', 'Register', 'Register_start']);
+    });
+    $('.noregist').click(function () {
+        _hmt.push(['_trackEvent', 'Register', 'Register_start']);
+    });
+    $('#loginA').click(function () {
+        _hmt.push(['_trackEvent', 'Login', 'Login_manual']);
+    });            
+</script>
+</head>
+<body>
+<div class="fixed-head-wrap">
+	<div class="fixed-head">
+		<a href="https://127.0.0.1" class="fixed-logo" title="旧卖车">旧卖车</a>
+        <a href="javascript:;" id="current_city_id" class="header-cityname">
+            杭州<i class="header-icon"></i>
+        </a>
+        <ul class="nav-list fixed-list abs">
+        	<li><a class="" href="https://127.0.0.1/hangzhou/" title="hangzhou二手车首页">首页</a></li>
+            <!--是买车但非长尾页的时候才标红(active)买车-->
+            <li><a id="php_half_city_link" class="a_buypage " href="https://127.0.0.1/hangzhou/s/" sname="//127.0.0.1" title="购买二手车" rel="nofollow" uxevent="w_top/halfprice">买车</a></li>
+            <li><a class="a_sellpage " href="https://127.0.0.1/" title="二手车出售" rel="nofollow" uxevent="w_top/sellcar">卖车</a></li>
+            <li><a href="https://127.0.0.1/service/3001/" class="a_service active" title="二手车服务保障" rel="nofollow" onclick="uxl_track('w_top/service')">尊享车主权益</a></li>
+            <li id="xin_top_userinfo" sname="//127.0.0.1"><div class="person-wrap" style="top:0px;"><a href="javascript:clear_invalid();show_popup('#popupLogin','#popupLogin%20.closeJs');" id="loginA" class="login" rel="nofollow">登录</a>/<a href="javascript:clear_invalid();show_popup('#popupRegister','#popupRegister%20.closeJs');" id="regA" rel="nofollow" class="register">注册</a></div></li>
+		</ul>
+	</div>
+</div>
+        
+<div class="help-auth"> 
+    <div class="zxhead">
+        <img src="../../../static/images/zxhead.png" class="zxpic">
+    </div>
+    <div class="zxwrap">
+        <div class="help-auth-title">
+            <span class="s1">315项检测</span>
+        </div>
+        <div class="help-repair">
+            由资深行业权威专家制定的315项全面深度检测，并且由经过专业培训、经验丰富的检测师严格执行检测项及流程，包括车辆外部检测、内部检测、重大事故损伤排查、涉水及火烧车排查、发动机室检测等，点滴细节，保障您的购车权益。
+        </div>
+
+        <div class="help-auth-title">
+            <span class="s1">免金融附加费</span>
+        </div>
+        <div class="help-repair">
+            旧卖车为您提供金融分期购车服务的同时，倡导金融分期购车服务全透明，除银行利率以及第三方金融供应商收取的相关费用以外，没有任何隐性及额外附加收费。您通过金融分期购车所产生的费用旧卖车都将透明展示，让您透明消费，没有套路。
+        </div>
+
+        <div class="help-auth-title">
+            <span class="s1">1年包退</span>
+        </div>
+        <div class="help-auth-content">
+            <dl>
+                <dt>在您购车后1年内，如您发现车辆在本次成交前已存在以下任意一种重大事故损伤情形，经旧卖车二手车认定属实后，旧卖车二手车负责回收车辆并退还您车款：</dt>   
+                <dd class="c1">
+                    1 、发动机舱、驾驶舱曾因撞击而严重损坏，导致发动机舱前围板（引擎室隔板）有焊接、切割、整形、变形达到5厘米以上（含）；
+                </dd>
+                <dd class="c1">
+                    2 、纵梁以及横梁有焊接、切割、整形、变形的；
+                </dd>
+                <dd class="c1">
+                    3 、避震器塔座有裂痕以及钣金痕迹达10厘米以上（含）；
+                </dd>
+                <dd class="c1">
+                    4 、ABC柱有焊接、切割、整形、变形达10厘米以上（含）；
+                </dd>
+                <dd class="c1">
+                    5 、曾因撞击造成安全气囊弹出；
+                </dd>
+                <dd class="c1">
+                    6 、曾遭遇水淹，涉及水位超过机盖，并已进入驾驶室，且水位没过排挡杆下沿（以标准排挡杆位置为准）；
+                </dd>
+                <dd class="c1">
+                    7 、车身有火烧痕迹且面积达0.5平方米以上（含）。
+                </dd>
+            </dl>
+            <a href="https://127.0.0.1/help/index/10/" class="liucheng">退车流程 &gt;&gt;</a>
+        </div>
+
+        <div class="help-auth-title">
+            <span class="s1">1年保修</span>
+        </div>
+        <div class="help-repair">
+            
+通过旧卖车购买的每一台车辆均可享受1年或2万公里（以先到者为准）覆盖全车15大系统的保修服务，赔付上限高达车价100%；并且当车辆故障符合保修赔付
+范围，可直接进行维修，无需您先行垫款，避免您在维修上的繁琐流程，保障您用车无忧；具体赔付标准及额度请参见《旧卖车质量保障服务协议》   
+            <a href="https://127.0.0.1/help/index/10/" class="liucheng">保修流程 &gt;&gt;</a>
+        </div>
+        <div class="repair-tit">
+                <span class="s-val">保修部件包括</span>
+        </div>
+        <div class="repair-list">
+            <ul class="line">
+                <li class="engine">
+                    <img src="../../../static/images/bx_icon1.png" alt="">
+                    发动机系统
+                </li>
+                <li class="hang">
+                    <img src="../../../static/images/bx_icon2.png" alt="">
+                    悬挂系统
+                </li>
+                <li class="gearbox">
+                    <img src="../../../static/images/bx_icon3.png" alt="">
+                    变速箱系统
+                </li>
+                <li class="fuel_oil">
+                    <img src="../../../static/images/bx_icon4.png" alt="">
+                    燃油系统
+                </li>
+                <li class="drive">
+                    <img src="../../../static/images/bx_icon5.png" alt="">
+                    驱动系统
+                </li>
+            </ul>
+            <ul class="line">
+                <li class="cooling">
+                    <img src="../../../static/images/bx_icon6.png" alt="">
+                    冷却系统
+                </li>
+                <li class="turn_to">
+                    <img src="../../../static/images/bx_icon7.png" alt="">
+                    转向系统
+                </li>
+                <li class="air_condition">
+                    <img src="../../../static/images/bx_icon8.png" alt="">
+                    空调系统
+                </li>
+                <li class="braking">
+                    <img src="../../../static/images/bx_icon9.png" alt="">
+                    制动系统
+                </li>
+                <li class="electric">
+                    <img src="../../../static/images/bx_icon10.png" alt="">
+                    电气系统
+                </li>
+            </ul>
+            <ul>
+                <li class="differ-mechan">
+                    <img src="../../../static/images/bx_icon11_d50a102.png" alt="">
+                    差速器系统
+                </li>
+                <li class="transfer-case">
+                    <img src="../../../static/images/bx_icon12_15fc9cb.png" alt="">
+                    分动箱系统
+                </li>
+                <li class="lubrication">
+                    <img src="../../../static/images/bx_icon13_c3518ce.png" alt="">
+                    润滑系统
+                </li>
+                <li class="safe">
+                    <img src="../../../static/images/bx_icon14_106804d.png" alt="">
+                    安全系统
+                </li>
+                <li class="electronic-control">
+                    <img src="../../../static/images/bx_icon15_d8ca225.png" alt="">
+                    电控系统
+                </li>
+            </ul>
+        </div>
+
+        <div class="help-auth-title">
+            <span class="s1">全国联保</span>
+        </div>
+        <div class="help-repair">
+            在全国300+城市，无论您和您的爱车走到哪里，随时随地提供专业优质的保修服务，让您畅行无忧。
+        </div>
+
+        <div class="help-auth-title">
+            <span class="s1">专属顾问</span>
+        </div>
+        <div class="help-repair">
+            为您提供专属顾问服务，从选车到购车，从办理到提车，一站式专属服务体验。
+        </div>            
+
+        <!-- <div class="help-repair2">
+            <em class="c1">免责范围：</em>
+            易损件、损耗件、装饰件、外观件、覆盖件、密封件、影音娱乐件；未按规定进行保养的；未经授权的维修。详见《旧卖车质量保障服务协议》
+        </div>
+        <div class="help-auth-title">
+            <span class="s1">免购车服务费</span>
+        </div>
+        <div class="help-repair">
+            您在旧卖车上看到的每一台车，均经过了315项专业车况检测以后进行上架展示，并配有全程的检测视频以及详细的车况报告，您可以足不出户轻松又清晰的了解车辆的状况。我们同还提供上门服务，帮您挑选车辆，结合检测视频和VR视频，为您详细讲解车辆情况。上述的服务旧卖车均为免费提供，为您节省了线下选车时间，丰富了您选车的范围，排除了您对车况的疑虑，让您选车无忧。
+        </div>
+        <div class="repair-ts">
+            <dl>
+                <dt>特别提示</dt>
+                <dd>1、购买爱车时请您向车商确认各项车辆信息的准确和手续的完备； </dd>
+                <dd>2、车辆真实行驶里程数、型号/配置差异不属于“旧卖车金牌认证”售后质保范围；</dd>
+                <dd>3、车辆退赔金额以协议条款所示为准；</dd>
+                <dd>4、如车辆出现问题，请拨打理赔电话: 10106088；</dd>
+                <dd>由资深行业权威专家制定的315项全面深度检测，由经过专业培训、经验丰富的检测师严格执行检测项及流程，包括车辆外部检测、内部检测、重大事故损伤排查、涉水及火烧车排查、发动机室检测等，点滴细节，保障您的购车权益！</dd>
+            </dl>
+        </div> -->
+        <div class="help-auth-icon01">
+            <img src="../../../static/images/auth01.png">
+        </div>
+    </div>
+</div>
+
+<div class="help-shade-bg" style="height: 2134px;"></div>
+<div class="help-shade-tc"></div>
+<script>
+    
+        var message = {
+                "engine":{
+                    "title":"发动机系统",
+                    "content":[
+                        {"title":"气缸体","content":"缸体,曲轴@曲轴皮带轮,曲轴链轮@活塞,活塞环@活塞销,轴承@轴瓦,轴瓦盖@连杆,平衡轴@平衡轴轴承,"},
+                        {"title":"气缸盖及配气机构","content":"气门室盖,气缸盖@凸轮轴,凸轮轴瓦盖@摇臂总成,气门挺杆@气门,气门弹簧@气门锁片,气门导管@正时齿轮,正时链条@正时链条涨紧器,正时皮带涨紧器@惰轮,时规盖@链条导轨,推杆@飞轮及环齿圈,油底壳,"}
+                    ]
+                },
+                "hang":{
+                    "title":"悬挂系统",
+                    "content":"扭力杆,稳定杆@转向节,"
+                },
+                "gearbox":{
+                    "title":"变速箱系统",
+                    "content":[
+                        {"title":"自动变速箱（AT）","content":"内轴,齿轮@制动带,阀片@调速器,油泵@轴承及轴承套,传动盘@传动齿轮,换挡连接杆和线缆@行星架,控制阀体@液力变矩器,变速器冷却器@油尺和油尺导管,"},
+                        {"title":"手动变速箱（MT）","content":"离合器液压驱动总成,液压泵@内轴,齿轮@同步器,变速叉@轴承,轴承套@换挡机构,传动齿轮@变速器壳,锁销,"},
+                        {"title":"无级变速箱（CVT）","content":"压力缸活塞,传动带@轴,主动轮@从动轮,轴承套及轴承@差速器和驱动齿轮,齿轮@控制阀体,"},
+                        {"title":"双离合变速箱（DCT/DSG）","content":"内轴,双离合器总成@齿轮,轴承@控制阀体,油泵,"},
+                        {"title":"自动换挡式手动变速箱（AMT）","content":"内轴,齿轮@同步器,变速叉@轴承,轴承套@传动齿轮,变速器壳,"}
+                        ]
+                },
+                "fuel_oil":{
+                    "title":"燃油系统",
+                    "content":"高压燃油泵,燃油供给控制单元@低压油泵,节气门体@进气歧管,空气流量计@怠速控制阀,冷启动阀@暖机调节器,进气压力传感器@超速切断阀,节流阀@油压调节阀,油轨,"
+                },
+                "drive":{
+                    "title":"驱动系统",
+                    "content":"传动轴,万向节@万向接头及联轴器<br />（不含防尘套）,前后车轮轴承@前后轮半轴<br />（不含防尘套）,"
+                },
+                "cooling":{
+                    "title":"冷却系统",
+                    "content":"散热器（水箱）,机油冷却器@水泵,冷却风扇电机@节温器,"
+                },
+                "turn_to":{
+                    "title":"转向系统",
+                    "content":"液压式转向器,液压转向助力泵@动力转向油罐,电子助力转向器,"
+                },
+                "air_condition":{
+                    "title":"空调系统",
+                    "content":"空调压缩机,鼓风机@冷凝器,压力开关@膨胀阀,蒸发箱@暖风水箱,"
+                },
+                "braking":{
+                    "title":"制动系统",
+                    "content":"制动总泵,制动分泵@节流分配阀,制动钳@制动液储油罐,ABS控制单元@ABS传感器,"
+                },
+                "electric":{
+                    "title":"电气系统",
+                    "content":"起动机,发电机@门窗和天窗电机,升降器开关@天窗开关,车门锁块@前后挡风玻璃雨刮电机和洗涤电机,风向电机@雨刮和灯光组合开关,"
+                },
+                "differ-mechan":{
+                    "title":"差速器系统",
+                    "content":"主动齿轮,从动齿轮@行星齿轮,行星架@轴承,"
+                },
+                "transfer-case":{
+                    "title":"分动箱系统"
+                    ,"content":"主轴,主动齿轮@从动齿轮,链条@齿轮,"
+                },
+                "lubrication":{
+                    "title":"润滑系统",
+                    "content":"机油泵,机油泵链条@机油泵链轮,限压阀,"
+                },
+                "safe":{
+                    "title":"安全系统",
+                    "content":"主安全气囊,副驾安全气囊@侧气帘,膝部气囊@气囊游丝,"
+                },
+                "electronic-control":{
+                    "title":"电控系统",
+                    "content":"车身电脑,变速箱电脑@气囊电脑,发动机电脑,"
+                }
+            };
+    function joint_msg(content2,template){
+        if(content2){
+                var contentArr = content2.split('@');
+                for(var k=0;k<contentArr.length;k++){
+                    var zero_val = contentArr[k].split(',')[0];
+                        var one_val = contentArr[k].split(',')[1];
+                        if( zero_val && zero_val.split('#').length > 0){
+                            template += '<tr><td><em class="tit">' + zero_val.split('#')[0] + '</em><span>'+ (zero_val.split('#')[1] || '') +'</span></td>';
+                        }else{
+                            template += '<tr><td><em class="tit">' + zero_val + '</em></td>';
+                        }
+                         if( one_val &&  one_val.split('#').length > 0){
+                            template += '<td><em class="tit">' + one_val.split('#')[0] + '</em><span>' + (one_val.split('#')[1] || '') +'</span>';
+                         }else{
+                            template += '<td><em class="tit">' + one_val + '</em>';
+                         }
+                        template += '</td></tr>';
+                }
+            }
+            return template;
+    }
+    function alert_msg(data){
+        var template = '';
+        if(data.title){
+            template += '<div class="shade-tit">'+ data.title +'<span class="shade-closed"></span></div><div class="shade-content"><table>';
+        }
+        if($.isArray(data.content)){
+            for(var i=0;i<data.content.length;i++){
+                template += '<tr><th colspan="2">'+ data.content[i].title +'</th></tr>';
+                var content2 = data.content[i].content;
+                template = joint_msg(content2,template);
+            }
+        }else{
+            var content2 = data.content;
+            template = joint_msg(content2,template);
+        }
+        return template += '</table></div>';
+    }
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+    $(function(){
+        var doc_h = $(document).height();
+        var day3 = getQueryString("day3");
+        if (day3 == 1) {
+            $('.hide').addClass('show');
+        } else {
+            $('.hide').removeClass('show');
+        }
+        $(".help-shade-bg").height(doc_h);
+        $(".repair-list li").click(function(){
+                    var className = ($(this).attr('class'));
+                    var template = alert_msg(message[className]);
+                    $('div.help-shade-tc').html(template);
+                    $(".help-shade-bg").show();
+                    $(".help-shade-tc").show();
+                    var tcs_h  = $(".help-shade-tc").height();
+                    var body_h  = $(window).height();
+                    $(".help-shade-tc").css({ "top": (body_h - tcs_h) / 2 +"px" });
+        });
+        $(document).on("click",".shade-closed",function(){
+            $(".help-shade-bg").hide();
+            $(".help-shade-tc").hide();
+        });
+        $("body").on("click",function(e){
+            var $this = $(e.target);
+            var parensLength = $this.parents(".help-shade-tc").length;
+            var parensLength2 = $this.parents(".repair-list").length;
+            if(!parensLength && !parensLength2){
+                $(".help-shade-bg").hide();
+                $(".help-shade-tc").hide();
+            }
+        });
+    });
+    
+</script>
+
+<script>
+    win_add_pageid(13);
+    $(function(){
+        _hmt.push(['_setCustomVar', 1, 'vistortype', 'brand', 3]);
+        $('.ser-back ul li:nth-child(2)').css('border','none');
+    });
+    // 初始化页面
+    function init_pc_page(ename) {
+        // 设置无事故好车链接
+        $('#visit_che').attr('href', '/' + ename + $('#visit_che').attr('href'));
+    }
+    window.__ab2__= {
+        pid:"u2_9"
+    };
+</script>
+<!--[if lte IE 6]>
+<script src="//s4.xinstatic.com/xin/js/common/DD_belatedPNG.js"></script>
+<![endif]-->
+
+
+<!--温馨提示开始-->
+<div class="popup-wrap" id="warmTip10">
+    <div class="inner">
+        <div class="tip-con">
+            <p>温馨提示<a href="javascript:;" class="close_pop closeJs abs"></a></p>
+            <img src="../../../static/images/people.png">
+            <span class="span_xin_msg">出错啦</span>
+        </div>
+    </div>
+</div>
+<div class="n_f_m">
+    <div class="n_f_m_c">
+        <a href="https://127.0.0.1/aboutus/" rel="nofollow">关于我们</a>
+        
+        <a href="https://127.0.0.1/joinus/social/" rel="nofollow">加入我们</a>
+        <a href="https://127.0.0.1/help/" rel="nofollow">帮助中心</a>
+        <a href="https://127.0.0.1/feedback/" rel="nofollow">用户反馈</a>
+        <!-- <a href="http://dealer.xin.com/login/" id="apply_dealer" rel="nofollow" nopass="1">商家申请</a> -->
+        <!-- <a href="http://www.youxinjinrong.com/" rel="nofollow" nopass="1">旧卖车易购</a> -->
+		<a href="https://127.0.0.1/hangzhou/sitemap.html">网站地图</a>
+        <a href="http://ir.xin.com/" class="@nav-btn">Investors</a>
+        <!-- <a href="https://127.0.0.1/aboutus/index/16/" class="@nav-btn">公告</a> -->
+        <!-- <a href="/chake_tools.html/" class="@nav-btn">检测设备介绍</a> -->
+        
+        <div class="n_f_m_wx">
+            <img src="../../../static/images/1001.jpg" data-original="../../../static/images/1001.jpg" style="display: inline;" width="100" height="100">
+            <p>
+                <span class="n_f_m_tit0">微信公众号</span><br>
+                <span class="n_f_m_tit1">资讯动态早知道</span>
+            </p>
+        </div>
+        <div class="n_f_m_app">
+            <img src="../../../static/images/1001.jpg" data-original="../../../static/images/1001.jpg" style="display: inline;" width="100" height="100">
+            <p>
+            <span class="n_f_m_tit0">扫二维码加微信</span><br>
+            <span class="n_f_m_tit1">车源更新不错过</span>
+            </p>
+        </div>
+    </div>
+    <div class="n_f_m_i">
+    <p>权利声明：本网站对展示的车辆信息、检测报告、视频、图片等内容享有合法权利，属于旧卖车集团的重要经营资源，未经许可，不得非法转载、复制等方式使用。</p>
+<a class="copy" href="http://www.beian.miit.gov.cn/" target="_blank">浙ICP备*********号-1</a>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        $('.n_f_m_more').on('click',function() {
+            $(this).parent().toggleClass('n_f_m_expand');
+        });
+    });
+</script>
+                <!-- 弹窗页面 -->
+                <div class="popup-wrap" id="popupLogin">
+	<div class="inner">
+		<div class="popup-con2 con-height2">
+		    <span class="pop-title">登录</span>
+		    <a href="javascript:void(0)" class="ico_pop xBtn2 closeJs">关闭</a>
+		    <div class="logintab">
+				<a href="javascript:void(1)" hidefocus="true" class="active" data-i="0">短信验证码登录</a>
+	            <a href="javascript:void(0)" hidefocus="true" data-i="1">网站密码登录</a>
+		    </div>
+			<ul class="register logincon">
+				<li>
+				    <input type="text" class="ipt-box tel-bg" value="请输入手机号" id="search1" autocomplete="off">
+				</li>
+				<li class="code-input" style="display:none">
+				    <input type="text" class="code" value="请输入图片码" id="piccode_l" autocomplete="off">
+				    <a class="PageNum"></a>
+				</li>
+				<li>
+				    <input type="text" class="code" value="六位数字验证码" id="search2" autocomplete="off">
+				    <input type="button" class="getNum vm" id="need_code1" value="获取验证码">
+				</li>
+			</ul>
+			<ul class="register logincon hide" style="overflow: hidden;">
+				<li>
+			    <input type="text" class="ipt-box tel-bg" value="请输入手机号" id="search" autocomplete="off">
+				</li>
+				<li>
+				    <input type="text" class="code" value="请输入图片码" id="piccode_r" autocomplete="off">
+				    <a class="PageNum"></a>
+				</li>
+				<li>
+				<input type="text" class="ipt-box code-bg" value="6-20位，数字、字母、符号的组合" id="psw5" autocomplete="off">
+				<input type="password" autocomplete="new-password" class="ipt-box code-bg hide" value="" id="psw6">
+				</li>
+			</ul>
+			<div class="btn-div">
+				<a href="javascript:void(0)" class="resBtn" id="login_btn">登录</a>
+			</div>
+			<div class="popBot abs">
+				<!-- 去掉第三方登录 -->
+				<!-- <div class="loginWith fl">
+					<span>第三方登录：</span>
+					<a href="/openapi/authqq" class="ico_pop tqq"  rel="nofollow"></a>
+					<a href="http://openapi.baidu.com/oauth/2.0/authorize?response_type=code&client_id=Ug5Vh2SRNiSueexjtBi95Grs&redirect_uri=http%3A%2F%2F127.0.0.1%2Fopenapi%2Fbaidu_rd%2F&display=popup" class="ico_pop tbd" rel="nofollow"></a>
+					<a href="https://api.weibo.com/oauth2/authorize?client_id=415981803&redirect_uri=http%3A%2F%2F127.0.0.1%2Fopenapi%2Findex%2F&response_type=code" class="ico_pop xwb"  rel="nofollow"></a>
+				 </div> -->
+				 <div class="forPass fr">
+					<a href='javascript:clear_invalid();$("#popupLogin").hide();show_popup("#forPass","#forPass%20.closeJs")' class="forPassA">忘记密码</a>
+					<a href='javascript:clear_invalid();$("#popupLogin").hide();show_popup("#popupRegister","#popupRegister%20.closeJs")' class="forPassSiwtch forPassRegister">还没注册</a>
+				 </div>
+		  </div>
+		</div>	
+	</div>
+</div>
+<div class="popup-wrap" id="forPass">
+	<div class="inner">
+		<div class="popup-con con-height3">
+		     <span class="pop-title">找回密码</span>
+		     
+		    <a href="javascript:void(0)" class="ico_pop xBtn2 closeJs">关闭</a>
+			<ul class="register">
+				<li>
+				<input type="text" class="ipt-box tel-bg" value="请输入手机号" id="search3"></li>
+				<li>
+				    <input type="text" class="code" value="请输入图片码" id="piccode_g">
+				    <a class="PageNum"></a>
+				</li>
+				<li>
+				    <input type="text" class="code" value="六位数字验证码" id="search4">
+				    <input type="button" class="getNum vm" id="need_code3" value="获取验证码">
+				</li>
+			</ul>
+			<div class="btn-div">
+				<a href="javascript:void(0)" class="resBtn" id="next_step">下一步</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="popup-wrap" id="forgetNext">
+   <div class="inner">
+         <div class="popup-con con-height3">
+		     <span class="pop-title">找回密码</span>
+			 
+		    <a href="javascript:void(0)" class="ico_pop xBtn2 closeJs">关闭</a>
+			<ul class="register">
+				<li>
+				    <input type="text" class="ipt-box code-bg" value="6-20位，数字、字母、符号的组合" id="psw7">
+				    <input type="password" class="ipt-box code-bg hide" value="" id="psw8">
+				</li>
+				<li>
+				    <input type="text" class="ipt-box code-bg" value="请与上面输入密码一致" id="psw9">
+				    <input type="password" class="ipt-box code-bg hide" value="" id="psw10">
+				</li>
+			</ul>
+			<div class="btn-div">
+				<a href="javascript:void(0)" class="resBtn" id="reset_passwd">提交</a>
+			</div>
+		</div>
+   </div>
+</div>
+<!-- 立即注册开始 -->
+<div class="popup-wrap" id="popupRegister">
+    <div class="inner">
+        <div class="popup-con con-height1">
+            <span class="pop-title">注册旧卖车账号</span>
+            <a href="javascript:void(0);" class="ico_pop xBtn2 closeJs">关闭</a>
+            <ul class="register">
+                <li>
+                    <input type="text" class="ipt-box tel-bg" value="请输入手机号" id="register_mobile" autocomplete="off">
+                </li>
+                <li>
+                    <input type="text" class="code" value="请输入图片码" id="piccode_register" autocomplete="off">
+                    <a class="PageNum"></a>
+                </li>
+                <li>
+                    <input type="text" class="code" value="六位数字验证码" id="register_smscode" autocomplete="off">
+                    <input type="button" class="getNum vm" id="need_code5" value="获取验证码">
+                </li>
+                <li>
+                    <input type="password" class="ipt-box code-bg" id="register_psw" autocomplete="off">
+                    <em class="placeholder-em" style="display: block;">密码6-20位，数字、字母、符号的组合</em>
+                </li>
+            </ul>
+            <div class="btn-div btn-div-20160630">
+                <a href="javascript:void(0);" class="resBtn" id="register_btn">立即注册</a>
+            </div>
+            <div class="popBot abs">
+				<!-- 去掉第三方登录 -->
+                <!-- <div class="loginWith fl">
+                    <span>第三方登录：</span>
+                    <a href="/openapi/authqq" class="ico_pop tqq"  rel="nofollow"></a>
+                    <a href="http://openapi.baidu.com/oauth/2.0/authorize?response_type=code&client_id=Ug5Vh2SRNiSueexjtBi95Grs&redirect_uri=http%3A%2F%2F127.0.0.1%2Fopenapi%2Fbaidu_rd%2F&display=popup" class="ico_pop tbd" rel="nofollow"></a>
+                    <a href="https://api.weibo.com/oauth2/authorize?client_id=415981803&redirect_uri=http%3A%2F%2F127.0.0.1%2Fopenapi%2Findex%2F&response_type=code" class="ico_pop xwb"  rel="nofollow"></a>
+                 </div> -->
+                 <div class="forPass fr">
+                 <a href='javascript:clear_invalid();$("#popupRegister").hide();show_popup("#forPass","#forPass%20.closeJs")' class="forPassA">忘记密码</a>
+                 <a href='javascript:clear_invalid();$("#popupRegister").hide();show_popup("#popupLogin","#popupLogin%20.closeJs")' class="forPassSiwtch forPassLogin">直接登录</a>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 立即注册结束 -->
+<div class="CarStandard popup-wrap" id="tReport">
+	<div class="CarSd-top">
+    	<a href="#" class="carGb closeJs CarSd-gb">关闭</a>
+    </div>
+    <div class="CarSd_head">
+        	<img src="../../../static/images/promise_mico.png">
+        	<span>无重大事故车辆</span>
+     </div>
+	<div class="CarSd-big">
+        <div class="CarSd_cur">
+            <dl>
+            	<dt>如符合下述9条中任何一条，即为不符合“ 车辆无重大事故标准“的车辆，即属于重大事故车：</dt>
+                <dd>1、经过撞击，损伤到发动机舱和驾驶舱的车辆。</dd>
+                <dd>2、车身后翼子板撞击损伤超过其三分之一的车辆。</dd>
+                <dd>3、纵梁有焊接、切割、整形、变形的车辆。</dd>
+                <dd>4、减振器座有焊接、切割、整形、变形的车辆。</dd>
+                <dd>5、ABC柱有焊接、切割、整形、变形的车辆。</dd>
+                <dd>6、因撞击造成汽车安全气囊弹出的车辆。</dd>
+                <dd>7、其它不可拆卸部份有严重的焊接、切割、整形、变形的车辆。</dd>
+                <dd>8、车身经水浸泡超过车身二分之一，或积水进入驾驶舱的车辆。</dd>
+                <dd>9、车身经火焚烧超过0.5平方米，经修复仍存在安全隐患的车辆。</dd>
+            </dl>
+            <img src="../../../static/images/car_pic2.png">
+            <p>（车辆关键部件图示）</p>
+        </div>
+        <div class="CarSd_foot">
+        	<p>不属于以上9种情况的车辆，即为符合“车辆无重大事故标准”的车辆，属于非重大事故车。</p>
+        </div>
+    </div>
+</div>
+<!--优学堂之我要提问-->
+<div class="popup-wrap" id="uAsk">
+	<div class="inner">
+		<div class="uxt-pop">
+		     <em>我要提问</em>
+			 <a href="#" class="ico_pop xBtn2 closeJs">关闭</a>
+			 <div class="detail">
+			 	<textarea id="suptare" maxlength="240" onkeydown='countChar("suptare","counter");' onkeyup='countChar("suptare","counter");' placeholder="请写下您的问题..."></textarea>
+			 	<p><span id="counter">0</span>/240</p>
+			 </div>
+			<div class="tag">
+			 	<p class="titTab">
+			 		
+			 	</p>
+			</div>
+			<p class="tip">选择标签可以帮助您快速找到问题 <span style="color:red"></span></p>
+			<a href="javascript:void(0)" class="submit-btn">提交问题</a>
+		</div>
+    </div>
+</div>
+
+<div class="popup-wrap" id="career_apply">
+	<div class="inner">
+		 <div class="suc-con clearfix">
+		 	<img src="../../../static/images/people.png">	
+		 	<p>恭喜您!提交成功~</p>
+		 	<a href="">确认</a>
+		 </div>
+    </div>
+</div>
+<script language="javascript"> 
+    function countChar(textarea,span) {
+        document.getElementById(span).innerHTML = document.getElementById(textarea).value.length; 
+    }
+    $('#uAsk').delegate('.simTab a', 'click', function(){
+        $('#uAsk .simTab a').removeClass('active');
+        $(this).addClass('active');
+    });
+    $('#uAsk .titTab').delegate('a:not(.active)', 'click', function(){
+        $('#uAsk .titTab a').removeClass('active');
+        $(this).addClass('active');
+        var thisIndex = $(this).index();
+        $('#uAsk .simTab').removeClass('active').hide();
+        $('#uAsk .simTab:eq('+thisIndex+')').addClass('active').show();
+        $('#uAsk .simTab a').removeClass('active');
+    });
+    $(function(){
+        $('#uAsk .submit-btn').on('click', function ajaxSubmit(){
+            var idArr = [];
+            var title = $('#suptare').val();
+            var pid = $('#uAsk .titTab .active').attr('data_type');
+            var idObj = $('#uAsk .simTab .active').each(function(){
+                idArr.push($(this).attr('data_type'));
+            });
+            var id = idArr.toString();
+            if (!title || !pid || !id) {
+                $('#uAsk .tip span').html('信息填写不完整');
+                return false;
+            }
+            var title_filter = title.match(/[a-zA-Z0-9\u4e00-\u9fa5]/g);
+            if (!title_filter || title_filter.length > 240 || title_filter.length < 6) {
+                $('#uAsk .tip span').html('标题长度应在6〜240个字');
+                return false;
+            }
+            $.ajax({
+                type: "POST",
+                url: "/qa/ask/",
+                data: { "title":title,"pid":pid,"id":id},
+                dataType: 'json',
+                beforeSend: function(){
+                    $('#uAsk .submit-btn').html('正在提交...');
+                    $('#uAsk .submit-btn').unbind('click');
+                },
+                success: function(data) {
+                    if (data.code == 1) {
+                        $('#uAsk,.shade').hide();
+                        $('#suptare').val('');
+                        $("#uAsk .titTab a").removeClass('active');
+                        $("#uAsk .titTab a:eq(0)").addClass('active');
+                        $('#uAsk .simTab').removeClass('active').hide();
+                        $('#uAsk .simTab:eq(0)').show();
+                        $('#uAsk .tip span').html('');
+                        // 170406 打点
+                        uxl_track('w_baodian/asking/submit');
+                    }else{
+                        $('#uAsk .tip span').html(data.message);
+                    }
+                    $('#uAsk .submit-btn').html('提交问题').on('click', ajaxSubmit);
+                },
+                error: function() {
+                    $('#uAsk .tip span').html('请求失败!');
+                    $('#uAsk .submit-btn').html('提交问题').on('click', ajaxSubmit);
+                }
+            });
+        });
+
+        $('#question_button').one('click', function(e){
+            e.stopPropagation();
+            if (!TOP_INFO.user.mobile){
+                return; //未登录的情况，不加载我要提问中的标签数据
+            }
+            $.ajax({
+                url: "/qa/get_category/",
+                dataType: "json",
+                success: function(data) {
+                    if(data && data.data && data.data[0]){
+                        for (var i in data.data[0]) {
+                            var type = data.data[0][i][0];
+                            if(!type || !data.data[0][i][1] || !data.data[type]) {
+                                continue;
+                            }
+                            //var index = type-1;
+                            if (i == 0) {
+                                var addclass = 'active';
+                                var display = '';
+                            } else {
+                                var addclass = '';
+                                var display = 'style="display:none;"';
+                            }
+                            
+                            $("#uAsk .titTab").append('<a href="javascript:void(0)" class="'+addclass+'" data_type='+type+'>'+data.data[0][i][1]+'</a>');
+                            var tag = '<p class="simTab ' + addclass + '"' + display +'>';
+                            for (var j in data.data[type]) {
+                                if(!data.data[type][j][0]) {
+                                    continue;
+                                }
+                                tag += '<a href="javascript:void(0)" data_type='+data.data[type][j][0]+'>'+data.data[type][j][1]+'</a>';
+                            }
+                            $("#uAsk .tag").append(tag + '</p>');
+                        }
+                    }
+                }
+            });
+        });
+    });
+</script>                <!--[if lte IE 6]>
+                <script src="//s4.xinstatic.com/xin/js/common/DD_belatedPNG.js"></script>
+                <![endif]-->
+                    
+        
+
+<!--<script>var _abqVersion='17112101';var _abq=_abq||[];_abq.push(['_pageview']);!function(t,e){var a=t.createElement(e);a.async=!0,a.src=('https:'==t.location.protocol?'https://':'http://')+(location.hostname == '127.0.0.1' ? 'ab.xin.com' : 'ab.test.xin.com')+'/ab.js?v='+_abqVersion;var c=t.getElementsByTagName(e)[0];c.parentNode.insertBefore(a,c)}(document,'script');</script>-->
+
+<script src="../../../static/js/newAb_ee213aa.js"></script>
+<script src="../../../static/js/ab_216c97c.js"></script>
+
+<script type="text/javascript">
+    var _abq = _abq || [];
+    _abq.push(['_pageview']);
+</script><img style="display: none;" src="../../../static/images/collect.gif"><img style="display: none;" src="../../../static/images/hitlog.gif">
+<script>
+$(function(){
+    $(document).on('click', function(e){
+        if(!window._abq) return;
+        
+        var target = $(e.target);
+
+        while(target.length > 0 && target.get(0) != document){
+            var abevent = target.attr('abevent') || target.attr('uxevent');
+
+            if(abevent){
+                if(abevent.indexOf('/') == 0){
+                    if(abevent) _abq.push(['_track'].concat(abevent.substr(1).split('/')));
+                }else{
+                    if(abevent) _abq.push(['_track'].concat(abevent.split('/')));
+                }
+            }
+
+            target = target.parent();
+        }
+    });
+});
+
+
+/**
+ * 日志打点(针对曝光)
+ *
+ * @param pl 标识
+ * @param ds 打点内容
+ */
+function uxl_exposure_track(pl, ds) {
+    if(!_abq) _abq = [];
+    var _params = {"pl" : pl, "ds" : ds};
+    _abq.push(['_eventReq', _params]);
+}
+/*
+ * 点击埋点的方法如果不存在，则添加
+ */
+if(typeof uxl_track != 'function') {
+    // ab统计
+    function uxl_track(event) {
+        if(!_abq) _abq = [];
+        event = event || '';
+        _abq.push(['_track'].concat(event.split('/')));
+    }
+}
+
+</script>
+
+<!-- oneapm test -->
+<!--<script type='text/javascript'>window.BWEUM||(BWEUM={});BWEUM.info = {"stand":true,"agentType":"browser","agent":"bi-collector.oneapm.com/static/js/bw-send-411.4.5.js","beaconUrl":"bi-collector.oneapm.com/beacon","licenseKey":"van2I~JfvFV3FvIZ","applicationID":2276203};</script>
+<script type="text/javascript" src="//bi-collector.oneapm.com/static/js/bw-loader-411.4.5.js"></script>-->
+<script type="text/javascript">
+    /*(function(){
+        function getCookie(c_name){ if (document.cookie.length <= 0) return ""; var c_start = document.cookie.indexOf(c_name + "="); if (c_start <= -1) return ""; c_start = c_start + c_name.length + 1; var c_end = document.cookie.indexOf(";", c_start); if (c_end == -1) c_end = document.cookie.length; return unescape(document.cookie.substring(c_start, c_end)); };
+        if(getCookie('event-visualizer') === 'open' && window._ApmXMLHttpRequest)window.XMLHttpRequest = window._ApmXMLHttpRequest;
+    })();*/
+
+	// baidu监测
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?ae57612a280420ca44598b857c8a9712";
+		var s = document.getElementsByTagName("script")[0]; 
+		s.parentNode.insertBefore(hm, s);
+	})();
+
+    // admaster监测 {* jira-5289 170425 暂时注释掉*}
+    var _smq = _smq || [];
+    _smq.push(['_setAccount', '14b535e', new Date()]);
+    _smq.push(['_setDomainName', 'xin.com']);
+    _smq.push(['pageview']);
+    /*(function () {
+        var sm = document.createElement('script');
+        sm.type = 'text/javascript';
+        sm.async = true;
+        sm.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'cdnmaster.com/sitemaster/collect.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(sm, s);
+    })();
+    */
+    $(document).ready(function(){
+        if (typeof(TOP_INFO) != 'undefined' && TOP_INFO.location.cityid=='201') {
+            $('.a_sellpage').attr('uxevent', 'w_top/c2bsell');
+        } else {
+            $('.a_sellpage').attr('uxevent', 'w_top/sellcar');
+        }
+        $('.a_buypage').attr({ 'uxevent':'w_top/buycar' });
+
+        $('.a_question').attr({ 'onclick':"uxl_track('w_top/question')"});
+        $('.a_service').attr({ 'onclick':"uxl_track('w_top/service')"});
+
+        $("#xin_top_userinfo").on("click","#regA",function(){
+            uxl_track('w_top/regist');
+        });
+
+        $("#xin_top_userinfo").on("click","#loginA",function(){
+            uxl_track('w_top/login');
+        });
+
+        $('#php_half_city_link').attr({ 'uxevent':'w_top/halfprice' });
+        $('#php_half_city_link').attr({ 'uxevent':'w_top/halfprice' });
+        
+        /*$('.list-con .con').on('click', 'a', function(){
+            if ($(this).attr('href') && $(this).attr('data-position')) {
+                uxl_track('w_' + ("service"=='halfprice' ? 'halfprice_carlist' : 'carlist') + '/rank/' + ($('.page-current').text() ? $('.page-current').text() : 'Unknown') + '-' + $(this).attr('data-position') + '/carid/' + $(this).attr('data-carid'));
+            }
+        });*/
+
+    });
+    // ab统计
+    function uxl_track(event) {
+        var ux_event = (event != 'undefined') ? $.trim(event) : '';
+        if (ux_event.length > 0) {
+            if(_abq) _abq.push(['_track'].concat(ux_event.split('/')));
+        }
+    }    
+</script>
+
+
+<!---end- 添加Google GA统计-->
+
+
+        <script> 
+            $(document).ready(function(){
+                var pagetag = "";
+                setHeaderType();
+                function setHeaderType(){
+                    $(".jp-"+pagetag).addClass("p-on");
+                }
+                // 标记页头选中状态
+                var hclass = '';
+                if(location.pathname.match(/^\/s(\/\S*)?$/)) {
+                    hclass = '.a_buypage';
+                } else if(location.pathname.match(/^\/sale\/c2b_car(\/\S*)?$/) || location.pathname.match(/^\/sale\/index(\/\S*)?$/) || location.pathname.match(/^\/c2b_car\/(.*?)$/)) {
+                    hclass = '.a_sellpage';
+                } else if(location.pathname.match(/^\/h(\/\S*)?$/)) {
+                     hclass = '#php_half_city_link';
+                } else if(location.pathname.match(/^\/(activity|article|qa)(\/\S*)?$/)) {
+                     hclass = '.a_question';
+                } else if(location.pathname.match(/^\/service(\/\S*)?$/)) {
+                     hclass = '.a_service';
+                } else if(location.pathname.match(/^\/app(\/\S*)?$/)) {
+                     hclass = '#id_dl_app';
+                }
+                if(hclass) {
+                    $(hclass).removeClass('active');
+                    $(hclass).addClass('active');
+                }
+            });
+        </script>
+        
+        
+    
+<img style="display: none;" src="../../../static/images/collect_002.gif"><img style="display: none;" src="../../../static/images/hitlog_002.gif"></body></html>

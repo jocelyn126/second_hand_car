@@ -1,0 +1,454 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>买车-二手车交易-Python智能</title>
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="keywords" content="卖车,买车,估价,智能客服,Python智能">
+<meta name="description" content="卖车-二手车交易">
+<meta name="viewport" content="width=1210,initial-scale=1.0">
+<meta name="location" content="province=浙江;city=杭州;coord=120.1550700,30.2740840">
+<link rel="shortcut icon" href="../../../favicon.ico">
+<!--[if IE]>
+   <script src="../../../static/js/polyfill.js"></script>
+<![endif]-->
+<script src="../../../static/images/hm.js"></script><script>
+	 window.__ab2__ = {
+		pid: 'u2_5'
+	}
+	window.jsvar = {
+		rsaPublicKey:'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDQ4cGnnWenRjInefoHxp99woyN0kLTAKlgSaHuZ+AlW4tfQud+4MWxk2gq36854XO6XJ4E2py0F3Xi9Kf+uI+7Xv78F4UUiJ3slsBlGp7ywihEXE/Awo+m4t+NKx7foh2jIMbDoVGjTNNORiPVqI8rHWURZUUljQqbbWqZHXkSWwIDAQAB'
+	};
+	window.__json4fe__ = {
+            city : {"cityid":"3001","areaid":"6","big_areaid":"1","provinceid":"30","cityname":"\u676d\u5dde","ename":"hangzhou","shortname":"HT","service":"1","near":"1505,501,101,1501,3002,2401,1502,3015,902,3003","tianrun_code":"0571","zhigou":"1","is_visit":"1","longitude":"120.1550700","latitude":"30.2740840","city_rank":"1","city_group":"3","is_gold_partner":"-1","direct_rent_support":"1","salvaged_support":"1","isshow_c":"1","is_lease_back":"1","mortgage_service_fee":"60000","is_small_pub_house":"1","is_wz_mortgage":"1","is_purchase_direct":"1","is_purchase_origin":"1","is_ms_ex":"0","is_cc_show":"1","is_ms_trans":"0","updatetime":"2020-05-29 11:46:44"},
+		//这个ename在top_load接口中使用的，现在还不能删除
+		ename : "hangzhou"
+	};
+	/*window.__json4fe__.all = { };
+	window.__json4fe__.hot = { };*/
+	window.__json4fe__.query = '/';
+	window.__json4fe__.c2bo_city_cityname = '杭州';
+	window.__json4fe__.c2bo_city_tag = '1';
+	window.__json4fe__.http = 'https://openapix.xin.com';
+	window.__json4fe__.sn = '4bbdccdb6a9fc7ee6736d547c8226bcb';
+</script>
+<link rel="stylesheet" type="text/css" href="../../../static/css/base-windows.css">
+<link rel="stylesheet" type="text/css" href="../../../static/css/carlist.css">
+<link rel="stylesheet" type="text/css" href="../../../static/css/index-windows.css">
+<link rel="stylesheet" type="text/css" href="../../../static/css/car-sale.css">
+<script>
+	(function (window , jsvar) {
+		jsvar.XIN_STATIC_DOMAIN_A = '//s4.xinstatic.com',
+		jsvar.XIN_STATIC_DOMAIN_E = '//s5.xinstatic.com',
+		jsvar.XIN_STATIC_DOMAIN_F = '//s6.xinstatic.com',
+		jsvar.cssjs_version = '17112101';
+		jsvar.rsaPublicKey = 'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDQ4cGnnWenRjInefoHxp99woyN0kLTAKlgSaHuZ+AlW4tfQud+4MWxk2gq36854XO6XJ4E2py0F3Xi9Kf+uI+7Xv78F4UUiJ3slsBlGp7ywihEXE/Awo+m4t+NKx7foh2jIMbDoVGjTNNORiPVqI8rHWURZUUljQqbbWqZHXkSWwIDAQAB';
+		window.__json4fe__ = {
+			series_type : "2"
+		};
+	})(window, (window.jsvar = window.jsvar || {}));
+</script>
+<script type="text/javascript">
+	var TOP_INFO = { location: { }, user: { }, half_city: [], url: '' };
+	var TOP_GET = { };
+	TOP_INFO.city_switch = "s/";
+	TOP_INFO.query_string = "";
+				TOP_INFO.location = {"cityid":"3001","areaid":"6","big_areaid":"1","provinceid":"30","cityname":"\u676d\u5dde","ename":"hangzhou","shortname":"HT","service":"1","near":"1505,501,101,1501,3002,2401,1502,3015,902,3003","tianrun_code":"0571","zhigou":"1","is_visit":"1","longitude":"120.1550700","latitude":"30.2740840","city_rank":"1","city_group":"3","is_gold_partner":"-1","direct_rent_support":"1","salvaged_support":"1","isshow_c":"1","is_lease_back":"1","mortgage_service_fee":"60000","is_small_pub_house":"1","is_wz_mortgage":"1","is_purchase_direct":"1","is_purchase_origin":"1","is_ms_ex":"0","is_cc_show":"1","is_ms_trans":"0","updatetime":"2020-05-29 11:46:44"};
+							var is_from_wap = /[?|&]from=wap/.test(window.location.search);
+
+	//from wap记录cookie
+	if (is_from_wap) {
+		$.cookie('access_from', 'wap', { path: '/', expires: 0 });
+	}
+	if ($.cookie('access_from') == 'wap') {
+		is_from_wap = true;
+	}
+
+	//手机端自动跳转
+	if (!is_from_wap && /Android|iP[ao]d|iPhone/gi.test(navigator.userAgent)) {
+		var reg = new RegExp("/*?" + TOP_INFO.location.ename, "g");
+		var path = window.location.pathname.replace(reg, '');
+		var param = window.location.search;
+
+		//特别页面跳转
+		var con_name = 'search';
+		var act_name = 'fullprice';
+		var mdomain = '//m.xin.com';
+		if(!/^https?/.test(mdomain)){
+			mdomain = ('' == document.location.protocol ? '' : 'http:') + mdomain;
+		}
+		//首页跳转
+		if (con_name == 'home' && act_name == 'index') {
+			window.location.href = mdomain + location.pathname + param;
+		} else if (con_name == 'search' && act_name == 'fullprice') { // 全价车
+			/*var reg = new RegExp (/^\//);
+			if(reg.test(location.pathname)){
+				window.location.href = mdomain + location.pathname + param;
+			}else{
+				window.location.href = mdomain + '/' + location.pathname + param;
+			}*/
+			var reg = new RegExp (/^\//);
+			var url_f = location.pathname;
+			url_f = reg.test(url_f) ? url_f : '/'+url_f ;
+			url_f = url_f.indexOf('sn_') != -1 ? url_f.replace("/i",'i') : url_f.replace("/i",'/sn_i') ;
+			window.location.href = mdomain + url_f + param;
+		} else if (con_name == 'search' && act_name == 'halfprice') { //付一半跳转
+			/*var uri = location.pathname.replace('/h/', '/');
+			uri = uri.indexOf('sn_') != -1 ? uri.replace('sn_', 'sn_v5') : uri + 'sn_v5/';
+			window.location.href = mdomain + uri + param;*/
+			var url_h = location.pathname;
+			if( url_h.indexOf('sn_') != -1 ){
+				url_h = url_h.replace('/h/', '/');
+				url_h = url_h.replace('sn_', 'sn_v5');
+				url_h = url_h.replace('/i', 'i');
+			}else{
+				url_h=url_h.replace("/h/",'/sn_v5');  
+			}
+			window.location.href = mdomain + url_h + param;
+		}else if (con_name == 'car' && act_name == 'index'){
+			window.location.href = mdomain + path + param;
+		//商铺页跳转
+		}else if (con_name == 'dealer' && act_name == 'index') {
+			window.location.href = mdomain + path + param;
+		//文章详情页跳转
+		}else if (con_name == 'article' && act_name == 'view') {
+			var act_arr = window.location.pathname.split('/');
+			for (i = act_arr.length - 1; i >= 0; i--) {
+				if (!!act_arr[i]) {
+					window.location.href = mdomain + '/article/article_detail/' + act_arr[i] + param;
+					break;
+				}
+			}
+		}else if (con_name == 'article' && act_name == 'listing') { //活动列表页面跳转
+			var act_arr = window.location.pathname.split('/');
+			for (i = act_arr.length - 1; i >= 0; i--) {
+				if (!!act_arr[i]) {
+					window.location.href = mdomain + '/article/index/' + act_arr[i] + param;
+					break;
+				}
+			}
+		}
+	}
+	
+	// 初始化诸葛统计数据参数
+	var is_hf = 'buy'=='halfprice' ? 1 : 0;
+	var search_q = '';
+	var search_ot = ''.indexOf('y1') != -1 ? '全国其他城市' : (''.indexOf('y2') != -1 ? '周边城市' : '');
+	var search_count = '';
+	var zg_page_flag = 0;
+
+	//可信网站
+	function KNET_change(eleId) {
+		var str= document.getElementById(eleId).href;
+		var str1 =str.substring(0,(str.length-6));
+		str1+=KNET_RndNum(6); 
+		document.getElementById(eleId).href=str1;
+	}
+	function KNET_RndNum(k) {
+		var rnd=""; 
+		for (var i=0;i < k;i++) {
+			rnd+=Math.floor(Math.random()*10); 
+		}
+		return rnd;
+	}
+	function win_add_pageid(num){
+		window.pageid = num;
+	}
+</script>
+      
+<script>
+    window.__json4fe__.cityid = '3001';
+    window.__json4fe__.cityname= '杭州';
+    var cfEasemob = require('newcar-www:widget/common/easemob/easemob_cf.es6');
+    //门店信息
+    var storeJs = require('newcar-www:widget/common/store/store.es6');
+    var easemob = require('newcar-www:widget/common/easemob/easemob.es6');
+	window.__ab2__= {
+		pid:"u2_2"
+	};
+</script>
+
+<script>
+	$('#regA').click(function () {
+		_hmt.push(['_trackEvent', 'Register', 'Register_start']);
+	});
+	$('.noregist').click(function () {
+		_hmt.push(['_trackEvent', 'Register', 'Register_start']);
+	});
+	$('#loginA').click(function () {
+		_hmt.push(['_trackEvent', 'Login', 'Login_manual']);
+	});            
+</script>
+<script type="text/javascript" src="../../../static/js/base.js"></script>
+<script type="text/javascript" src="../../../static/js/popup.js"></script>
+<script type="text/javascript" src="../../../static/js/jquery-ui.js"></script>
+<script type="text/javascript" src="../../../static/js/main-page.js"></script>
+<script type="text/javascript" src="../../../static/js/get-allcity.js"></script>
+<script type="text/javascript" src="../../../static/js/carlist.js"></script>
+<!--script src="../../../static/js/main.js"></script-->
+</head>
+<body class="home_bg">
+
+<div id="fixed-header" class="header-wrap header-new fixed-active">
+    <div class="header">
+        <h1 class="header-logo">旧卖车
+        <a href="/hangzhou/"><span style="visibility:hidden;">二手车</span></a>
+        </h1>
+        <div class="header-city">
+            <a href="javascript:;" id="current_city_id" class="header-cityname">
+                杭州<i class="header-icon"></i>
+            </a>
+        </div>
+        <div class="header-login-wrap">
+            <div class="header-login">
+                <div class="person-wrap" style="top:0px;"><a href="javascript:clear_invalid();show_popup('#popupLogin','#popupLogin%20.closeJs');" id="loginA" class="login" rel="nofollow"><i class="header-login-icon"></i>登录</a>/<a href="javascript:clear_invalid();show_popup('#popupRegister','#popupRegister%20.closeJs');" id="regA" rel="nofollow" class="register">注册</a></div>
+            </div>
+        </div>
+        <div class="header-nav">
+            <a href="" class="" rel="nofollow">首页</a>
+            <a href="" class="" rel="nofollow" title="购买二手车" uxevent="/w_top/buycar">买车</a>
+            <a href="" class="header-active" rel="nofollow" title="二手车出售" uxevent="w_top/c2bsell">卖车</a>
+            <a href="" class="" rel="nofollow" title="旧卖二手车服务保障" uxevent="w_top/service">尊享车主权益</a>
+        </div>
+	</div>
+</div>
+
+
+
+<div class="body">
+<div class="car_sale-p-car-sale">
+<div class="car_sale_top-p-car-sale">
+<div class="car_sale_top-head">
+<div class="car_sale_top-head-content">
+<div class="car_sale_top-con-right-btn">
+<span class="car_sale_top-s1"><label class="car_sale_top-randomNum"><div class="mt-number-animate"><div class="mt-number-animate-dom" data-num="2" style="transform: translateY(-104px); transition: all 2s ease 0s;">            <span class="mt-number-animate-span">0</span>            <span class="mt-number-animate-span">1</span>            <span class="mt-number-animate-span">2</span>            <span class="mt-number-animate-span">3</span>            <span class="mt-number-animate-span">4</span>            <span class="mt-number-animate-span">5</span>            <span class="mt-number-animate-span">6</span>            <span class="mt-number-animate-span">7</span>            <span class="mt-number-animate-span">8</span>            <span class="mt-number-animate-span">9</span>            <span class="mt-number-animate-span">.</span>            <span class="mt-number-animate-span">?</span>          </div><div class="mt-number-animate-dot">,</div><div class="mt-number-animate-dom" data-num="7" style="transform: translateY(-364px); transition: all 2s ease 0s;">            <span class="mt-number-animate-span">0</span>            <span class="mt-number-animate-span">1</span>            <span class="mt-number-animate-span">2</span>            <span class="mt-number-animate-span">3</span>            <span class="mt-number-animate-span">4</span>            <span class="mt-number-animate-span">5</span>            <span class="mt-number-animate-span">6</span>            <span class="mt-number-animate-span">7</span>            <span class="mt-number-animate-span">8</span>            <span class="mt-number-animate-span">9</span>            <span class="mt-number-animate-span">.</span>            <span class="mt-number-animate-span">?</span>          </div><div class="mt-number-animate-dom" data-num="6" style="transform: translateY(-312px); transition: all 2s ease 0s;">            <span class="mt-number-animate-span">0</span>            <span class="mt-number-animate-span">1</span>            <span class="mt-number-animate-span">2</span>            <span class="mt-number-animate-span">3</span>            <span class="mt-number-animate-span">4</span>            <span class="mt-number-animate-span">5</span>            <span class="mt-number-animate-span">6</span>            <span class="mt-number-animate-span">7</span>            <span class="mt-number-animate-span">8</span>            <span class="mt-number-animate-span">9</span>            <span class="mt-number-animate-span">.</span>            <span class="mt-number-animate-span">?</span>          </div><div class="mt-number-animate-dom" data-num="3" style="transform: translateY(-156px); transition: all 2s ease 0s;">            <span class="mt-number-animate-span">0</span>            <span class="mt-number-animate-span">1</span>            <span class="mt-number-animate-span">2</span>            <span class="mt-number-animate-span">3</span>            <span class="mt-number-animate-span">4</span>            <span class="mt-number-animate-span">5</span>            <span class="mt-number-animate-span">6</span>            <span class="mt-number-animate-span">7</span>            <span class="mt-number-animate-span">8</span>            <span class="mt-number-animate-span">9</span>            <span class="mt-number-animate-span">.</span>            <span class="mt-number-animate-span">?</span>          </div><div class="mt-number-animate-dot">,</div><div class="mt-number-animate-dom" data-num="0">            <span class="mt-number-animate-span">0</span>            <span class="mt-number-animate-span">1</span>            <span class="mt-number-animate-span">2</span>            <span class="mt-number-animate-span">3</span>            <span class="mt-number-animate-span">4</span>            <span class="mt-number-animate-span">5</span>            <span class="mt-number-animate-span">6</span>            <span class="mt-number-animate-span">7</span>            <span class="mt-number-animate-span">8</span>            <span class="mt-number-animate-span">9</span>            <span class="mt-number-animate-span">.</span>            <span class="mt-number-animate-span">?</span>          </div><div class="mt-number-animate-dom" data-num="4" style="transform: translateY(-208px); transition: all 2s ease 0s;">            <span class="mt-number-animate-span">0</span>            <span class="mt-number-animate-span">1</span>            <span class="mt-number-animate-span">2</span>            <span class="mt-number-animate-span">3</span>            <span class="mt-number-animate-span">4</span>            <span class="mt-number-animate-span">5</span>            <span class="mt-number-animate-span">6</span>            <span class="mt-number-animate-span">7</span>            <span class="mt-number-animate-span">8</span>            <span class="mt-number-animate-span">9</span>            <span class="mt-number-animate-span">.</span>            <span class="mt-number-animate-span">?</span>          </div><div class="mt-number-animate-dom" data-num="0">            <span class="mt-number-animate-span">0</span>            <span class="mt-number-animate-span">1</span>            <span class="mt-number-animate-span">2</span>            <span class="mt-number-animate-span">3</span>            <span class="mt-number-animate-span">4</span>            <span class="mt-number-animate-span">5</span>            <span class="mt-number-animate-span">6</span>            <span class="mt-number-animate-span">7</span>            <span class="mt-number-animate-span">8</span>            <span class="mt-number-animate-span">9</span>            <span class="mt-number-animate-span">.</span>            <span class="mt-number-animate-span">?</span>          </div></div></label></span>
+<span class="car_sale_top-s2">辆车成功在旧卖车售出</span>
+<a abevent="sellcar_c2b" href="https://www.xin.com/c2b_car_o/sale/?c2bo_cityid=3001" class="car_sale_top-jp-appointment-link car_sale_top-btn car_sale_top-car-btn">预约卖车</a>
+<a abevent="evaluate_c2b" href="https://www.xin.com/c2b_car_o/quotation/?c2bo_cityid=3001" class="car_sale_top-btn car_sale_top-price-btn">先估个价</a>
+<span class="car_sale_top-tel">咨询电话：400-613-1628</span>
+</div>
+</div>
+</div>
+</div>
+    <div class="new-carousel-list-carousel-list">
+<div class="new-carousel-list-wrap">
+<div class="new-carousel-list-text-box">
+</div>
+<div class="new-carousel-list-carousel-slider">
+<div class="new-carousel-list-slider-content">
+<div class="new-carousel-list-slider-inside">
+<div class="tempWrap" style="overflow:hidden; position:relative; width:1320px"><ul style="width: 3960px; position: relative; overflow: hidden; padding: 0px; margin: 0px; left: -1980px;"><li class="new-carousel-list-item clone" style="float: left; width: 659px;">
+<div class="new-carousel-list-carinf">
+<span class="new-carousel-list-img-box"><img src="../../../static/images/5b3eefdea0324755152.jpg" onerror="this.src='../../../static/images/5b35bb0bdaefd555997.jpg'"></span>
+<div class="new-carousel-list-car-content">
+<p class="new-carousel-list-txt-panel"><span class="new-carousel-list-cityname">杭州</span>&nbsp;&nbsp;李先生&nbsp;&nbsp;近期成交</p>
+<p class="new-carousel-list-carname">本田/思域/2016款 1.5T 自动 220TURBO豪华版</p>
+<p class="new-carousel-list-year-mile">2017年&nbsp;/&nbsp;1.41万公里</p>
+</div>
+</div>
+<div class="new-carousel-list-quotation-city">
+<p class="new-carousel-list-quotation-text">相比杭州本地报价</p>
+<div class="new-carousel-list-colum02">
+                                            <p class="new-carousel-list-text"><span class="new-carousel-list-strong-panel">珠海</span>报价多25%</p>
+                                                                                    <p class="new-carousel-list-text"><span class="new-carousel-list-strong-panel">泸州</span>报价多25%</p>
+                                                                                    <p class="new-carousel-list-text"><span class="new-carousel-list-strong-panel">绍兴</span>报价多25%</p>
+                                                                                    <p class="new-carousel-list-text new-carousel-list-change-fz">
+<span class="new-carousel-list-special-panel">临汾</span>报价多25%<span class="new-carousel-list-deal">成交</span>
+</p>
+                                        </div>
+<div>
+</div></div></li>
+<li class="new-carousel-list-item" style="float: left; width: 659px;">
+<div class="new-carousel-list-carinf">
+<span class="new-carousel-list-img-box"><img src="../../../static/images/5b44530cd8fb7437086.jpg" onerror="this.src='../../../static/images/5b35bb0bdaefd555997.jpg'"></span>
+<div class="new-carousel-list-car-content">
+<p class="new-carousel-list-txt-panel"><span class="new-carousel-list-cityname">北京</span>&nbsp;&nbsp;李先生&nbsp;&nbsp;近期成交</p>
+<p class="new-carousel-list-carname">日产/奇骏/2014款 2.0 自动 XL舒适版前驱</p>
+<p class="new-carousel-list-year-mile">2015年&nbsp;/&nbsp;5.97万公里</p>
+</div>
+</div>
+<div class="new-carousel-list-quotation-city">
+<p class="new-carousel-list-quotation-text">相比北京本地报价</p>
+<div class="new-carousel-list-colum02">
+                                            <p class="new-carousel-list-text"><span class="new-carousel-list-strong-panel">晋城</span>报价多25%</p>
+                                                                                    <p class="new-carousel-list-text new-carousel-list-change-fz">
+<span class="new-carousel-list-special-panel">临沂</span>报价多25%<span class="new-carousel-list-deal">成交</span>
+</p>
+                                                                                    <p class="new-carousel-list-text"><span class="new-carousel-list-strong-panel">汕头</span>报价多25%</p>
+                                                                                    <p class="new-carousel-list-text"><span class="new-carousel-list-strong-panel">济南</span>报价多25%</p>
+                                        </div>
+<div>
+</div></div></li><li class="new-carousel-list-item" style="float: left; width: 659px;">
+<div class="new-carousel-list-carinf">
+<span class="new-carousel-list-img-box"><img src="../../../static/images/5b3de12cd573d385031.jpg" onerror="this.src='../../../static/images/5b35bb0bdaefd555997.jpg'"></span>
+<div class="new-carousel-list-car-content">
+<p class="new-carousel-list-txt-panel"><span class="new-carousel-list-cityname">太原</span>&nbsp;&nbsp;李先生&nbsp;&nbsp;近期成交</p>
+<p class="new-carousel-list-carname">奥迪/A4L/2013款 2.0T 自动 35TFSI舒适型</p>
+<p class="new-carousel-list-year-mile">2013年&nbsp;/&nbsp;6.34万公里</p>
+</div>
+</div>
+<div class="new-carousel-list-quotation-city">
+<p class="new-carousel-list-quotation-text">相比太原本地报价</p>
+<div class="new-carousel-list-colum02">
+                                            <p class="new-carousel-list-text new-carousel-list-change-fz">
+<span class="new-carousel-list-special-panel">北海</span>报价多25%<span class="new-carousel-list-deal">成交</span>
+</p>
+                                                                                    <p class="new-carousel-list-text"><span class="new-carousel-list-strong-panel">运城</span>报价多25%</p>
+                                                                                    <p class="new-carousel-list-text"><span class="new-carousel-list-strong-panel">成都</span>报价多25%</p>
+                                                                                    <p class="new-carousel-list-text"><span class="new-carousel-list-strong-panel">唐山</span>报价多25%</p>
+                                        </div>
+<div>
+</div></div></li><li class="new-carousel-list-item" style="float: left; width: 659px;">
+<div class="new-carousel-list-carinf">
+<span class="new-carousel-list-img-box"><img src="../../../static/images/5b3eefdea0324755152.jpg" onerror="this.src='../../../static/images/5b35bb0bdaefd555997.jpg'"></span>
+<div class="new-carousel-list-car-content">
+<p class="new-carousel-list-txt-panel"><span class="new-carousel-list-cityname">杭州</span>&nbsp;&nbsp;李先生&nbsp;&nbsp;近期成交</p>
+<p class="new-carousel-list-carname">本田/思域/2016款 1.5T 自动 220TURBO豪华版</p>
+<p class="new-carousel-list-year-mile">2017年&nbsp;/&nbsp;1.41万公里</p>
+</div>
+</div>
+<div class="new-carousel-list-quotation-city">
+<p class="new-carousel-list-quotation-text">相比杭州本地报价</p>
+<div class="new-carousel-list-colum02">
+                                            <p class="new-carousel-list-text"><span class="new-carousel-list-strong-panel">珠海</span>报价多25%</p>
+                                                                                    <p class="new-carousel-list-text"><span class="new-carousel-list-strong-panel">泸州</span>报价多25%</p>
+                                                                                    <p class="new-carousel-list-text"><span class="new-carousel-list-strong-panel">绍兴</span>报价多25%</p>
+                                                                                    <p class="new-carousel-list-text new-carousel-list-change-fz">
+<span class="new-carousel-list-special-panel">临汾</span>报价多25%<span class="new-carousel-list-deal">成交</span>
+</p>
+                                        </div>
+<div>
+</div></div></li><li class="new-carousel-list-item clone" style="float: left; width: 659px;">
+<div class="new-carousel-list-carinf">
+<span class="new-carousel-list-img-box"><img src="../../../static/images/5b44530cd8fb7437086.jpg" onerror="this.src='../../../static/images/5b44530cd8fb7437086.jpg'"></span>
+<div class="new-carousel-list-car-content">
+<p class="new-carousel-list-txt-panel"><span class="new-carousel-list-cityname">北京</span>&nbsp;&nbsp;李先生&nbsp;&nbsp;近期成交</p>
+<p class="new-carousel-list-carname">日产/奇骏/2014款 2.0 自动 XL舒适版前驱</p>
+<p class="new-carousel-list-year-mile">2015年&nbsp;/&nbsp;5.97万公里</p>
+</div>
+</div>
+<div class="new-carousel-list-quotation-city">
+<p class="new-carousel-list-quotation-text">相比北京本地报价</p>
+<div class="new-carousel-list-colum02">
+                                            <p class="new-carousel-list-text"><span class="new-carousel-list-strong-panel">晋城</span>报价多25%</p>
+                                                                                    <p class="new-carousel-list-text new-carousel-list-change-fz">
+<span class="new-carousel-list-special-panel">临沂</span>报价多25%<span class="new-carousel-list-deal">成交</span>
+</p>
+                                                                                    <p class="new-carousel-list-text"><span class="new-carousel-list-strong-panel">汕头</span>报价多25%</p>
+                                                                                    <p class="new-carousel-list-text"><span class="new-carousel-list-strong-panel">济南</span>报价多25%</p>
+                                        </div>
+<div>
+</div></div></li><li class="new-carousel-list-item clone" style="float: left; width: 659px;">
+<div class="new-carousel-list-carinf">
+<span class="new-carousel-list-img-box"><img src="../../../static/images/5b3de12cd573d385031.jpg" onerror="this.src='../../../static/images/5b35bb0bdaefd555997.jpg'"></span>
+<div class="new-carousel-list-car-content">
+<p class="new-carousel-list-txt-panel"><span class="new-carousel-list-cityname">太原</span>&nbsp;&nbsp;李先生&nbsp;&nbsp;近期成交</p>
+<p class="new-carousel-list-carname">奥迪/A4L/2013款 2.0T 自动 35TFSI舒适型</p>
+<p class="new-carousel-list-year-mile">2013年&nbsp;/&nbsp;6.34万公里</p>
+</div>
+</div>
+<div class="new-carousel-list-quotation-city">
+<p class="new-carousel-list-quotation-text">相比太原本地报价</p>
+<div class="new-carousel-list-colum02">
+                                            <p class="new-carousel-list-text new-carousel-list-change-fz">
+<span class="new-carousel-list-special-panel">北海</span>报价多25%<span class="new-carousel-list-deal">成交</span>
+</p>
+                                                                                    <p class="new-carousel-list-text"><span class="new-carousel-list-strong-panel">运城</span>报价多25%</p>
+                                                                                    <p class="new-carousel-list-text"><span class="new-carousel-list-strong-panel">成都</span>报价多25%</p>
+                                                                                    <p class="new-carousel-list-text"><span class="new-carousel-list-strong-panel">唐山</span>报价多25%</p>
+                                        </div>
+<div>
+</div></div></li></ul></div>
+</div>
+</div>
+<p class="new-carousel-list-hd" style="display: block;"><span class="new-carousel-list-line"></span><span class="new-carousel-list-line"></span><span class="new-carousel-list-line new-carousel-list-on"></span></p>
+</div>
+</div>
+</div>
+    <div class="car_sale_introduce-p-car-sale">
+<div class="car_sale_introduce-deal-quick">
+<div class="car_sale_introduce-deal-quick-box">
+<div class="car_sale_introduce-deal-text">
+<p class="car_sale_introduce-deal-title">卖的快</p>
+<p class="car_sale_introduce-text-small"><img src="../../../static/images/text01.png" width="426px"></p>
+</div>
+</div></div>
+<div class="car_sale_introduce-safe-reliable">
+<div class="car_sale_introduce-safe-reliable-box">
+<div class="car_sale_introduce-safe-reliable-text">
+<p class="car_sale_introduce-safe-reliable-title">透明交易</p>
+<p class="car_sale_introduce-text-small"><img src="../../../static/images/text02.png" width="390px"></p>
+</div>
+</div>
+</div>
+    <div class="new-question-question-wrap">
+<span class="new-question-title">常见问题</span>
+<div class="new-question-questionCon">
+<div class="new-question-quesli">
+<span class="new-question-questip">1.旧卖车的卖车模式是什么？</span>
+<p class="new-question-questxt">借助旧卖车全国的网络为车主找寻意向最强的买家，上门验车，即时报价，立刻打款。</p>
+</div>
+<div class="new-question-quesli new-question-quesRight">
+<span class="new-question-questip">2.为什么选择旧卖车？</span>
+<p class="new-question-questxt">(1) 价格高：旧卖车全国超过270个城市的买家网络，最高帮您多卖25%<br>
+(2) 卖的快：最快当天预约，当天成交，当天付款<br>
+(3) 透明交易：买卖交易面对面，中间环节无干扰</p>
+</div>
+<div class="new-question-quesli new-question-change-h270">
+<span class="new-question-questip">3.旧卖车个人信息是否安全？</span>
+<p class="new-question-questxt">旧卖车将对您的个人信息进行全程保密，确保安全信息不泄露</p>
+</div>
+<div class="new-question-quesli new-question-quesRight new-question-change-h270">
+<span class="new-question-questip">4.通过哪里可以找到旧卖车卖车？</span>
+<p class="new-question-questxt">登录旧卖车官，预约卖车(支持自主或电话预约服务)</p>
+</div>
+</div>
+</div></div>
+<script>
+    /*window.onload=function(){
+         window.__json4fe__.ename = $.cookie("ename")?$.cookie("ename"):"hangzhou";
+    }*/
+</script>
+</div>
+
+
+<div class="footer">
+<div class="footer-center">
+<div class="nav">
+	<a href="" class="nav-btn" rel="nofollow">关于我们</a>
+	<a href="" class="nav-btn" rel="nofollow">加入我们</a>
+	<a href="" class="nav-btn" rel="nofollow">帮助中心</a>
+	<a href="" class="nav-btn" rel="nofollow">用户反馈</a>
+	<a href="" class="nav-btn">网站地图</a>
+    <!--a href=" class="nav-btn">Investors</a-->
+</div>
+<div class="footer-code">
+<img src="../../../static/images/wx-sub.png" class="code-img">
+<div class="code-txt">
+<span class="span-tit">微信公众号</span>
+<span class="span-txt">二手车交易信息</span>
+</div>
+</div>
+<div class="footer-code2">
+<img src="../../../static/images/wx-sub.png" class="code-img">
+<div class="code-txt">
+<span class="span-tit">扫二维码加微信</span>
+<span class="span-txt">车源更新不错过</span>
+</div>
+</div>
+
+<div class="footer-bot">
+<div class="copy">权利声明：本网站对展示的车辆信息、检测报告、视频、图片等内容享有合法权利，未经许可，不得非法转载、复制等方式使用。</div>
+<div class="gongan">
+<a class="copy" href="http://www.beian.miit.gov.cn/" target="_blank">浙ICP备*********号-1</a>
+</div>
+<div class="credit">
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

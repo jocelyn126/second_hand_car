@@ -1,0 +1,659 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>二手车交易-Python智能</title>
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="keywords" content="买车,买车,估价,智能客服,Python智能">
+<meta name="description" content="二手车交易">
+<meta name="viewport" content="width=1210,initial-scale=1.0">
+<meta name="location" content="province=浙江;city=杭州;coord=120.1550700,30.2740840">
+<link rel="shortcut icon" href="../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../static/css/base-windows.css">
+<link rel="stylesheet" type="text/css" href="../../static/css/index-windows.css">
+<!--script type="text/javascript" src="../../static/js/jquery-3.5.0.min.js"></script-->
+<script type="text/javascript" src="../../static/js/index.js"></script>
+<script type="text/javascript" src="../../static/js/base.js"></script>
+<!--script type="text/javascript" src="../../static/js/popup.js"></script>
+<script type="text/javascript" src="../../static/js/jquery-ui.js"></script>
+<script type="text/javascript" src="../../static/js/main-page.js"></script>
+<script type="text/javascript" src="../../static/js/get-allcity.js"></script>
+<script type="text/javascript" src="../../static/js/carlist.js"></script-->
+    <!--<script>var _abqVersion='17112101';var _abq=_abq||[];_abq.push(['_pageview']);!function(t,e){var a=t.createElement(e);a.async=!0,a.src=('https:'==t.location.protocol?'https://':'http://')+(location.hostname == 'www.xin.com' ? 'ab.xin.com' : 'ab.test.xin.com')+'/ab.js?v='+_abqVersion;var c=t.getElementsByTagName(e)[0];c.parentNode.insertBefore(a,c)}(document,'script');</script>-->
+
+<script type="text/javascript">
+    var _abq = _abq || [];
+    _abq.push(['_pageview']);
+</script>
+<script type="text/javascript">
+	$(window).scroll(function () {
+		  var pos = $(window).scrollTop();
+		if (pos > 69) {
+			$('#fixed-header').addClass('fixed-active');
+		}else{
+		 $('#fixed-header').removeClass('fixed-active');
+		}
+	});
+</script>
+</head>
+<body class="home_bg">
+
+<div id="fixed-header" class="header-wrap  header-new header-fixed-header">
+    <div class="header">
+        <h1 class="header-logo">旧卖车
+        <a href="/hangzhou/"><span style="visibility:hidden;">二手车</span></a>
+        </h1>
+        <div class="header-city">
+            <a href="javascript:;" id="current_city_id" class="header-cityname">
+                杭州<i class="header-icon"></i>
+            </a>
+        </div>
+        <div class="header-login-wrap">
+            <div class="header-login">
+                <div class="header-login">
+                    <a data-type="log" href="javascript:;" uxevent="/w_top/login"><i class="header-login-icon"></i>登录</a> /
+                    <a data-type="reg" href="javascript:;" uxevent="/w_top/regist">注册</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="header-nav">
+            <a href="" class="header-active" rel="nofollow">首页</a>
+            <a href="" class="" rel="nofollow" title="购买二手车" uxevent="/w_top/buycar">买车</a>
+            <a href="" class="" rel="nofollow" title="二手车出售" uxevent="w_top/c2bsell">卖车</a>
+            <a href="" class="" rel="nofollow" title="优信二手车服务保障" uxevent="w_top/service">尊享车主权益</a>
+        </div>
+	</div>
+</div>
+
+
+
+
+
+	<div class="body">
+		<div class="seo">
+		<img src="../../static/images/sem-logo.png" alt="杭州二手车">
+		<p>杭州二手车交易平台</p>
+	</div>
+<div class="banner-js-banner banner-banner banner-new">
+	<a href="" class="banner-banner-link" target="_blank" abevent="banner_home#adid=123"></a>
+	<div class="banner-search">
+		<input type="hidden" class="banner-sitem sitem" value="车辆" readonly>
+		<input type="text" class="banner-js-input banner-ipt ipt s-input autocomplete-input" data-search-from-page="home" placeholder="请输入感兴趣的品牌、车系" data-default="" id="banner-brandSearch" data-carcount="1" name="q" autocomplete="off">
+		<a href="javascript:void(0);" class="banner-js-search banner-car-btn banner-search-btn" id="search-btn">立即搜索</a>
+		<a href="" abevent="w_top/c2bsell" class="banner-car-btn banner-sell-btn">我要卖车</a>
+	</div>
+	<div class="banner-num">
+		为您找到
+		<label class="banner-randomNum">
+			<div class="mt-number-animate">
+				<div class="mt-number-animate-dom" data-num="2" style="transform: translateY(-44px); transition: all 2s ease 0s;">
+				</div>
+			</div>
+		</label>辆车
+	</div>
+</div>
+
+<div class="quick-quick">
+	<div class="quick-brand">
+		<a href="javascript:void(0);" class="quick-js-brand-title quick-brand-title quick-title"><i class="quick-brand-icon"></i>品牌</a>
+		<div class="quick-brand-box quick-content">
+			<a href="" class="quick-link quick-brand-link" abevent="w_home/brand/62/rank/1"><img src="../../static/images/b_62.png" class="quick-brand-img">奥迪</a>
+			<a href="" class="quick-link quick-brand-link" abevent="w_home/brand/38/rank/2"><img src="../../static/images/b_38.png" class="quick-brand-img">宝马</a>
+			<a href="" class="quick-link quick-brand-link" abevent="w_home/brand/47/rank/3"><img src="../../static/images/b_47.png" class="quick-brand-img">奔驰</a>
+			<a href="" class="quick-link quick-brand-link" abevent="w_home/brand/84/rank/4"><img src="../../static/images/b_84.png" class="quick-brand-img">大众</a>
+			<a href="" class="quick-link quick-brand-link" abevent="w_home/brand/34/rank/5"><img src="../../static/images/b_34.png" class="quick-brand-img">别克</a>
+			<a href="" class="quick-link quick-brand-link" abevent="w_home/brand/59/rank/6"><img src="../../static/images/b_59.png" class="quick-brand-img">本田</a>
+			<a href="" class="quick-link quick-brand-link" abevent="w_home/brand/22/rank/7"><img src="../../static/images/b_22.png" class="quick-brand-img">保时捷</a>
+			<a href="" class="quick-link quick-brand-link" abevent="w_home/brand/89/rank/8"><img src="../../static/images/b_89.png" class="quick-brand-img">丰田</a>
+			<a href="" class="quick-link quick-brand-link" abevent="w_home/brand/98/rank/9"><img src="../../static/images/b_98.png" class="quick-brand-img">福特</a>
+			<a href="" class="quick-link quick-brand-link" abevent="w_home/brand/112/rank/10"><img src="../../static/images/b_112.png" class="quick-brand-img">路虎</a>
+			<a href="" class="quick-link quick-brand-link" abevent="w_home/brand/15/rank/11"><img src="../../static/images/b_15.png" class="quick-brand-img">日产</a>
+			<a href="" class="quick-link quick-brand-link" abevent="w_home/brand/73/rank/12"><img src="../../static/images/b_73.png" class="quick-brand-img">雪佛兰</a>
+		</div>
+	</div>
+	<div class="quick-price">
+		<span class="quick-price-title quick-title">价格</span>
+		<div class="quick-price-box quick-content">
+			<a href="" class="quick-link quick-price-link quick-bold" abevent="one_percent_home" rel="nofollow">分期购</a>
+			<a href="" class="quick-link quick-price-link quick-bold" abevent="w_home/price/0" rel="nofollow">低月供</a>
+			<a href="" class="quick-link quick-price-link" abevent="w_home/price/p0-3">3万以内</a>
+			<a href="" class="quick-link quick-price-link" abevent="w_home/price/p3-5">3-5万</a>
+			<a href="" class="quick-link quick-price-link" abevent="w_home/price/p5-8">5-8万</a>
+			<a href="" class="quick-link quick-price-link" abevent="w_home/price/p8-10">8-10万</a>
+			<a href="" class="quick-link quick-price-link" abevent="w_home/price/p10-20">10-20万</a>
+			<a href="" class="quick-link quick-price-link" abevent="w_home/price/p20-30">20-30万</a>
+			<a href="" class="quick-link quick-price-link" abevent="w_home/price/p30-">30万以上</a>
+		</div>
+	</div>
+	<div class="quick-modal">
+		<span class="quick-modal-title quick-title">车型</span>
+		<div class="quick-modal-box quick-content">
+			<a href="" class="quick-link quick-modal-link" abevent="w_home/type/16/rank/1"><img src="../../static/images/c-2.png" class="quick-modal-img">SUV</a>
+			<a href="" class="quick-link quick-modal-link" abevent="w_home/type/114/rank/2"><img src="../../static/images/c-4.png" class="quick-modal-img">面包</a>
+			<a href="" class="quick-link quick-modal-link" abevent="w_home/type/112/rank/3"><img src="../../static/images/c-5.png" class="quick-modal-img">跑车</a>
+			<a href="" class="quick-link quick-modal-link" abevent="w_home/type/17/rank/4"><img src="../../static/images/c-3.png" class="quick-modal-img">MPV</a>
+			<a href="" class="quick-link quick-modal-link" abevent="w_home/type/19/rank/5"><img src="../../static/images/c-7.png" class="quick-modal-img">皮卡</a>
+			<a href="" class="quick-link quick-modal-link" abevent="w_home/type/14/rank/6"><img src="../../static/images/c-8.png" class="quick-modal-img">商务</a>
+		</div>
+	</div>
+	<div class="quick-js-brand-all quick-brand-all">
+	  <a href="javascript:void(0);" class="quick-category-title quick-title">
+		<i class="quick-category-icon"></i>品牌
+	  </a>
+	  <div class="quick-all">
+		 <div class="quick-brand-more">
+			<dl>
+				<dt>A</dt>
+				<dd>
+				   <a href="" abevent="/62/rank/13">奥迪</a>
+				   <a href="" abevent="/175/rank/13">阿尔法·罗密欧</a>                 
+				   <a href="" abevent="/5/rank/13">安驰</a>
+				   <a href="" abevent="/141/rank/13">AC Schnitzer</a>
+				   <a href="" abevent="/259/rank/13">ALPINA</a>                                
+				   <a href="" abevent="/68/rank/13">阿斯顿·马丁</a>                                
+				   <a href="" abevent="/372/rank/13">爱驰</a>                                
+				   <a href="" abevent="/251/rank/13">安凯客车</a>                                
+				</dd>
+				<dt>B</dt>
+				<dd>
+				   <a href="" abevent="/59/rank/13">本田</a>
+				   <a href="" abevent="/47/rank/13">奔驰</a>
+				   <a href="" abevent="/34/rank/13">别克</a>                 
+				   <a href="" abevent="/38/rank/13">宝马</a>                 
+				   <a href="" abevent="/133/rank/13">宝骏</a>
+				   <a href="" abevent="/121/rank/13">比亚迪</a>                 
+				   <a href="" abevent="/174/rank/13">标致</a>                 
+				   <a href="" abevent="/93/rank/13">奔腾</a>
+				   <a href="" abevent="/22/rank/13">保时捷</a>
+				   <a href="" abevent="/63/rank/13">北京</a>
+				   <a href="" abevent="/238/rank/13">北京汽车</a>
+				   <a href="" abevent="/177/rank/13">北汽幻速</a>                 
+				   <a href="" abevent="/232/rank/13">宝沃</a>
+				   <a href="" abevent="/237/rank/13">北汽威旺</a>                 
+				   <a href="" abevent="/260/rank/13">比速汽车</a>                 
+				   <a href="" abevent="/58/rank/13">北汽制造</a>                 
+				   <a href="" abevent="/4/rank/13">巴博斯</a>                 
+				   <a href="" abevent="/6/rank/13">宝龙</a>                 
+				   <a href="" abevent="/318/rank/13">北汽道达</a>                 
+				   <a href="" abevent="/345/rank/13">宝骐汽车</a>                 
+				   <a href="" abevent="/362/rank/13">北京清行</a>                 
+				   <a href="" abevent="/375/rank/13">比德文汽车</a>                 
+				   <a href="" abevent="/154/rank/13">宾利</a>                 
+				   <a href="" abevent="/158/rank/13">布加迪</a>                 
+				   <a href="" abevent="/249/rank/13">北汽新能源</a>
+				</dd>
+				<dt>C</dt>
+				<dd>										 
+				   <a href="" abevent="/42/rank/13">长安</a>                 
+				   <a href="" abevent="/248/rank/13">长安欧尚</a>                 
+				   <a href="" abevent="/115/rank/13">长城</a>                 
+				   <a href="" abevent="/317/rank/13">长安凯程</a>                 
+				   <a href="" abevent="/146/rank/13">昌河</a>                 
+				   <a href="" abevent="/252/rank/13">成功汽车</a>
+				</dd>
+				<dt>D</dt>
+				<dd>                                                 
+				   <a href="" abevent="/84/rank/13">大众</a>                 
+				   <a href="" abevent="/245/rank/13">东风风行</a>                 
+				   <a href="" abevent="/244/rank/13">东风风光</a>                 
+				   <a href="" abevent="/80/rank/13">东南</a>                 
+				   <a href="" abevent="/246/rank/13">东风风神</a>                 
+				   <a href="" abevent="/242/rank/13">DS</a>                 
+				   <a href="" abevent="/7/rank/13">道奇</a>                 
+				   <a href="" abevent="/247/rank/13">东风风度</a>                 
+				   <a href="" abevent="/150/rank/13">东风</a>                 
+				   <a href="" abevent="/341/rank/13">大乘汽车</a>                 
+				   <a href="" abevent="/243/rank/13">东风小康</a>                 
+				   <a href="" abevent="/354/rank/13">多士星</a>                 
+				   <a href="" abevent="/45/rank/13">大宇</a>                 
+				   <a href="" abevent="/72/rank/13">大迪</a>                 
+				   <a href="" abevent="/328/rank/13">电咖</a>                 
+				   <a href="" abevent="/330/rank/13">东风瑞泰特</a>                 
+				   <a href="" abevent="/377/rank/13">大运</a>                 
+				   <a href="" abevent="/205/rank/13">大发</a>                                
+				</dd>
+				<dt>F</dt>
+				<dd>                                                 
+				   <a href="" abevent="/89/rank/13">丰田</a>                 
+				   <a href="" abevent="/98/rank/13">福特</a>                 
+				   <a href="" abevent="/60/rank/13">菲亚特</a>                 
+				   <a href="" abevent="/46/rank/13">福田</a>                 
+				   <a href="" abevent="/272/rank/13">福田乘用车</a>                 
+				   <a href="" abevent="/85/rank/13">福迪</a>                 
+				   <a href="" abevent="/41/rank/13">Fisker</a>                 
+				   <a href="" abevent="/123/rank/13">法拉利</a>                 
+				   <a href="" abevent="/178/rank/13">福汽启腾</a>
+				</dd>
+				<dt>G</dt>
+				<dd>                                                 
+				   <a href="" abevent="/143/rank/13">广汽传祺</a>                 
+				   <a href="" abevent="/50/rank/13">GMC</a>                 
+				   <a href="" abevent="/109/rank/13">广汽吉奥</a>                 
+				   <a href="" abevent="/30/rank/13">光冈</a>                 
+				   <a href="" abevent="/323/rank/13">国金汽车</a>                 
+				   <a href="" abevent="/339/rank/13">广汽新能源</a>                 
+				   <a href="" abevent="/342/rank/13">广汽集团</a>                 
+				   <a href="" abevent="/367/rank/13">国机智骏</a>                 
+				   <a href="" abevent="/176/rank/13">观致</a>
+				</dd>
+				<dt>H</dt>
+				<dd>
+				   <a href="" abevent="/235/rank/13">哈弗</a>                 
+				   <a href="" abevent="/132/rank/13">海马</a>                 
+				   <a href="" abevent="/66/rank/13">红旗</a>                 
+				   <a href="" abevent="/250/rank/13">汉腾汽车</a>                 
+				   <a href="" abevent="/11/rank/13">华泰</a>                 
+				   <a href="" abevent="/190/rank/13">华颂</a>                 
+				   <a href="" abevent="/54/rank/13">哈飞</a>                 
+				   <a href="" abevent="/3/rank/13">悍马</a>                 
+				   <a href="" abevent="/265/rank/13">华泰新能源</a>                 
+				   <a href="" abevent="/282/rank/13">华骐</a>                 
+				   <a href="" abevent="/28/rank/13">黑豹</a>                 
+				   <a href="" abevent="/33/rank/13">黄海</a>                 
+				   <a href="" abevent="/333/rank/13">红星汽车</a>                 
+				   <a href="" abevent="/90/rank/13">华翔</a>                 
+				   <a href="" abevent="/91/rank/13">华北</a>                 
+				   <a href="" abevent="/369/rank/13">汉龙汽车</a>                 
+				   <a href="" abevent="/376/rank/13">HYCAN合创</a>                 
+				   <a href="" abevent="/152/rank/13">汇众</a>                 
+				   <a href="" abevent="/153/rank/13">华普</a>                 
+				   <a href="" abevent="/159/rank/13">华阳</a>                 
+				   <a href="" abevent="/167/rank/13">恒天</a>                 
+				   <a href="" abevent="/179/rank/13">航天</a>                 
+				   <a href="" abevent="/180/rank/13">海格</a>                 
+				   <a href="" abevent="/229/rank/13">华凯</a>
+				</dd>
+			</dl>
+		 </div>
+				
+		 <div class="quick-brand-more">
+			<dl>
+				<dt>J</dt>
+				<dd>                                                 
+				   <a href="" abevent="/83/rank/13">吉利汽车</a>                 
+				   <a href="" abevent="/139/rank/13">Jeep</a>                 
+				   <a href="" abevent="/97/rank/13">江淮</a>                 
+				   <a href="" abevent="/173/rank/13">捷豹</a>                 
+				   <a href="" abevent="/87/rank/13">金杯</a>                 
+				   <a href="" abevent="/335/rank/13">捷途</a>                 
+				   <a href="" abevent="/137/rank/13">江铃</a>                 
+				   <a href="" abevent="/315/rank/13">君马汽车</a>                 
+				   <a href="" abevent="/364/rank/13">捷达</a>                 
+				   <a href="" abevent="/64/rank/13">金龙</a>                 
+				   <a href="" abevent="/161/rank/13">九龙</a>                 
+				   <a href="" abevent="/266/rank/13">江铃集团新能源</a>                 
+				   <a href="" abevent="/273/rank/13">江铃集团轻汽</a>                 
+				   <a href="" abevent="/76/rank/13">金程</a>                 
+				   <a href="/" abevent="/352/rank/13">钧天汽车</a>                 
+				   <a href="" abevent="/149/rank/13">江南</a>                 
+				   <a href="" abevent="/253/rank/13">金旅</a>                                
+				</dd>
+				<dt>K</dt>
+				<dd>                                  
+				   <a href="" abevent="/120/rank/13">凯迪拉克</a>                 
+				   <a href="" abevent="/188/rank/13">凯翼</a>                 
+				   <a href="" abevent="/61/rank/13">克莱斯勒</a>                 
+				   <a href="" abevent="/14/rank/13">开瑞</a>                 
+				   <a href="" abevent="/276/rank/13">卡升</a>                 
+				   <a href="" abevent="/65/rank/13">科尼赛克</a>                 
+				   <a href="" abevent="/86/rank/13">卡尔森</a>                 
+				   <a href="" abevent="/136/rank/13">凯佰赫</a>                 
+				   <a href="" abevent="/181/rank/13">KTM</a>                 
+				   <a href="" abevent="/182/rank/13">卡威</a>                 
+				   <a href="" abevent="/185/rank/13">凯马汽车</a>                 
+				   <a href="" abevent="/220/rank/13">康迪全球鹰</a>
+				</dd>
+				<dt>L</dt>
+				<dd>
+				   <a href="" abevent="/31/rank/13">雷克萨斯</a>                 
+				   <a href="" abevent="/112/rank/13">路虎</a>                 
+				   <a href="" abevent="/94/rank/13">铃木</a>                 
+				   <a href="" abevent="/8/rank/13">雷诺</a>                 
+				   <a href="" abevent="/274/rank/13">领克</a>                 
+				   <a href="" abevent="/88/rank/13">林肯</a>                 
+				   <a href="" abevent="/164/rank/13">陆风</a>                 
+				   <a href="" abevent="/239/rank/13">理念</a>                 
+				   <a href="" abevent="/27/rank/13">猎豹汽车</a>                 
+				   <a href="" abevent="/99/rank/13">力帆汽车</a>                 
+				   <a href="" abevent="/16/rank/13">莲花汽车</a>                 
+				   <a href="" abevent="/49/rank/13">路特斯</a>                 
+				   <a href="" abevent="/343/rank/13">罗夫哈特</a>                 
+				   <a href="" abevent="/346/rank/13">领途汽车</a>                 
+				   <a href="" abevent="/351/rank/13">零跑汽车</a>                 
+				   <a href="" abevent="/355/rank/13">理想</a>                 
+				   <a href="" abevent="/360/rank/13">LITE</a>                 
+				   <a href="" abevent="/117/rank/13">兰博基尼</a>                 
+				   <a href="" abevent="/378/rank/13">凌宝汽车</a>                 
+				   <a href="" abevent="/130/rank/13">劳斯莱斯</a>                 
+				   <a href="" abevent="/186/rank/13">陆地方舟</a>                 
+				   <a href="" abevent="/197/rank/13">LOCAL MOTORS</a>                 
+				   <a href="" abevent="/217/rank/13">拉达</a>                 
+				   <a href="" abevent="/219/rank/13">罗孚</a>                 
+				   <a href="" abevent="/223/rank/13">劳伦士</a>                 
+				   <a href="" abevent="/230/rank/13">雷丁</a>
+				</dd>
+				<dt>M</dt>
+				<dd>                                      
+				   <a href="" abevent="/145/rank/13">马自达</a>                 
+				   <a href="" abevent="/26/rank/13">MINI</a>                 
+				   <a href="" abevent="/104/rank/13">名爵</a>                 
+				   <a href="" abevent="/151/rank/13">玛莎拉蒂</a>                 
+				   <a href="" abevent="/13/rank/13">摩根</a>                 
+				   <a href="" abevent="/29/rank/13">迈巴赫</a>                 
+				   <a href="" abevent="/75/rank/13">迈凯伦</a>                 
+				   <a href="" abevent="/165/rank/13">美亚</a>
+				</dd>
+				<dt>N</dt>
+				<dd>                                          
+				   <a href="" abevent="/35/rank/13">纳智捷</a>                 
+				   <a href="" abevent="/340/rank/13">南骏汽车</a>                 
+				   <a href="" abevent="/344/rank/13">哪吒汽车</a>                 
+				   <a href="" abevent="/170/rank/13">南汽</a>                 
+				   <a href="" abevent="/255/rank/13">南京金龙</a>
+				</dd>
+				<dt>O</dt>
+				<dd>                                             
+				   <a href="" abevent="/118/rank/13">讴歌</a>                 
+				   <a href="" abevent="/128/rank/13">欧宝</a>                 
+				   <a href="" abevent="/336/rank/13">欧拉</a>                 
+				   <a href="" abevent="/338/rank/13">欧尚汽车</a>
+				</dd>
+				<dt>P</dt>
+				<dd>                                  
+				   <a href="" abevent="/326/rank/13">Polestar极星</a>                 
+				   <a href="" abevent="/148/rank/13">帕加尼</a>
+				</dd>
+				<dt>Q</dt>
+				<dd>                                          
+				   <a href="" abevent="/129/rank/13">起亚</a>                 
+				   <a href="" abevent="/155/rank/13">奇瑞</a>                 
+				   <a href="" abevent="/236/rank/13">启辰</a>                 
+				   <a href="" abevent="/278/rank/13">前途</a>                 
+				   <a href="" abevent="/359/rank/13">青年汽车</a>                 
+				   <a href="" abevent="/228/rank/13">乔治巴顿</a>
+				</dd>
+			</dl>
+		 </div>
+		 <div class="quick-brand-more">
+			<dl>
+				<dt>R</dt>
+				<dd>                                   
+				   <a href="" abevent="/15/rank/13">日产</a>                 
+				   <a href="" abevent="/23/rank/13">荣威</a>                 
+				   <a href="" abevent="/56/rank/13">瑞麒</a>                 
+				   <a href="" abevent="/314/rank/13">瑞驰新能源</a>                 
+				   <a href="" abevent="/332/rank/13">容大智造</a>                 
+				   <a href="" abevent="/254/rank/13">如虎</a>
+				</dd>
+				<dt>S</dt>
+				<dd>                                     
+				   <a href="" abevent="/92/rank/13">斯柯达</a>                 
+				   <a href="" abevent="/147/rank/13">三菱</a>                 
+				   <a href="" abevent="/122/rank/13">smart</a>                 
+				   <a href="" abevent="/156/rank/13">斯巴鲁</a>                 
+				   <a href="" abevent="/108/rank/13">上汽大通</a>                 
+				   <a href="" abevent="/261/rank/13">SWM斯威汽车</a>                 
+				   <a href="" abevent="/240/rank/13">思铭</a>                 
+				   <a href="" abevent="/82/rank/13">双龙</a>                 
+				   <a href="" abevent="/256/rank/13">赛麟</a>                 
+				   <a href="" abevent="/257/rank/13">斯达泰克</a>                 
+				   <a href="" abevent="/18/rank/13">陕汽通家</a>                 
+				   <a href="" abevent="/74/rank/13">双环</a>                 
+				   <a href="" abevent="/337/rank/13">SITECH</a>                 
+				   <a href="" abevent="/96/rank/13">赛宝</a>                 
+				   <a href="" abevent="/365/rank/13">思皓</a>                 
+				   <a href="" abevent="/125/rank/13">世爵</a>                 
+				   <a href="" abevent="/157/rank/13">萨博</a>                 
+				   <a href="" abevent="/215/rank/13">水星</a>                 
+				   <a href="" abevent="/222/rank/13">Spirra</a>
+				</dd>
+				<dt>T</dt>
+				<dd>                                                 
+				   <a href="" abevent="/258/rank/13">泰卡特</a>                 
+				   <a href="" abevent="/12/rank/13">天马</a>                 
+				   <a href="" abevent="/24/rank/13">通宝</a>                 
+				   <a href="" abevent="/329/rank/13">唐骏汽车</a>                 
+				   <a href="" abevent="/358/rank/13">天际汽车</a>                 
+				   <a href="" abevent="/111/rank/13">通田</a>                 
+				   <a href="" abevent="/184/rank/13">特斯拉</a>                 
+				   <a href="" abevent="/241/rank/13">腾势</a>
+				 </dd>
+				<dt>W</dt>
+				<dd>                                                 
+				   <a href="" abevent="/51/rank/13">五菱汽车</a>                 
+				   <a href="" abevent="/135/rank/13">沃尔沃</a>                 
+				   <a href="" abevent="/262/rank/13">WEY</a>                 
+				   <a href="" abevent="/32/rank/13">五十铃</a>                 
+				   <a href="" abevent="/187/rank/13">潍柴英致</a>                 
+				   <a href="" abevent="/53/rank/13">威麟</a>                 
+				   <a href="" abevent="/270/rank/13">蔚来</a>                 
+				   <a href="" abevent="/271/rank/13">威马汽车</a>                 
+				   <a href="" abevent="/368/rank/13">潍柴汽车</a>                 
+				   <a href="" abevent="/114/rank/13">威兹曼</a>                 
+				   <a href="" abevent="/124/rank/13">万丰</a>
+				</dd>
+				<dt>X</dt>
+				<dd>                                    
+				   <a href="" abevent="/55/rank/13">现代</a>                 
+				   <a href="" abevent="/73/rank/13">雪佛兰</a>                 
+				   <a href="" abevent="/71/rank/13">雪铁龙</a>                 
+				   <a href="" abevent="/373/rank/13">新宝骏</a>                 
+				   <a href="" abevent="/52/rank/13">西雅特</a>                 
+				   <a href="" abevent="/356/rank/13">星途</a>                 
+				   <a href="" abevent="/37/rank/13">新凯</a>                 
+				   <a href="" abevent="/311/rank/13">小鹏汽车</a>                 
+				   <a href="" abevent="/324/rank/13">鑫源</a>                 
+				   <a href="" abevent="/371/rank/13">新特</a>                 
+				   <a href="" abevent="/171/rank/13">新大地</a>
+				</dd>
+				<dt>Y</dt>
+				<dd>                                               
+				   <a href="" abevent="/160/rank/13">英菲尼迪</a>                 
+				   <a href="" abevent="/119/rank/13">一汽</a>                 
+				   <a href="" abevent="/268/rank/13">驭胜</a>                 
+				   <a href="" abevent="/102/rank/13">依维柯</a>                 
+				   <a href="" abevent="/172/rank/13">野马汽车</a>                 
+				   <a href="" abevent="/140/rank/13">云雀</a>                 
+				   <a href="" abevent="/297/rank/13">云度</a>                 
+				   <a href="" abevent="/298/rank/13">御捷</a>                 
+				   <a href="" abevent="/43/rank/13">云豹</a>                 
+				   <a href="" abevent="/301/rank/13">裕路</a>                 
+				   <a href="" abevent="/316/rank/13">宇通客车</a>                 
+				   <a href="" abevent="/334/rank/13">亚星</a>                 
+				   <a href="" abevent="/106/rank/13">永源</a>                 
+				   <a href="" abevent="/370/rank/13">一汽凌河</a>
+				</dd>
+				<dt>Z</dt>
+				<dd>                                            
+				   <a href="" abevent="/100/rank/13">众泰</a>                 
+				   <a href="" abevent="/77/rank/13">中华</a>                 
+				   <a href="" abevent="/267/rank/13">之诺</a>                 
+				   <a href="" abevent="/57/rank/13">中誉</a>                 
+				   <a href="" abevent="/67/rank/13">中顺</a>                 
+				   <a href="" abevent="/70/rank/13">中兴</a>                 
+				   <a href="" abevent="/103/rank/13">中欧</a>                 
+				   <a href="" abevent="/227/rank/13">知豆</a>
+				</dd>
+				</dl>
+		 </div>
+				
+			  
+	  </div>
+	</div>
+</div>
+                   
+<div id="recom-index" class="wrap recom-index">
+	<div class="car-nav">
+		<h3 class="car-nav-title">旧卖推荐</h3>
+		<a href="javascript:void(0);" data-idx="0" data-more="" data-type="" data-moreab="/newcar" data-class="nav-tab" class="nav-tab-title nav-line">省油代步</a>
+		<a href="javascript:void(1);" data-idx="1" data-more="" data-type="" data-moreab="w_home/intro_more/practicecar" data-class="nav-tab" class="nav-tab-title">超值豪华</a>
+		<a href="javascript:void(2);" data-idx="2" data-more="" data-type="" data-moreab="/homeusecar" data-class="nav-tab" class="nav-tab-title">家用首选</a>
+		<a href="javascript:void(3);" data-idx="3" data-more="" data-type="" data-moreab="w_home/intro_more/businesscar" data-class="nav-tab" class="nav-tab-title">保值神车</a>
+		<a href="javascript:void(4);" data-idx="4" data-more="" data-type="" data-moreab="/mpvcar" data-class="nav-tab" class="nav-tab-title">热门SUV</a>
+		<a href="javascript:void(5);" data-idx="5" data-more="" data-type="" data-moreab="/undefined" data-class="nav-tab" class="nav-tab-title">都市白领</a>
+        <p class="car-js-line car-line"></p>
+		<a href="" data-ismore="1" class="nav-more" abevent="w_home/halfprice_more">更多&gt;</a>
+	</div>
+<div class="content-list">
+	<div class="car-list" style="display:block;">
+		<a href="" class="car-info" abevent="w_home/intro_newcar/1">
+			<img data-original="//c4.xinstatic.com/o/20200530/1508/5ed2066e82c45377921_18.jpg" src="../../static/images/5ed2066e82c45377921_18.jpg" alt="" class="lazyload lazy" style="display: block;">
+			<p class="ename">大众 POLO<span class="price">3.00-10.50万</span></p>
+		</a>
+		<a href="" class="car-info" abevent="w_home/intro_newcar/2">
+			<img data-original="//c3.xinstatic.com/o/20200713/0915/5f0bb5cb97c40283866_18.jpg" src="../../static/images/5f0bb5cb97c40283866_18.jpg" alt="" class="lazyload lazy" style="display: block;">
+			<p class="ename">丰田 致炫<span class="price">3.60-9.20万</span></p>
+		</a>
+		<a href="" class="car-info" abevent="w_home/intro_newcar/3">
+			<img data-original="//c4.xinstatic.com/o/20200727/1107/5f1e44e40311b217132_18.jpg" src="../../static/images/5f1e44e40311b217132_18.jpg" alt="" class="lazyload lazy" style="display: block;">
+			<p class="ename">本田 飞度<span class="price">2.95-8.99万</span></p>
+		</a>
+		<a href="" class="car-info" abevent="w_home/intro_newcar/4">
+			<img data-original="//c5.xinstatic.com/o/20200718/1327/5f128857d78b2315448_18.jpg" src="../../static/images/5f128857d78b2315448_18.jpg" alt="" class="lazyload lazy" style="display: block;">
+			<p class="ename">铃木 雨燕<span class="price">3.05-7.20万</span></p>
+		</a>
+	</div>
+	<div class="car-list js-car-list">
+		<a href="" class="car-info" abevent="w_home/intro_practicecar/1">
+			<img data-original="//c3.xinstatic.com/o/20200721/1140/5f1663c9e608c589676_18.jpg" src="../../static/images/grey.gif" alt="" class="lazyload lazy">
+			<p class="ename">宝马 3系<span class="price">7.60-36.88万</span></p>
+		</a>
+		<a href="" class="car-info" abevent="w_home/intro_practicecar/2">
+			<img data-original="//c1.xinstatic.com/o/20200629/1311/5ef9781ee52e9341488_18.jpg" src="../../static/images/grey.gif" alt="" class="lazyload lazy">
+			<p class="ename">奔驰 C级<span class="price">8.60-34.80万</span></p>
+		</a>
+		<a href="" class="car-info" abevent="w_home/intro_practicecar/3">
+			<img data-original="//c4.xinstatic.com/o/20200724/1239/5f1a66179a5b1996398_18.jpg" src="../../static/images/grey.gif" alt="" class="lazyload lazy">
+			<p class="ename">奥迪 A4L<span class="price">8.90-30.98万</span></p>
+		</a>
+		<a href="" class="car-info" abevent="w_home/intro_practicecar/4">
+			<img data-original="//c3.xinstatic.com/o/20200711/1132/5f0932c3832f1861347_18.jpg" src="../../static/images/grey.gif" alt="" class="lazyload lazy">
+			<p class="ename">凯迪拉克 ATS-L<span class="price">13.50-21.88万</span></p>
+		</a>
+	</div>
+	<div class="car-list js-car-list">
+		<a href="" class="car-info" abevent="w_home/intro_homeusecar/1">
+			<img data-original="//c4.xinstatic.com/o/20200505/1407/5eb102a014ae3464884_18.jpg" src="../../static/images/grey.gif" alt="" class="lazyload lazy">
+			<p class="ename">别克 英朗<span class="price">3.18-9.90万</span></p>
+		</a>
+		<a href="" class="car-info" abevent="w_home/intro_homeusecar/2">
+			<img data-original="//c5.xinstatic.com/o/20200703/1711/5efef64ed6316390599_18.jpg" src="../../static/images/grey.gif" alt="" class="lazyload lazy">
+			<p class="ename">大众 朗逸<span class="price">3.25-13.50万</span></p>
+		</a>
+		<a href="" class="car-info" abevent="w_home/intro_homeusecar/3">
+			<img data-original="//c4.xinstatic.com/o/20200715/1429/5f0ea25b4d4f0344748_18.jpg" src="../../static/images/grey.gif" alt="" class="lazyload lazy">
+			<p class="ename">丰田 卡罗拉<span class="price">4.40-14.90万</span></p>
+		</a>
+		<a href="" class="car-info" abevent="w_home/intro_homeusecar/4">
+			<img data-original="//c6.xinstatic.com/o/20200728/1049/5f1f922d9015f487112_18.jpg" src="../../static/images/grey.gif" alt="" class="lazyload lazy">
+			<p class="ename">日产 轩逸<span class="price">3.70-13.28万</span></p>
+		</a>
+	</div>
+	<div class="car-list js-car-list">
+		<a href="" class="car-info" abevent="w_home/intro_businesscar/1">
+			<img data-original="//c3.xinstatic.com/o/20200727/1153/5f1e4fbb727a9468871_18.jpg" src="../../static/images/grey.gif" alt="" class="lazyload lazy">
+			<p class="ename">大众 桑塔纳<span class="price">3.50-8.50万</span></p>
+		</a>
+<a href="" class="car-info" abevent="w_home/intro_businesscar/2">
+			<img data-original="//c1.xinstatic.com/o/20200728/1158/5f1fa276e4cf5730920_18.jpg" src="../../static/images/grey.gif" alt="" class="lazyload lazy">
+			<p class="ename">本田 思域<span class="price">4.38-15.80万</span></p>
+		</a>
+		<a href="" class="car-info" abevent="w_home/intro_businesscar/3">
+			<img data-original="//c4.xinstatic.com/o/20200713/1219/5f0be0cc50498168985_18.jpg" src="../../static/images/grey.gif" alt="" class="lazyload lazy">
+			<p class="ename">别克 凯越<span class="price">3.00-8.60万</span></p>
+		</a>
+		<a href="" class="car-info" abevent="w_home/intro_businesscar/4">
+			<img data-original="//c5.xinstatic.com/o/20200707/1700/5f0439b38755d570979_18.jpg" src="../../static/images/grey.gif" alt="" class="lazyload lazy">
+			<p class="ename">丰田 汉兰达<span class="price">9.90-33.80万</span></p>
+		</a>
+	</div>
+	<div class="car-list js-car-list">
+		<a href="" class="car-info" abevent="w_home/intro_mpvcar/1">
+			<img data-original="//c1.xinstatic.com/o/20200722/1640/5f17fb6fe9cd9449549_18.jpg" src="../../static/images/grey.gif" alt="" class="lazyload lazy">
+			<p class="ename">日产 奇骏<span class="price">6.38-20.80万</span></p>
+		</a>
+		<a href="" class="car-info" abevent="w_home/intro_mpvcar/2">
+			<img data-original="//c1.xinstatic.com/o/20200411/1556/5e917849a240e282742_18.jpg" src="../../static/images/grey.gif" alt="" class="lazyload lazy">
+			<p class="ename">大众 途观<span class="price">6.50-18.98万</span></p>
+		</a>
+		<a href="" class="car-info" abevent="w_home/intro_mpvcar/3">
+			<img data-original="//c4.xinstatic.com/o/20200613/1300/5ee45d5d2f893602472_18.jpg" src="../../static/images/grey.gif" alt="" class="lazyload lazy">
+			<p class="ename">丰田 RAV4<span class="price">6.88-25.20万</span></p>
+		</a>
+		<a href="" class="car-info" abevent="w_home/intro_mpvcar/4">
+			<img data-original="//c5.xinstatic.com/o/20200620/0959/5eed6d72cc849512309_18.jpg" src="../../static/images/grey.gif" alt="" class="lazyload lazy">
+			<p class="ename">哈弗 哈弗H6<span class="price">3.30-11.98万</span></p>
+		</a>
+	</div>
+	<div class="car-list js-car-list">
+		<a href="" class="car-info" abevent="w_home/intro_undefined/1">
+			<img data-original="//c6.xinstatic.com/o/20200627/1016/5ef6abfbb6c8b702302_18.jpg" src="../../static/images/grey.gif" alt="" class="lazyload lazy">
+			<p class="ename">日产 骐达<span class="price">3.70-11.53万</span></p>
+		</a>
+		<a href="" class="car-info" abevent="w_home/intro_undefined/2">
+			<img data-original="//c3.xinstatic.com/o/20200624/1016/5ef2b79bed6d5236252_18.jpg" src="../../static/images/grey.gif" alt="" class="lazyload lazy">
+			<p class="ename">大众 高尔夫<span class="price">3.80-18.50万</span></p>
+		</a>
+		<a href="" class="car-info" abevent="w_home/intro_undefined/3">
+			<img data-original="//c1.xinstatic.com/o/20200719/1441/5f13eb1a1ec68971793_18.jpg" src="../../static/images/grey.gif" alt="" class="lazyload lazy">
+			<p class="ename">马自达 马3昂克赛拉<span class="price">5.90-14.38万</span></p>
+		</a>
+		<a href="" class="car-info" abevent="w_home/intro_undefined/4">
+			<img data-original="//c6.xinstatic.com/o/20200702/1036/5efd482c9a366369144_18.jpg" src="../../static/images/grey.gif" alt="" class="lazyload lazy">
+			<p class="ename">福特 福克斯<span class="price">3.00-13.50万</span></p>
+		</a>
+	</div>
+<!--script type="text/javascript"> 
+	function show(n){	
+		var o = document.getElementById("recom-index").getElementsByClassName('car-nav').getElementsByTagName("a");  
+		var c = document.getElementById("recom-index").getElementsByClassName('content-list').getElementsByTagName("div");
+		for(i = 0; l = o.length, i < l; o[i].className = '',c[i].style.display = 'none',i++ );   
+		o[n].className = 'nav-line';
+		c[n].style.display = 'block';      
+	}
+</script-->     
+</div>  
+</div>
+</div>
+
+<div class="footer">
+<div class="footer-center">
+<div class="nav">
+	<a href="" class="nav-btn" rel="nofollow">关于我们</a>
+	<a href="" class="nav-btn" rel="nofollow">加入我们</a>
+	<a href="" class="nav-btn" rel="nofollow">帮助中心</a>
+	<a href="" class="nav-btn" rel="nofollow">用户反馈</a>
+	<a href="" class="nav-btn">网站地图</a>
+    <!--a href=" class="nav-btn">Investors</a-->
+</div>
+<div class="footer-code">
+<img src="../../static/images/wx-sub.png" class="code-img">
+<div class="code-txt">
+<span class="span-tit">微信公众号</span>
+<span class="span-txt">二手车交易信息</span>
+</div>
+</div>
+<div class="footer-code2">
+<img src="../../static/images/wx-sub.png" class="code-img">
+<div class="code-txt">
+<span class="span-tit">扫二维码加微信</span>
+<span class="span-txt">车源更新不错过</span>
+</div>
+</div>
+
+<div class="footer-bot">
+<div class="copy">权利声明：本网站对展示的车辆信息、检测报告、视频、图片等内容享有合法权利，未经许可，不得非法转载、复制等方式使用。</div>
+<div class="gongan">
+<a class="copy" href="http://www.beian.miit.gov.cn/" target="_blank">浙ICP备*********号-1</a>
+</div>
+<div class="credit">
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

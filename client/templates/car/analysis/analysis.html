@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>二手车交易-Python智能</title>
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="keywords" content="买车,买车,估价,智能客服,Python智能">
+<meta name="description" content="二手车交易">
+<meta name="viewport" content="width=1210,initial-scale=1.0">
+<meta name="location" content="province=浙江;city=杭州;coord=120.1550700,30.2740840">
+<link rel="shortcut icon" href="../../../favicon.ico">
+<link rel="stylesheet" type="text/css" href="../../../static/css/base-windows.css">
+<link rel="stylesheet" type="text/css" href="../../../static/css/index-windows.css">
+<link rel="stylesheet" type="text/css" href="../../../static/css/c2b_car_message_new.css">
+<link rel="stylesheet" type="text/css" href="../../../static/css/c2b_quotation_new.css">
+<!--script type="text/javascript" src="../../static/js/jquery-3.5.0.min.js"></script-->
+<script type="text/javascript" src="../../../static/js/index.js"></script>
+<script type="text/javascript" src="../../../static/js/base.js"></script>
+<script>
+	window.__ab2__ = {
+		pid: 'u2_7'
+	}
+	window.jsvar = {
+		rsaPublicKey:'MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDQ4cGnnWenRjInefoHxp99woyN0kLTAKlgSaHuZ+AlW4tfQud+4MWxk2gq36854XO6XJ4E2py0F3Xi9Kf+uI+7Xv78F4UUiJ3slsBlGp7ywihEXE/Awo+m4t+NKx7foh2jIMbDoVGjTNNORiPVqI8rHWURZUUljQqbbWqZHXkSWwIDAQAB'
+	};
+	window.__json4fe__ = {  
+		city : {"cityid":"3001","areaid":"6","big_areaid":"1","provinceid":"30","cityname":"\u676d\u5dde","ename":"hangzhou","shortname":"HT","service":"1","near":"1505,501,101,1501,3002,2401,1502,3015,902,3003","tianrun_code":"0571","zhigou":"1","is_visit":"1","longitude":"120.1550700","latitude":"30.2740840","city_rank":"1","city_group":"3","is_gold_partner":"-1","direct_rent_support":"1","salvaged_support":"1","isshow_c":"1","is_lease_back":"1","mortgage_service_fee":"60000","is_small_pub_house":"1","is_wz_mortgage":"1","is_purchase_direct":"1","is_purchase_origin":"1","is_ms_ex":"0","is_cc_show":"1","is_ms_trans":"0","updatetime":"2020-05-29 11:46:44"},
+		//这个ename在top_load接口中使用的，现在还不能删除
+		ename : "hangzhou"
+	};
+	/*window.__json4fe__.all = { };
+	window.__json4fe__.hot = { };*/
+	window.__json4fe__.query = '/';
+	window.__json4fe__.c2bo_city_cityname = '杭州';
+	window.__json4fe__.c2bo_city_tag = '杭州';
+	window.__json4fe__.http = 'https://openapix.xin.com';
+	window.__json4fe__.sn = '4bbdccdb6a9fc7ee6736d547c8226bcb';
+</script>
+</head>
+<body>
+<div id="fixed-header" class="header-wrap header-new fixed-active">
+    <div class="header">
+        <h1 class="header-logo">旧卖车
+        <a href="/hangzhou/"><span style="visibility:hidden;">二手车</span></a>
+        </h1>
+        <div class="header-city">
+            <a href="javascript:;" id="current_city_id" class="header-cityname">
+                杭州<i class="header-icon"></i>
+            </a>
+        </div>
+        <div class="header-login-wrap">
+            <div class="header-login">
+                <div class="person-wrap" style="top:0px;"><a href="javascript:clear_invalid();show_popup('#popupLogin','#popupLogin%20.closeJs');" id="loginA" class="login" rel="nofollow"><i class="header-login-icon"></i>登录</a>/<a href="javascript:clear_invalid();show_popup('#popupRegister','#popupRegister%20.closeJs');" id="regA" rel="nofollow" class="register">注册</a></div>
+            </div>
+        </div>
+        <div class="header-nav">
+            <a href="" class="" rel="nofollow">首页</a>
+            <a href="" class="" rel="nofollow" title="购买二手车" uxevent="/w_top/buycar">买车</a>
+            <a href="" class="header-active" rel="nofollow" title="二手车出售" uxevent="w_top/c2bsell">卖车</a>
+            <a href="" class="" rel="nofollow" title="旧卖二手车服务保障" uxevent="w_top/service">尊享车主权益</a>
+        </div>
+	</div>
+</div>
+<div class="body">
+<div class="information-fill-content">
+<h2 class="information-fill-title">——  精准填写资料有利于获得精准报价 ——</h2>
+<div class="information-container clearfix">
+<ul class="clearfix">
+<li class="information-row">
+<label class="new-title-title">卖车城市</label>
+<div class="new-city_choose-city-choose">
+<span class="new-city_choose-city-input new-city_choose-gary new-city_choose-provinceshi" type="provinceshi">省</span>
+<span class="new-city_choose-city-input new-city_choose-gary new-city_choose-city" type="city">市</span>
+<span class="new-city_choose-city-input new-city_choose-gary new-city_choose-district" type="district">区</span>
+</div></li>
+<li class="information-row">
+<label class="new-title-title">车辆牌照</label>
+<span class="information-in-box">
+<span class="new-content-in-txt new-content-change-wid" id="js-short">浙</span>
+<span class="new-content-in-txt new-content-change-wid" id="js-letter">A</span>
+</span>
+</li>
+<li class="information-row">
+<label class="new-title-title">品牌车系</label>
+<span class="information-in-box">
+<span class="new-content-in-txt new-content-fc-gray new-content-" id="js-brand-audi-model">请选择品牌&amp;车系&amp;车型</span>
+</span>
+</li>
+<li class="information-row">
+<label class="new-title-title">上牌时间</label>
+<span class="information-in-box">
+<span class="new-content-in-txt new-content-fc-gray new-content-" id="js-card-time">请选择上牌时间</span>
+</span>
+</li>
+<li class="information-row information-mile">
+<label class="new-title-title">行驶里程</label>
+<div class="information-in-box">
+<input type="text" placeholder="请输入公里数" class="new-mile-in-mile" id="js-mile" autocomplete="off">
+<span class="new-mile-unit-txt">万公里</span>
+<span class="new-mile-max-mile-tip" style="display: none;">
+里程数不能超过60公里<span class="new-mile-mile-tip-arrow"></span>
+</span></div>
+</li>
+<li class="information-row">
+<label class="new-title-title">车况自评</label>
+<div class="information-in-box">
+<span class="new-content-in-txt new-content-fc-gray new-content-" id="js-evalutation">请选择车况</span>
+</div>
+</li>
+</ul>
+<div class="notification-wrap-letter">
+<i class="notification-lit-pic notification-active" data-value="1"></i>我已阅读同意<a href="javascript:void(0);" class="notification-notification js-look">《个人信息使用政策告知书》</a>
+</div>
+<div class="new-next_btn-btn-box">
+<span class="new-next_btn-error-tip"></span>
+<span class="new-next_btn-submit-btn js-btn">
+<span class="new-next_btn-text">提交信息</span>
+</span>
+</div>
+</div>
+</div>
+</div>
+
+<div class="footer">
+<div class="footer-center">
+<div class="nav">
+	<a href="" class="nav-btn" rel="nofollow">关于我们</a>
+	<a href="" class="nav-btn" rel="nofollow">加入我们</a>
+	<a href="" class="nav-btn" rel="nofollow">帮助中心</a>
+	<a href="" class="nav-btn" rel="nofollow">用户反馈</a>
+	<a href="" class="nav-btn">网站地图</a>
+    <!--a href=" class="nav-btn">Investors</a-->
+</div>
+<div class="footer-code">
+<img src="../../../static/images/wx-sub.png" class="code-img">
+<div class="code-txt">
+<span class="span-tit">微信公众号</span>
+<span class="span-txt">二手车交易信息</span>
+</div>
+</div>
+<div class="footer-code2">
+<img src="../../../static/images/wx-sub.png" class="code-img">
+<div class="code-txt">
+<span class="span-tit">扫二维码加微信</span>
+<span class="span-txt">车源更新不错过</span>
+</div>
+</div>
+
+<div class="footer-bot">
+<div class="copy">权利声明：本网站对展示的车辆信息、检测报告、视频、图片等内容享有合法权利，未经许可，不得非法转载、复制等方式使用。</div>
+<div class="gongan">
+<a class="copy" href="http://www.beian.miit.gov.cn/" target="_blank">浙ICP备*********号-1</a>
+</div>
+<div class="credit">
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript" src="../../../static/js/base.js"></script>
+<script type="text/javascript" src="../../../static/js/c2b-car-message.js"></script>
+<script type="text/javascript" src="../../../static/js/c2b_quotation_new.js"></script>
+    <!--<script>var _abqVersion='17112101';var _abq=_abq||[];_abq.push(['_pageview']);!function(t,e){var a=t.createElement(e);a.async=!0,a.src=('https:'==t.location.protocol?'https://':'http://')+(location.hostname == 'www.xin.com' ? 'ab.xin.com' : 'ab.test.xin.com')+'/ab.js?v='+_abqVersion;var c=t.getElementsByTagName(e)[0];c.parentNode.insertBefore(a,c)}(document,'script');</script>-->
+
+<!--script src="images_files/newAb_ee213aa.js"></script>
+<script src="images_files/ab_216c97c.js"></script-->
+
+<script type="text/javascript">
+    var _abq = _abq || [];
+    _abq.push(['_pageview']);
+</script><img style="display: none;" src="../../../static/images/collect.gif"><img style="display: none;" src="images_files/hitlog.gif">
+    <script>
+$(function(){
+    $(document).on('click', function(e){
+        if(!window._abq) return;
+        
+        var target = $(e.target);
+
+        while(target.length > 0 && target.get(0) != document){
+            var abevent = target.attr('abevent') || target.attr('uxevent');
+
+            if(abevent){
+                if(abevent.indexOf('/') == 0){
+                    if(abevent) _abq.push(['_track'].concat(abevent.substr(1).split('/')));
+                }else{
+                    if(abevent) _abq.push(['_track'].concat(abevent.split('/')));
+                }
+            }
+
+            target = target.parent();
+        }
+    });
+});
+
+
+/**
+ * 日志打点(针对曝光)
+ *
+ * @param pl 标识
+ * @param ds 打点内容
+ */
+function uxl_exposure_track(pl, ds) {
+    if(!_abq) _abq = [];
+    var _params = {"pl" : pl, "ds" : ds};
+    _abq.push(['_eventReq', _params]);
+}
+/*
+ * 点击埋点的方法如果不存在，则添加
+ */
+if(typeof uxl_track != 'function') {
+    // ab统计
+    function uxl_track(event) {
+        if(!_abq) _abq = [];
+        event = event || '';
+        _abq.push(['_track'].concat(event.split('/')));
+    }
+}
+
+</script>
+<script type="text/javascript">!function(){	var datas = {
+		sn:'4bbdccdb6a9fc7ee6736d547c8226bcb',
+		http:'https://openapix.xin.com',
+		cardtime:{"year":[2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,2000,1999,1998,1997,1996,1995],"year_sale":[2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010,2009,2008,2007,2006],"month":[1,2,3,4,5,6,7,8,9,10,11,12]},
+		cityid:'3001',
+		cityname:'杭州',
+		token:'z6DWKF',
+		usertoken: '',
+		c2bocitytag:'1',
+		location_cityid:'3001',
+		city_zg_status:'1'
+	}
+	//let cardtime = {"year":[2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010,2009,2008,2007,2006,2005,2004,2003,2002,2001,2000,1999,1998,1997,1996,1995],"year_sale":[2020,2019,2018,2017,2016,2015,2014,2013,2012,2011,2010,2009,2008,2007,2006],"month":[1,2,3,4,5,6,7,8,9,10,11,12]};
+    require('newcar-www:widget/c2b_sale_new/c2b_quotation_new/fill_information/fill_information.es6').init(datas);
+}();
+!function(){    require('newcar-www:widget/common/footer/footer.es6').init();}();</script>
+</body>
+</html>

@@ -1,0 +1,1829 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>会员中心-车源管理-二手车交易-Python智能</title>
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta name="keywords" content="买车,买车,估价,智能客服,Python智能">
+<meta name="description" content="买车-二手车交易">
+<meta name="viewport" content="width=1210,initial-scale=1.0">
+<meta name="location" content="province=浙江;city=杭州;coord=120.1550700,30.2740840">
+<link rel="shortcut icon" href="../../../favicon.ico">
+<!-- start 只针对ipad添加 -->
+<meta name="viewport" id="WebViewport" content="width=1300,initial-scale=1,minimum-scale=0.5,maximum-scale=1,user-scalable=no">
+<link rel="stylesheet" type="text/css" href="../../../static/css/base-windows.css">
+    <script src="/static/js/jquery-3.5.0.min.js" type="text/javascript"></script>
+<!--script src="../../../static/js/hm.js"></script>
+<script language="javascript">
+    function setCookie(name, value, option) { var str = name + '=' + escape(value); if (option) { if (option.expireHours) { var d = new Date(); d.setTime(d.getTime() + option.expireHours * 3600 * 1000); str += '; expires=' + d.toGMTString(); } if (option.path) str += '; path=' + option.path; else str += '; path=/'; if (option.domain) str += '; domain=' + option.domain; if (option.secure) str += '; true'; } document.cookie = str; }
+        function getCookie(name, defaultValue) { var re = new RegExp(name + '=([^;]*);?', 'gi'); var v = typeof defaultValue == "undefined" ? null : defaultValue; var r = re.exec(document.cookie) || []; return (r.length > 1 ? unescape(r[1]) : v) };
+       
+	var u = navigator.userAgent;
+	var isiPad = u.indexOf('iPad') > -1; 
+	if (isiPad) {
+		var resizeViewport = function () {
+			var sw = screen.width;
+			if (window.orientation == 90 || window.orientation == -90) {
+				sw = screen.height;
+			}
+			document.getElementById('WebViewport').setAttribute('content', 'width=1300,initial-scale=' + sw / 1300 + ',minimum-scale=0.5,maximum-scale=1,user-scalable=no');
+		}
+		resizeViewport();
+		window.addEventListener("onorientationchange" in window ? "orientationchange" : "resize", function () {
+			resizeViewport();
+		}, false);
+	}
+</script-->
+<!-- end 只针对ipad添加 -->
+<!-- start 样式文件位置（所有的css放在顶部） -->
+<!-- 180服务器 -->
+<link href="../../../static/css/common-user.css" rel="stylesheet">
+<link href="../../../static/css/person-list-user.css" rel="stylesheet">
+<!-- end 样式文件位置 -->
+<!--script src="../../../static/js/bundle-user.js"></script>
+<script src="../../../static/js/jquery-user.js"></script>
+<script src="../../../static/js/co-user.js"></script>
+<script src="../../../static/js/Common-user.js"></script>
+<script type="text/javascript" src="/UserTip.html"></script-->
+</head>
+<body>
+<!--<button id="test_cors">跨域测试</button>-->
+ <!-- ie6提示-->
+ <!--[if lte IE 6]>
+  <div class="car-prompt-header">
+    <div class="content">
+  	<span>
+  		<i class="warning iconfont">&#xe914;</i> 检测到您的IE6浏览器版本版本过低！二手车之家暂不支持旧版本的浏览器,为了保证您的使用体验还是试试更新一下你的浏览器吧~
+  	</span>
+    </div>
+  </div>
+<![endif]-->
+  <!-- 广告 -->
+<div id="personalmini" class="minitop mini-index">
+    <div class="mini-main">
+        <div class="mini-left">
+            <ul>
+                <li><a target="_blank" href="http://127.0.0.1:5000/index">&lt;&lt; 旧卖车首页</a> </li>
+                <li><span>|</span></li>
+                <li><a id="buycar" target="_blank" href="https://127.0.0.1/hangzhou/list/#pvareaid=100992">我要买车</a></li>
+                <li><span>|</span></li>
+                <li><a target="_blank" id="aSaleCar" name="sale_car" href="https://127.0.0.1/car/sale/#pvareaid=100995">我要卖车</a></li>
+                <li><span>|</span></li>
+                <li><a target="_blank" href="https://127.0.0.1/pinggu/#pvareaid=100998">估价</a></li>
+                <li><span>|</span></li>
+                <li><a id="needcar" target="_blank" href="https://127.0.0.1/buy/add/">求购</a></li>
+            </ul>
+        </div>
+        <div class="mini-right">
+            <ul class="frs">
+               <li class="moreli element-hover">
+						<div class="app-code">
+                            <i class="app-code-arrow"></i>
+							<div class="code-img"><img src="../../../static/images/autohomecar__ChcCQ13zLFuAWoXiAABPYCCObyI793.png" alt=""></div> <span>扫描下载</span> <span>二手车之家APP</span> </div>
+					</li>
+					<li class="vl"></li> 
+            </ul>
+         
+             <ul class="frs">
+                <li>
+                    <div class="moreli-title">
+                        <a target="_blank" href="https://127.0.0.1/FeedBack.aspx#pvareaid=101017"><span>意见反馈</span></a>
+                    </div>
+                </li>
+                <li class="vl"></li>
+            </ul>
+            <ul class="frs" id="usernote">
+                <li>
+                    <div id="usertip" style="" class="moreli-title"><a target="_blank" href="https://127.0.0.1/notice/"><span id="spanNotice">系统通知</span><i id="icon" style="display: none;" class="icon10 icon10-down1"></i></a></div>
+                    <div id="usertip_msg" style="display: none;" class="topchadiv topchadiv-dw03">
+                        <div class="topchadiv-top">
+                            <div class="topchadiv-top-con"></div>
+                        </div>
+                        <div class="topchadiv-box topchadiv-box-w">
+                            <div class="topchadiv-con" id="divTipContent">
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="vl"></li>
+            </ul>
+        
+            <ul class="frs frs-login" id="nologin1">
+                <li class="frs-login">
+                    <div class="moreli-title">
+                        <span style="color:#606977;">商家：<a id="dealerLogin" href="https://127.0.0.1/login.html#pvareaid=101013?backurl=https://127.0.0.1/" target="_blank">登录</a><a href="https://127.0.0.1/register.html#pvareaid=101016" target="_blank">申请免费发车</a></span>
+
+                    </div>
+                </li>
+                <li class="vl"></li>
+            </ul>
+          <ul class="frs">
+                <li class="moreli">
+                    <div class="moreli-title" id="mycarhome">
+                        <a href="javascript:;"><span>我的二手车之家</span><i class="iconfont iconfont-drop-down">&#59670;</i></a>
+                    </div>
+                    <!--更多切换层开始-->
+                    <div style="display: none;" id="mycarhomepanel" class="topchadiv topchadiv-dw04">
+                         <div class="topchadiv-top">
+                             <div class="topchadiv-top-con"></div>
+                         </div>
+                         <div class="topchadiv-box">
+                             <div class="topchadiv-con">
+                                 <a id="minihead_caradd" href="https://127.0.0.1/car/sale/#pvareaid=101217">发布车源</a>
+                                 <a href="https://127.0.0.1/car/auctionmanager/#pvareaid=101342" id="hrefsellcar">我卖的车</a>
+                                 <a href="https://127.0.0.1/collection/" id="mysave">我的收藏</a>
+                               
+                             </div>
+                         </div>
+                     </div>
+                    <!--更多切换层结束-->
+                </li>
+                <li class="vl"></li>
+            </ul>
+            <ul class="frs frs-login" id="nologin" style="display: none;">
+                <li id="auto-header-login" class="frs-login">
+                    <div class="moreli_title" id="divuserinfo">                        
+                        个人：
+                        <a id="personLogin" href="https://127.0.0.1/login?" target="_blank">登录</a>/<a id="personregister" href="https://127.0.0.1/register" target="_blank">注册</a>
+                        
+                    </div>
+                </li>
+            </ul>
+                <ul class="frs frs-login" id="userinfo" style="">
+                <li>
+                    <div class="moreli-title" style="color:#606977;">您好！&nbsp;<a class="reda" id="usename" style="color:#ff5a37;" target="_self" href="https://127.0.0.1/car/auctionmanager/">CARFuns</a>&nbsp;<a id="aLogout" onclick="personalLoginOff()" href="javascript:void(0);">退出</a></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div id="dealermini" class="minitop" style="display: none;">
+    <div class="mini-main">
+        <div id="login" class="con_mini">
+            <div class="mini-left">
+                你好，<span style="color: #F56B20" id="dealername"></span>！ 
+                <span>
+                    <a href="javascript:;" onclick="dealerLoginOff()">退出</a> | 
+                    <a target="_blank" href="https://127.0.0.1/index.html#pvareaid=100754">进入管理后台</a>
+                </span>
+            </div>
+            <div class="mini-right">
+                <ul class="frs">
+                     <li class="moreli element-hover">
+						<div class="moreli-title"> <a href="javascript:void(0);"><span>移动App</span></a> </div>
+						<div class="app-code">
+                            <i class="app-code-arrow"></i>
+							<div class="code-img"><img src="../../../static/images/autohomecar__ChcCQ13zLFuAWoXiAABPYCCObyI793.png" alt=""></div> <span>扫描下载</span> <span>二手车之家APP</span> </div>
+					</li>
+					<li class="vl"></li> 
+                </ul>
+                <ul class="frs">
+                    <li class="moreli">
+                        <div id="qrcode2" class="moreli-title">
+                            <a href="javascript:;"><i class="icon16 icon16-phone"></i><span>触屏版</span><i class="icon10 icon10-down1"></i></a>
+                        </div>
+                        <!--更多切换层开始-->
+                        <div id="qrcodephone2" class="topchadiv topchadiv-dw01" style="display: none;">
+                            <div class="topchadiv-top">
+                                <div class="topchadiv-top-con"></div>
+                            </div>
+                            <div class="topchadiv-box topchadiv-box-w">
+                                <div class="topchadiv-con">
+                                    <p class="mt5">手机看更方便</p>
+                                    <p>
+                                        <img src="../../../static/images/code.png" width="100" height="100">
+                                    </p>
+                                    <p>扫一扫找车源</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!--更多切换层结束-->
+                    </li>
+                    <li class="vl"></li>
+                </ul>
+                <ul class="frs">
+                    <li>
+                        <div class="moreli-title">
+                            <a target="_blank" href="https://127.0.0.1/FeedBack.aspx#pvareaid=101017"><span>意见反馈</span></a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<script type="text/javascript">-->
+<!--    var C = {-->
+<!--        $: function (id) {-->
+<!--            return typeof (id) == 'string' ? document.getElementById(id) : null;-->
+<!--        },-->
+<!--        ready: (function () {-->
+<!--            var isReady = false,-->
+<!--                funs = [];-->
+<!--            function handle(e) {-->
+<!--                if (isReady) {-->
+<!--                    return;-->
+<!--                }-->
+<!--                if (e.type === 'readystatechange' && (document.readyState !== 'interactive' && document.readyState !== 'complete')) {-->
+<!--                    return;-->
+<!--                }-->
+<!--                for (var i = 0; i < funs.length; i++) {-->
+<!--                    funs[i].call(document);-->
+<!--                }-->
+<!--                isReady = true;-->
+<!--                funs = null;-->
+<!--            }-->
+<!--            if (document.addEventListener) {-->
+<!--                document.addEventListener('DOMContentLoaded', handle, false);-->
+<!--                document.addEventListener('readystatechange', handle, false);-->
+<!--                document.addEventListener('load', handle, false);-->
+<!--            }-->
+<!--            else if (document.attachEvent) {-->
+<!--                document.attachEvent('onreadystatechange', handle);-->
+<!--                document.attachEvent('onload', handle);-->
+<!--            }-->
+<!--            return function ready(callback) {-->
+<!--                if (isReady) {-->
+<!--                    callback.call(document);-->
+<!--                }-->
+<!--                else {-->
+<!--                    funs.push(callback);-->
+<!--                }-->
+<!--            };-->
+<!--        }()),-->
+<!--        each: function (obj, func) {-->
+<!--            for (var key in obj) {-->
+<!--                if (obj.hasOwnProperty(key)) func(key, obj[key]);-->
+<!--            }-->
+<!--        },-->
+<!--        getCookie: function (name) {-->
+<!--            var nameEQ = name + "=";-->
+<!--            var ca = document.cookie.split(';');-->
+<!--            for (var i = 0; i < ca.length; i++) {-->
+<!--                var c = ca[i];-->
+<!--                while (c.charAt(0) == ' ') c = c.substring(1, c.length);-->
+<!--                if (c.indexOf(nameEQ) == 0) return decodeURIComponent(c.substring(nameEQ.length, c.length));-->
+<!--            } return null;-->
+<!--        },-->
+<!--        setCookie: function (name, value, expires, path, domain) {-->
+<!--            if (!expires) expires = -1;-->
+<!--            if (!path) path = "/";-->
+<!--            var d = "" + name + "=" + value;-->
+<!--            var e;-->
+<!--            if (expires < 0) {-->
+<!--                e = "";-->
+<!--            }-->
+<!--            else if (expires == 0) {-->
+<!--                var f = new Date(1970, 1, 1);-->
+<!--                e = ";expires=" + f.toUTCString();-->
+<!--            }-->
+<!--            else {-->
+<!--                var now = new Date();-->
+<!--                var f = new Date(now.getTime() + expires * 1000);-->
+<!--                e = ";expires=" + f.toUTCString();-->
+<!--            }-->
+<!--            var dm;-->
+<!--            if (!domain) {-->
+<!--                dm = "";-->
+<!--            }-->
+<!--            else {-->
+<!--                dm = ";domain=" + domain;-->
+<!--            }-->
+<!--            document.cookie = name + "=" + value + ";path=" + path + e + dm;-->
+<!--        },-->
+<!--        loadJS: function (url, fn) {-->
+<!--            var ss = document.getElementsByName('script'),-->
+<!--                loaded = false;-->
+<!--            for (var i = 0, len = ss.length; i < len; i++) {-->
+<!--                if (ss[i].src && ss[i].getAttribute('src') == url) {-->
+<!--                    loaded = true;-->
+<!--                    break;-->
+<!--                }-->
+<!--            }-->
+<!--            if (loaded) {-->
+<!--                if (fn && typeof fn != 'undefined' && fn instanceof Function) fn();-->
+<!--                return false;-->
+<!--            }-->
+<!--            var s = document.createElement('script'),-->
+<!--                b = false;-->
+<!--            s.setAttribute('type', 'text/javascript');-->
+<!--            s.setAttribute('src', url);-->
+<!--            s.onload = s.onreadystatechange = function () {-->
+<!--                if (!b && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) {-->
+<!--                    b = true;-->
+<!--                    if (fn && typeof fn != 'undefined' && fn instanceof Function) {-->
+<!--                        fn();-->
+<!--                    }-->
+<!--                }-->
+<!--            };-->
+<!--            document.getElementsByTagName('head')[0].appendChild(s);-->
+<!--        },-->
+<!--        bind: function (objId, eventType, callBack) {-->
+<!--            var obj = document.getElementById(objId);-->
+<!--            if (obj.addEventListener) {-->
+<!--                obj.addEventListener(eventType, callBack, false);-->
+<!--            }-->
+<!--            else if (window.attachEvent) {-->
+<!--                obj.attachEvent('on' + eventType, callBack);-->
+<!--            }-->
+<!--            else {-->
+<!--                obj['on' + eventType] = callBack;-->
+<!--            }-->
+<!--        },-->
+<!--        moveBind: function (objId, eventType, callBack) {-->
+<!--            var obj = C.$(objId);-->
+<!--            if (obj.removeEventListener) {-->
+<!--                obj.removeEventListener(eventType, callBack, false);-->
+<!--            }-->
+<!--            else if (window.detachEvent) {-->
+<!--                obj.detachEvent('on' + eventType, callBack);-->
+<!--            }-->
+<!--            else {-->
+<!--                obj['on' + eventType] = null;-->
+<!--            }-->
+<!--        }-->
+<!--    };-->
+<!--    C.ajax = function (args) {-->
+<!--        var self = this;-->
+<!--        this.options = {-->
+<!--            type: 'GET',-->
+<!--            async: true,-->
+<!--            contentType: 'application/x-www-form-urlencoded',-->
+<!--            url: 'about:blank',-->
+<!--            data: null,-->
+<!--            success: {},-->
+<!--            error: {}-->
+<!--        };-->
+<!--        this.getXmlHttp = function () {-->
+<!--            var xmlHttp;-->
+<!--            try {-->
+<!--                xmlhttp = new XMLHttpRequest();-->
+<!--            }-->
+<!--            catch (e) {-->
+<!--                try {-->
+<!--                    xmlhttp = new ActiveXObject("Msxml2.XMLHTTP");-->
+<!--                }-->
+<!--                catch (e) {-->
+<!--                    xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");-->
+<!--                }-->
+<!--            }-->
+<!--            if (!xmlhttp) {-->
+<!--                alert('您的浏览器不支持AJAX');-->
+<!--                return false;-->
+<!--            }-->
+<!--            return xmlhttp;-->
+<!--        };-->
+<!--        this.send = function () {-->
+<!--            C.each(self.options, function (key, val) {-->
+<!--                self.options[key] = (args[key] == null) ? val : args[key];-->
+<!--            });-->
+
+<!--            var xmlHttp = new self.getXmlHttp();-->
+<!--            if (self.options.type.toUpperCase() == 'GET') {-->
+<!--                xmlHttp.open(self.options.type, self.options.url + (self.options.data == null ? "" : ((/[?]$/.test(self.options.url) ? '&' : '?') + self.options.data)), self.options.async);-->
+<!--            }-->
+<!--            else {-->
+<!--                xmlHttp.open(self.options.type, self.options.url, self.options.async);-->
+<!--                xmlHttp.setRequestHeader('Content-Length', self.options.data.length);-->
+<!--            }-->
+<!--            xmlHttp.setRequestHeader('Content-Type', self.options.contentType);-->
+<!--            xmlHttp.onreadystatechange = function () {-->
+<!--                if (xmlHttp.readyState == 4) {-->
+<!--                    if (xmlHttp.status == 200 || xmlHttp.status == 0) {-->
+<!--                        if (typeof self.options.success == 'function') self.options.success(xmlHttp.responseText);-->
+<!--                        xmlHttp = null;-->
+<!--                    }-->
+<!--                    else {-->
+<!--                        if (typeof self.options.error == 'function') self.options.error('Server Status: ' + xmlHttp.status);-->
+<!--                    }-->
+<!--                }-->
+<!--            };-->
+
+<!--            xmlHttp.send(self.options.type.toUpperCase() == 'POST' ? self.options.data.toString() : null);-->
+<!--        };-->
+<!--        this.send();-->
+<!--    };-->
+<!--    Array.prototype.indexOf = function (item) {-->
+<!--        for (var i = 0; i < this.length; i++) {-->
+<!--            if (this[i] == item) return i;-->
+<!--        }-->
+<!--        return -1;-->
+<!--    };-->
+<!--    /*获取用户提示信息*/-->
+<!--    function GetUserTip() {-->
+<!--        C.loadJS('//127.0.0.1/Handler/index_v1/UserTip.ashx?cd=sltuser&callback=UserTipCallBack', function () { });-->
+<!--    };-->
+<!--    /*用户提示信息返回处理*/-->
+<!--    function UserTipCallBack(callData) {-->
+<!--        if (callData.error == 1) {-->
+<!--            if (callData.message.allmessage > 0) {-->
+<!--                C.$('spanNotice').innerHTML = '系统通知（<span class="reda">' + callData.message.allmessage + '</span> ）';-->
+<!--                var content = [];-->
+<!--                if (callData.message.waitpayordercount > 0) {-->
+<!--                    content.push('<a target="_blank" onclick="recordOrderTipClick();" href="//127.0.0.1/autonomous/orderlist/">您有<span id="carstatecount" class="reda">');-->
+<!--                    content.push(callData.message.waitpayordercount);-->
+<!--                    content.push('</span>个预约定单未支付</a>');-->
+<!--                }-->
+
+<!--                if (callData.message.carstatecount > 0) {-->
+<!--                    content.push('<a target="_blank" href="//127.0.0.1/notice/?t=1&amp;ref=status">网站卖的车有<span id="carstatecount" class="reda">');-->
+<!--                    content.push(callData.message.carstatecount);-->
+<!--                    content.push('</span>个新动态</a>');-->
+<!--                }-->
+
+<!--                if (callData.message.pricecount > 0) {-->
+<!--                    content.push('<a target="_blank" href="//127.0.0.1/notice/?t=6&amp;ref=price">网站卖的车有<span id="pricecount" class="reda">');-->
+<!--                    content.push(callData.message.pricecount);-->
+<!--                    content.push('</span>个新报价</a>');-->
+<!--                }-->
+
+<!--                if (callData.message.qacount > 0) {-->
+<!--                    content.push('<a target="_blank" href="//127.0.0.1/notice/?t=9&amp;ref=qa">我的问答有<span id="qacount" class="reda">');-->
+<!--                    content.push(callData.message.qacount);-->
+<!--                    content.push('</span>个新回复</a>');-->
+<!--                }-->
+<!--                if (callData.message.commentreturn > 0) {-->
+<!--                    content.push('<a target="_blank" href="//127.0.0.1/notice/?t=11&amp;ref=qa">我的评论有<span id="qacount" class="reda">');-->
+<!--                    content.push(callData.message.commentreturn);-->
+<!--                    content.push('</span>个新回复</a>');-->
+<!--                }-->
+<!--                if (callData.message.commentdelete > 0) {-->
+<!--                    content.push('<a target="_blank" href="//127.0.0.1/notice/?t=12&amp;ref=qa">删除评论有<span id="qacount" class="reda">');-->
+<!--                    content.push(callData.message.commentdelete);-->
+<!--                    content.push('</span>个新回复</a>');-->
+<!--                }-->
+<!--                C.$('divTipContent').innerHTML = content.join('');-->
+<!--                C.$('usernote').style.display = '';-->
+<!--                C.$('icon').style.display = '';-->
+<!--                var sltArea = new TipHover('usertip', 'usertip_msg');-->
+<!--                sltArea.init();-->
+<!--            }-->
+<!--        }-->
+<!--    };-->
+
+<!--    /*退出登录*/-->
+<!--    function loginOff() {-->
+<!--        C.$('nologin').style.display = '';-->
+<!--        C.$('nologin1').style.display = '';-->
+<!--        C.$('usertip').style.display = 'none';-->
+<!--        C.$('userinfo').style.display = 'none';-->
+<!--        if (C.$('rightNologin')) {-->
+<!--            C.$('rightNologin').style.display = '';-->
+<!--            C.$('loginUserName').style.display = 'none';-->
+<!--            C.$('loginUserBlock').style.display = 'none';-->
+<!--            C.$('personalLogin1').parentNode.style.display = '';-->
+<!--            C.$('dealerlogin1').parentNode.style.display = '';-->
+<!--        }-->
+<!--    }-->
+
+<!--    /*个人退出*/-->
+<!--    function personalLoginOff() {-->
+<!--        C.$('hrefsellcar').setAttribute("href", "//127.0.0.1/freecar/#pvareaid=100986");-->
+<!--        //C.$('mybuycar').setAttribute("href", "//127.0.0.1/freecar/#pvareaid=100986");-->
+<!--        C.$('mysave').setAttribute("href", "//127.0.0.1/freecar/#pvareaid=100986");-->
+
+<!--        var logoutChe168Url = "//127.0.0.1/login/LogOut?Jsonbackvar=isLogOff&amp;date=" + new Date();-->
+<!--        var logoutAutoUrl = "//account.autohome.com.cn/login/LogOutJson?backvar=isAutoLogOff&amp;date=" + new Date();-->
+<!--        C.loadJS(logoutChe168Url, function () {-->
+<!--            C.loadJS(logoutAutoUrl, function () {-->
+<!--                loginOff();-->
+<!--                if (typeof CommentOut == "function") {-->
+<!--                    CommentOut()-->
+<!--                }-->
+<!--                C.setCookie('clubUserShow', '', -1, '/', '.che168.com');-->
+<!--                C.setCookie('pcpopclub', '', -1, '/', '.che168.com');-->
+
+<!--            });-->
+<!--        });-->
+<!--    };-->
+<!--    /*商家退出*/-->
+<!--    function dealerLoginOff() {-->
+<!--        C.loadJS('//127.0.0.1//Handler/LoginOut.ashx?async=1', function () {-->
+<!--            C.$('personalmini').style.display = '';-->
+<!--            C.$('dealermini').style.display = 'none';-->
+<!--            loginOff();-->
+<!--            if (typeof CommentOut == "function") {-->
+<!--                CommentOut()-->
+<!--            }-->
+<!--            C.setCookie('2scDealerInfo', '', -1, '/', '.che168.com');-->
+<!--            C.setCookie('2scDealerId', '', -1, '/', '.che168.com');-->
+<!--        });-->
+<!--    };-->
+
+<!--    /*判断登录状态 loginType: 0 未登录，1 个人用户，2 商家用户登录*/-->
+<!--    var che168User = { loginType: 0, memberId: 0, dealerId: 0, userName: '' };-->
+<!--    function UserInfoReader() {-->
+<!--        var dealerId = C.getCookie('2scDealerId');-->
+<!--        if (dealerId && dealerId > 0) {-->
+<!--            che168User.dealerId = dealerId;-->
+<!--            che168User.userName = C.getCookie('2scDealerName');-->
+<!--            che168User.loginType = 2;-->
+<!--        } else {-->
+<!--            var clubusershow = C.getCookie('clubUserShow');-->
+<!--            if (clubusershow && clubusershow.length > 10) {-->
+<!--                var usersplit = clubusershow.split('|');-->
+<!--                if (usersplit.length < 8) { return; }-->
+<!--                che168User.memberId = usersplit[0];-->
+<!--                che168User.userName = usersplit[3];-->
+<!--                che168User.loginType = 1;-->
+<!--            } else {-->
+<!--                che168User.loginType = 0;-->
+<!--            }-->
+<!--        }-->
+<!--        if (che168User.loginType == 1) {-->
+<!--            C.$('dealermini').style.display = 'none';-->
+<!--            C.$('personalmini').style.display = '';-->
+<!--            C.$('usertip').style.display = '';-->
+<!--            C.$('usename').innerHTML = che168User.userName;-->
+<!--            C.$('nologin').style.display = 'none';-->
+<!--            C.$('userinfo').style.display = '';-->
+<!--            C.$('hrefsellcar').setAttribute("href", "//127.0.0.1/car/auctionmanager/#pvareaid=101342");-->
+<!--            //C.$('mybuycar').setAttribute("href", "//127.0.0.1/collection/");-->
+<!--            C.$('mysave').setAttribute("href", "//127.0.0.1/collection/");-->
+<!--            //C.loadJS("//127.0.0.1/handler/GetUserOrderManager.ashx?userid=" + che168User.memberId + "&_callback= setUserBooking")-->
+
+<!--            GetUserTip();-->
+<!--        }-->
+<!--        else if (che168User.loginType == 2) {-->
+<!--            C.$('dealermini').style.display = '';-->
+<!--            C.$('personalmini').style.display = 'none';-->
+<!--            C.$('dealername').innerHTML = che168User.userName;-->
+<!--        }-->
+
+<!--        C.$('dealerLogin').href += '?backurl=' + location.href;-->
+<!--    };-->
+<!--    function setUserBooking(data) {-->
+
+<!--        if (data.result.Item1 == 1) {-->
+<!--            var url = ""-->
+<!--            if (data.result.Item2 == "authentication") {-->
+<!--                url = "//127.0.0.1/authentication/orderlist/";-->
+<!--            }-->
+<!--            else if (data.result.Item2 == "autonomous") {-->
+<!--                url = "//127.0.0.1/autonomous/orderlist/";-->
+<!--            }-->
+<!--            if (url) {-->
+<!--                C.$('mybook').style.display = "block";-->
+<!--                C.$('mybook').setAttribute("href", url);-->
+<!--            }-->
+
+<!--        }-->
+<!--        else {-->
+<!--            C.$('mybook').style.display = "none";-->
+
+<!--        }-->
+<!--    }-->
+<!--    UserInfoReader(); -->
+
+<!--    var SetSaleCarLink = function (tagId) {-->
+<!--        var curArea = C.getCookie('userarea');-->
+<!--        if (curArea == 0) curArea = C.getCookie('area');-->
+<!--        curArea = parseInt(curArea / 100) * 100;-->
+<!--        /* 添加置换信息 2015年2月27日-->
+<!--        var saleCarLink = "//127.0.0.1/car/add/#pvareaid=100492";-->
+<!--         北京地区则跳转到卖车渠道选择页-->
+<!--        if (loadBlock(curArea)) {-->
+<!--            saleCarLink = "//127.0.0.1/sell/1.html#pvareaid=100492";-->
+<!--        }*/-->
+<!--        var saleCarLink = '/sell/1.html#pvareaid=100492';-->
+<!--        if (C.$(tagId)) {-->
+<!--            C.$(tagId).href = saleCarLink;-->
+<!--        }-->
+<!--    };-->
+
+<!--    /*鼠标划过事件 显示和隐藏层事件*/-->
+<!--    var TipHover = function (tgerDiv, showDiv, tgerDivClass, showDivClass, timerSeconds) {-->
+<!--        var curTgerDivClass = C.$(tgerDiv).className;-->
+<!--        var curshowDivClas = C.$(showDiv).className;-->
+<!--        this.init = function () {-->
+<!--            C.bind(tgerDiv, 'mousemove', tipMove);-->
+<!--            C.bind(showDiv, 'mousemove', tip_msgMove);-->
+<!--            if (typeof C.$(tgerDiv).onmouseleave != 'undefined') {-->
+<!--                C.bind(tgerDiv, 'mouseleave', tipOut);-->
+<!--                C.bind(showDiv, 'mouseleave', tip_msgOut);-->
+<!--            }-->
+<!--            else {-->
+<!--                C.bind(tgerDiv, 'mouseout', tipOut);-->
+<!--                C.bind(showDiv, 'mouseout', tip_msgOut);-->
+<!--            }-->
+<!--        };-->
+<!--        /*鼠标划过移出 用户信息提示*/-->
+<!--        var isuserMove = true;-->
+<!--        var showtimer = null;-->
+<!--        var tipMove = function () {-->
+<!--            if (showtimer != null) return;-->
+<!--            showtimer = setTimeout(function () {-->
+<!--                if (C.$(showDiv).style.display == 'none') {-->
+<!--                    C.$(showDiv).style.display = 'block';-->
+<!--                    if (typeof tgerDivClass != 'undefined' && tgerDivClass.length > 0) C.$(tgerDiv).className = tgerDivClass;-->
+<!--                    if (typeof showDivClass != 'undefined' && showDivClass.length > 0) C.$(showDiv).className = showDivClass;-->
+<!--                    showtimer = null;-->
+<!--                }-->
+<!--            }, 150);-->
+<!--            if (timer != null) { clearTimeout(timer); timer = null; }-->
+<!--        };-->
+<!--        var timer = null;-->
+<!--        var tipOut = function () {-->
+<!--            if (C.$(showDiv).style.display == 'none') { clearTimeout(showtimer); showtimer = null; return; }-->
+<!--            if (timer != null) { clearTimeout(timer); }-->
+<!--            timer = setTimeout(function () {-->
+<!--                if (isuserMove) {-->
+<!--                    C.$(showDiv).style.display = 'none';-->
+<!--                    C.$(tgerDiv).className = curTgerDivClass;-->
+<!--                    C.$(showDiv).className = curshowDivClas;-->
+<!--                    clearTimeout(timer);-->
+<!--                    timer = null;-->
+<!--                    clearTimeout(showtimer);-->
+<!--                    showtimer = null;-->
+<!--                }-->
+<!--            }, 100);-->
+<!--        };-->
+<!--        var tip_msgMove = function () {-->
+<!--            isuserMove = false;-->
+<!--        };-->
+<!--        var tip_msgOut = function () {-->
+<!--            isuserMove = true;-->
+<!--            tipOut();-->
+<!--        };-->
+<!--    };-->
+
+<!--    // 商家登录-->
+<!--    if (che168User.loginType === 2) {-->
+<!--        var qrcodeTip = new TipHover('qrcode2', 'qrcodephone2', 'moreli-title moreli-active');-->
+<!--        qrcodeTip.init();-->
+<!--    } else {-->
+<!--        var mycarhome = new TipHover('mycarhome', 'mycarhomepanel');-->
+<!--        mycarhome.init();-->
+<!--    }-->
+
+<!--    // 记录订单提醒气泡点击数-->
+<!--    function recordOrderTipClick() {-->
+<!--        C.loadJS('//127.0.0.1/collect/page_event.ashx?eventkey=m_pc_hao_cardetail_ordertip', function () {-->
+<!--        });-->
+<!--    }-->
+<!--    var loadsolution = function (cid) {-->
+<!--        var saleCarLink = '//127.0.0.1/car/sale/';-->
+<!--        //A（方案一）：北京、深圳、郑州、常州,长沙-->
+<!--        //B（方案二）：苏州、重庆、南京、、青岛、杭州-->
+<!--        //C（方案三）：成都、上海、武汉、无锡  西安-->
+<!--        //var sulution1city = [110100, 440300, 410100, 320400, 430100];-->
+<!--        //var sulution2city = [320500, 500100, 320100, 370200, 330100];-->
+<!--        //var sulution3city = [510100, 310100, 420100, 320200, 610100];-->
+<!--        //if (sulution1city.indexOf(cid) > -1) {-->
+<!--        //    saleCarLink = '//127.0.0.1/car/sale1/';-->
+<!--        //}-->
+<!--        //else if (sulution2city.indexOf(cid) > -1) {-->
+<!--        //    saleCarLink = '//127.0.0.1/car/sale/';-->
+<!--        //}-->
+<!--        //else if (sulution3city.indexOf(cid) > -1) {-->
+<!--        //    saleCarLink = '//127.0.0.1/car/sale3/';-->
+<!--        //}-->
+<!--        //else {-->
+<!--        //    saleCarLink = '//127.0.0.1/car/sale/';-->
+<!--        //}-->
+<!--        return saleCarLink;-->
+<!--    } -->
+<!--    //设置卖车链接-->
+<!--    var SetSaleCarLink1 = function (tagId, pvid) {-->
+<!--        var curArea = C.getCookie('userarea');-->
+<!--        if (curArea == 0) curArea = C.getCookie('area');-->
+<!--        curArea = parseInt(curArea);-->
+<!--        if (curArea == 110000 || curArea == 310000 || curArea == 120000 || curArea == 500000)//如果为城市为直辖市特殊处理-->
+<!--        {-->
+<!--            curArea = parseInt(curArea) + 100;-->
+<!--        }-->
+<!--        var sfcity = ',,110100,120100,130100,130200,130400,130600,130900,131000,140100,140200,140400,140800,150100,150400,210100,210200,211000,220100,220700,230100,310100,320100,320200,320300,320400,320500,320600,320800,321000,321100,321200,321300,330100,330200,330300,330400,330500,330600,330700,331000,340100,340200,340300,340500,341200,341300,341600,350100,350200,350500,360100,370100,370200,371300,410100,411500,420100,420600,430100,430200,430700,440100,440300,440400,440600,441300,441900,442000,450100,450800,500100,510100,510700,511100,511400,520100,520300,530100,610100,,'; -->
+<!--        if (C.$(tagId) && sfcity.indexOf(',' + curArea + ',') > -1) {-->
+<!--            C.$(tagId).href = loadsolution(curArea) + pvid;-->
+<!--        }-->
+<!--    }; -->
+<!--    SetSaleCarLink1("aSaleCar", "#pvareaid=100995");-->
+<!--    SetSaleCarLink1("minihead_caradd", "#pvareaid=101217");-->
+<!--    -->
+<!--</script>-->
+
+
+
+<div class="header-content person-header ">
+ <div class="header fn-clear">
+  <form id="souform" name="soform" onkeydown="javascript:if(event.keyCode==13) return false;return true;" action="//127.0.0.1/handler/searchclick.ashx?pvareaid=101025">
+  <div class="search search01">
+    <div class="search-box">
+      <input id="search2sc" name="kw" autocomplete="off" value="请输入车辆名称" data-toggle="search" data-val="请输入关键字" type="text" class="search-text">
+    </div>
+    <a id="btnKeyword" href="javascript:void(0);" class="search-btn"><i class="iconfont">&#59658;</i></a>
+    <div id="searchpop" class="search-pop">
+      <div class="history">
+        <div id="search_history" class="title">历史搜索</div>
+        <div id="shistory_list" class="history-ft fn-clear"></div>
+      </div>
+      <div class="hot">
+        <div id="prece_hottitle" class="title">热门推荐</div>
+        <ul id="prece_list"> </ul>
+      </div>
+    </div>
+  </div>
+  <input type="hidden" id="py" name="prov" value="hangzhou">
+  <input type="hidden" name="pvareaid" value="101025">
+  <input type="hidden" id="risk" name="risk" value="0">
+</form>
+  
+  
+  <div class="logo">
+    <a href="https://127.0.0.1/">
+       <div><img src="../../../static/images/logo-v2.png" width="140" height="73"></div>
+     
+    </a>
+  </div>
+  <div class="header-city element-hover" data-toggle="city">
+    <div class="city-cont">
+    <span class="city-tx">
+      <a href="javascript:;">
+        <em class="iconfont iconfont-map">&#59715;</em>
+        <span id="sltPName" cid="0">杭州</span>
+        <em class="iconfont iconfont-drop-down">&#59670;</em>
+      </a>
+    </span>
+
+    <div class="city-search fn-clear">
+      <div class="input-box">
+        <input type="text" id="txtCity" value="请输入城市名"><i class="iconfont iconfont-search">&#59658;</i>
+        <div id="divSearchCity" class="search-mini-pop" style="display:none">
+          <div class="search-mini-content" name="djzd">
+              <dl>
+                <dd id="ulSearchCityResult" name="djzd"></dd>
+              </dl>
+          </div>
+        </div>
+      </div>
+       <div class="city-hotcity"><a href="https://127.0.0.1/china/#pvareaid=100939">全国</a><a href="https://127.0.0.1/beijing/#pvareaid=100939">北京</a><a href="https://127.0.0.1/guangzhou/#pvareaid=100939">广州</a></div>
+       </div>
+      <div class="city-municipality">
+        直辖市： <a href="https://127.0.0.1/beijing/#pvareaid=100939">北京</a><a href="https://127.0.0.1/shanghai/#pvareaid=100939">上海</a><a href="https://127.0.0.1/tianjin/#pvareaid=100939">天津</a><a href="https://127.0.0.1/chongqing/#pvareaid=100939">重庆</a>
+      </div>
+      <div class="city-ft-cont">
+          <div class="city-tab">
+            <h4>省份首字母：</h4>
+            <a href="javascript:void(0);">A</a>
+            <a href="javascript:void(0);">B</a>
+            <a href="javascript:void(0);">C</a>
+            <a href="javascript:void(0);">F</a>
+            <a href="javascript:void(0);">G</a>
+            <a href="javascript:void(0);">H</a>
+            <a href="javascript:void(0);">J</a>
+            <a href="javascript:void(0);">L</a>
+            <a href="javascript:void(0);">N</a>
+            <a href="javascript:void(0);">Q</a>
+            <a href="javascript:void(0);">S</a>
+            <a href="javascript:void(0);">T</a>
+            <a href="javascript:void(0);">X</a>
+            <a href="javascript:void(0);">Y</a>
+            <a href="javascript:void(0);">Z</a>
+          </div>
+            <div class="city-list js-scrollbar">
+             <div class="cap-city fn-clear" id="A"><div class="fn-clear"><span class="letter">A</span><span class="capital"><a pid="340000" id="P_340000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/anhui/">安徽</a></span><div class="city"><a pid="340000" id="P_340800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/anqing/#pvareaid=100943">安庆</a><a pid="340000" id="P_341600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/bozhou/#pvareaid=100943">亳州</a><a pid="340000" id="P_340300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/bangbu/#pvareaid=100943">蚌埠</a><a pid="340000" id="P_341700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/chizhou/#pvareaid=100943">池州</a><a pid="340000" id="P_341100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/chuzhou/#pvareaid=100943">滁州</a><a pid="340000" id="P_341200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/fu_yang/#pvareaid=100943">阜阳</a><a pid="340000" id="P_341000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/huangshan/#pvareaid=100943">黄山</a><a pid="340000" id="P_340600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/huaibei/#pvareaid=100943">淮北</a><a pid="340000" id="P_340400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/huainan/#pvareaid=100943">淮南</a><a pid="340000" id="P_340100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/hefei/#pvareaid=100943">合肥</a><a pid="340000" id="P_341500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/liuan/#pvareaid=100943">六安</a><a pid="340000" id="P_340500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/maanshan/#pvareaid=100943">马鞍山</a><a pid="340000" id="P_341300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/su_zhou/#pvareaid=100943">宿州</a><a pid="340000" id="P_340700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/tongling/#pvareaid=100943">铜陵</a><a pid="340000" id="P_340200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/wuhu/#pvareaid=100943">芜湖</a><a pid="340000" id="P_341800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/xuancheng/#pvareaid=100943">宣城</a></div></div></div><div class="cap-city fn-clear" id="B"><div class="fn-clear"><span class="letter">B</span><span class="capital"><a pid="110000" id="P_110000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/beijing/">北京</a></span><div class="city"><a pid="110000" id="P_110100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/beijing/#pvareaid=100943">北京</a></div></div></div><div class="cap-city fn-clear" id="C"><div class="fn-clear"><span class="letter">C</span><span class="capital"><a pid="500000" id="P_500000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/chongqing/">重庆</a></span><div class="city"><a pid="500000" id="P_500100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/chongqing/#pvareaid=100943">重庆</a></div></div></div><div class="cap-city fn-clear" id="F"><div class="fn-clear"><span class="letter">F</span><span class="capital"><a pid="350000" id="P_350000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/fujian/">福建</a></span><div class="city"><a pid="350000" id="P_350100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/fuzhou/#pvareaid=100943">福州</a><a pid="350000" id="P_350800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/longyan/#pvareaid=100943">龙岩</a><a pid="350000" id="P_350900" onclick="SetAreaCookie(this)" href="https://127.0.0.1/ningde/#pvareaid=100943">宁德</a><a pid="350000" id="P_350700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/nanping/#pvareaid=100943">南平</a><a pid="350000" id="P_350300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/putian/#pvareaid=100943">莆田</a><a pid="350000" id="P_350500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/quanzhou/#pvareaid=100943">泉州</a><a pid="350000" id="P_350400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/sanming/#pvareaid=100943">三明</a><a pid="350000" id="P_350200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/xiamen/#pvareaid=100943">厦门</a><a pid="350000" id="P_350600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/zhangzhou/#pvareaid=100943">漳州</a></div></div></div><div class="cap-city fn-clear" id="G"><div class="fn-clear"><span class="letter">G</span><span class="capital"><a pid="440000" id="P_440000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/guangdong/">广东</a></span><div class="city"><a pid="440000" id="P_445100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/chaozhou/#pvareaid=100943">潮州</a><a pid="440000" id="P_441900" onclick="SetAreaCookie(this)" href="https://127.0.0.1/dongguan/#pvareaid=100943">东莞</a><a pid="440000" id="P_440600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/foshan/#pvareaid=100943">佛山</a><a pid="440000" id="P_440100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/guangzhou/#pvareaid=100943">广州</a><a pid="440000" id="P_441300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/huizhou/#pvareaid=100943">惠州</a><a pid="440000" id="P_441600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/heyuan/#pvareaid=100943">河源</a><a pid="440000" id="P_445200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/jieyang/#pvareaid=100943">揭阳</a><a pid="440000" id="P_440700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/jiangmen/#pvareaid=100943">江门</a><a pid="440000" id="P_441400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/meizhou/#pvareaid=100943">梅州</a><a pid="440000" id="P_440900" onclick="SetAreaCookie(this)" href="https://127.0.0.1/maoming/#pvareaid=100943">茂名</a><a pid="440000" id="P_441800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/qingyuan/#pvareaid=100943">清远</a><a pid="440000" id="P_441500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/shanwei/#pvareaid=100943">汕尾</a><a pid="440000" id="P_440500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/shantou/#pvareaid=100943">汕头</a><a pid="440000" id="P_440200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/shaoguan/#pvareaid=100943">韶关</a><a pid="440000" id="P_440300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/shenzhen/#pvareaid=100943">深圳</a><a pid="440000" id="P_445300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/yunfu/#pvareaid=100943">云浮</a><a pid="440000" id="P_441700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/yangjiang/#pvareaid=100943">阳江</a><a pid="440000" id="P_442000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/zhongshan/#pvareaid=100943">中山</a><a pid="440000" id="P_440800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/zhanjiang/#pvareaid=100943">湛江</a><a pid="440000" id="P_441200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/zhaoqing/#pvareaid=100943">肇庆</a><a pid="440000" id="P_440400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/zhuhai/#pvareaid=100943">珠海</a></div></div><div class="fn-clear"><span class="letter"></span><span class="capital"><a pid="450000" id="P_450000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/guangxi/">广西</a></span><div class="city"><a pid="450000" id="P_450500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/beihai/#pvareaid=100943">北海</a><a pid="450000" id="P_451000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/baise/#pvareaid=100943">百色</a><a pid="450000" id="P_451400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/chongzuo/#pvareaid=100943">崇左</a><a pid="450000" id="P_450600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/fangchenggang/#pvareaid=100943">防城港</a><a pid="450000" id="P_450800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/guigang/#pvareaid=100943">贵港</a><a pid="450000" id="P_450300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/guilin/#pvareaid=100943">桂林</a><a pid="450000" id="P_451100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/hezhou/#pvareaid=100943">贺州</a><a pid="450000" id="P_451200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/hechi/#pvareaid=100943">河池</a><a pid="450000" id="P_451300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/laibin/#pvareaid=100943">来宾</a><a pid="450000" id="P_450200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/liuzhou/#pvareaid=100943">柳州</a><a pid="450000" id="P_450100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/nanning/#pvareaid=100943">南宁</a><a pid="450000" id="P_450700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/qinzhou/#pvareaid=100943">钦州</a><a pid="450000" id="P_450400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/wuzhou/#pvareaid=100943">梧州</a><a pid="450000" id="P_450900" onclick="SetAreaCookie(this)" href="https://127.0.0.1/yu_lin/#pvareaid=100943">玉林</a></div></div><div class="fn-clear"><span class="letter"></span><span class="capital"><a pid="520000" id="P_520000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/guizhou/">贵州</a></span><div class="city"><a pid="520000" id="P_520400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/anshun/#pvareaid=100943">安顺</a><a pid="520000" id="P_520500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/bijie/#pvareaid=100943">毕节</a><a pid="520000" id="P_520100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/guiyang/#pvareaid=100943">贵阳</a><a pid="520000" id="P_520200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/liupanshui/#pvareaid=100943">六盘水</a><a pid="520000" id="P_522300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/qianxinan/#pvareaid=100943">黔西南</a><a pid="520000" id="P_522600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/qiandongnan/#pvareaid=100943">黔东南</a><a pid="520000" id="P_522700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/qiannan/#pvareaid=100943">黔南</a><a pid="520000" id="P_520600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/tongren/#pvareaid=100943">铜仁</a><a pid="520000" id="P_520300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/zunyi/#pvareaid=100943">遵义</a></div></div><div class="fn-clear"><span class="letter"></span><span class="capital"><a pid="620000" id="P_620000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/gansu/">甘肃</a></span><div class="city"><a pid="620000" id="P_620400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/baiyin/#pvareaid=100943">白银</a><a pid="620000" id="P_621100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/dingxi/#pvareaid=100943">定西</a><a pid="620000" id="P_623000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/gannan/#pvareaid=100943">甘南</a><a pid="620000" id="P_620900" onclick="SetAreaCookie(this)" href="https://127.0.0.1/jiuquan/#pvareaid=100943">酒泉</a><a pid="620000" id="P_620200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/jiayuguan/#pvareaid=100943">嘉峪关</a><a pid="620000" id="P_620300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/jinchang/#pvareaid=100943">金昌</a><a pid="620000" id="P_620100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/lanzhou/#pvareaid=100943">兰州</a><a pid="620000" id="P_621200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/longnan/#pvareaid=100943">陇南</a><a pid="620000" id="P_622900" onclick="SetAreaCookie(this)" href="https://127.0.0.1/linxia/#pvareaid=100943">临夏</a><a pid="620000" id="P_620800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/pingliang/#pvareaid=100943">平凉</a><a pid="620000" id="P_621000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/qingyang/#pvareaid=100943">庆阳</a><a pid="620000" id="P_620500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/tianshui/#pvareaid=100943">天水</a><a pid="620000" id="P_620600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/wuwei/#pvareaid=100943">武威</a><a pid="620000" id="P_620700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/zhangye/#pvareaid=100943">张掖</a></div></div></div><div class="cap-city fn-clear" id="H"><div class="fn-clear"><span class="letter">H</span><span class="capital"><a pid="460000" id="P_460000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/hainan/">海南</a></span><div class="city"><a pid="460000" id="P_469025" onclick="SetAreaCookie(this)" href="https://127.0.0.1/baisha/#pvareaid=100943">白沙</a><a pid="460000" id="P_469029" onclick="SetAreaCookie(this)" href="https://127.0.0.1/baoting/#pvareaid=100943">保亭</a><a pid="460000" id="P_469026" onclick="SetAreaCookie(this)" href="https://127.0.0.1/changjiang/#pvareaid=100943">昌江</a><a pid="460000" id="P_469023" onclick="SetAreaCookie(this)" href="https://127.0.0.1/chengmai/#pvareaid=100943">澄迈</a><a pid="460000" id="P_469007" onclick="SetAreaCookie(this)" href="https://127.0.0.1/dongfang/#pvareaid=100943">东方</a><a pid="460000" id="P_469021" onclick="SetAreaCookie(this)" href="https://127.0.0.1/dingan/#pvareaid=100943">定安</a><a pid="460000" id="P_460400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/danzhou/#pvareaid=100943">儋州</a><a pid="460000" id="P_460100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/haikou/#pvareaid=100943">海口</a><a pid="460000" id="P_469024" onclick="SetAreaCookie(this)" href="https://127.0.0.1/lingao/#pvareaid=100943">临高</a><a pid="460000" id="P_469027" onclick="SetAreaCookie(this)" href="https://127.0.0.1/ledong/#pvareaid=100943">乐东</a><a pid="460000" id="P_469028" onclick="SetAreaCookie(this)" href="https://127.0.0.1/lingshui/#pvareaid=100943">陵水</a><a pid="460000" id="P_469030" onclick="SetAreaCookie(this)" href="https://127.0.0.1/qiongzhong/#pvareaid=100943">琼中</a><a pid="460000" id="P_469002" onclick="SetAreaCookie(this)" href="https://127.0.0.1/qionghai/#pvareaid=100943">琼海</a><a pid="460000" id="P_460200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/sanya/#pvareaid=100943">三亚</a><a pid="460000" id="P_460300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/sansha/#pvareaid=100943">三沙</a><a pid="460000" id="P_469022" onclick="SetAreaCookie(this)" href="https://127.0.0.1/tunchang/#pvareaid=100943">屯昌</a><a pid="460000" id="P_469005" onclick="SetAreaCookie(this)" href="https://127.0.0.1/wenchang/#pvareaid=100943">文昌</a><a pid="460000" id="P_469006" onclick="SetAreaCookie(this)" href="https://127.0.0.1/wanning/#pvareaid=100943">万宁</a><a pid="460000" id="P_469001" onclick="SetAreaCookie(this)" href="https://127.0.0.1/wuzhishan/#pvareaid=100943">五指山</a></div></div><div class="fn-clear"><span class="letter"></span><span class="capital"><a pid="410000" id="P_410000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/henan/">河南</a></span><div class="city"><a pid="410000" id="P_410500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/anyang/#pvareaid=100943">安阳</a><a pid="410000" id="P_410600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/hebi/#pvareaid=100943">鹤壁</a><a pid="410000" id="P_410800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/jiaozuo/#pvareaid=100943">焦作</a><a pid="410000" id="P_419001" onclick="SetAreaCookie(this)" href="https://127.0.0.1/jiyuan/#pvareaid=100943">济源</a><a pid="410000" id="P_410200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/kaifeng/#pvareaid=100943">开封</a><a pid="410000" id="P_410300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/luoyang/#pvareaid=100943">洛阳</a><a pid="410000" id="P_411100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/luohe/#pvareaid=100943">漯河</a><a pid="410000" id="P_411300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/nanyang/#pvareaid=100943">南阳</a><a pid="410000" id="P_410900" onclick="SetAreaCookie(this)" href="https://127.0.0.1/puyang/#pvareaid=100943">濮阳</a><a pid="410000" id="P_410400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/pingdingshan/#pvareaid=100943">平顶山</a><a pid="410000" id="P_411200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/sanmenxia/#pvareaid=100943">三门峡</a><a pid="410000" id="P_411400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/shangqiu/#pvareaid=100943">商丘</a><a pid="410000" id="P_411500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/xinyang/#pvareaid=100943">信阳</a><a pid="410000" id="P_411000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/xuchang/#pvareaid=100943">许昌</a><a pid="410000" id="P_410700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/xinxiang/#pvareaid=100943">新乡</a><a pid="410000" id="P_410100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/zhengzhou/#pvareaid=100943">郑州</a><a pid="410000" id="P_411600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/zhoukou/#pvareaid=100943">周口</a><a pid="410000" id="P_411700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/zhumadian/#pvareaid=100943">驻马店</a></div></div><div class="fn-clear"><span class="letter"></span><span class="capital"><a pid="420000" id="P_420000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/hubei/">湖北</a></span><div class="city"><a pid="420000" id="P_420700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/ezhou/#pvareaid=100943">鄂州</a><a pid="420000" id="P_422800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/enshi/#pvareaid=100943">恩施</a><a pid="420000" id="P_421100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/huanggang/#pvareaid=100943">黄冈</a><a pid="420000" id="P_420200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/huangshi/#pvareaid=100943">黄石</a><a pid="420000" id="P_420800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/jingmen/#pvareaid=100943">荆门</a><a pid="420000" id="P_421000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/jingzhou/#pvareaid=100943">荆州</a><a pid="420000" id="P_429005" onclick="SetAreaCookie(this)" href="https://127.0.0.1/qianjiang/#pvareaid=100943">潜江</a><a pid="420000" id="P_429021" onclick="SetAreaCookie(this)" href="https://127.0.0.1/shennongjia/#pvareaid=100943">神农架</a><a pid="420000" id="P_421300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/suizhou/#pvareaid=100943">随州</a><a pid="420000" id="P_420300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/shiyan/#pvareaid=100943">十堰</a><a pid="420000" id="P_429006" onclick="SetAreaCookie(this)" href="https://127.0.0.1/tianmen/#pvareaid=100943">天门</a><a pid="420000" id="P_420100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/wuhan/#pvareaid=100943">武汉</a><a pid="420000" id="P_420600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/xiangyang/#pvareaid=100943">襄阳</a><a pid="420000" id="P_420900" onclick="SetAreaCookie(this)" href="https://127.0.0.1/xiaogan/#pvareaid=100943">孝感</a><a pid="420000" id="P_421200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/xianning/#pvareaid=100943">咸宁</a><a pid="420000" id="P_429004" onclick="SetAreaCookie(this)" href="https://127.0.0.1/xiantao/#pvareaid=100943">仙桃</a><a pid="420000" id="P_420500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/yichang/#pvareaid=100943">宜昌</a></div></div><div class="fn-clear"><span class="letter"></span><span class="capital"><a pid="430000" id="P_430000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/hunan/">湖南</a></span><div class="city"><a pid="430000" id="P_430100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/changsha/#pvareaid=100943">长沙</a><a pid="430000" id="P_430700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/changde/#pvareaid=100943">常德</a><a pid="430000" id="P_431000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/chenzhou/#pvareaid=100943">郴州</a><a pid="430000" id="P_431200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/huaihua/#pvareaid=100943">怀化</a><a pid="430000" id="P_430400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/hengyang/#pvareaid=100943">衡阳</a><a pid="430000" id="P_431300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/loudi/#pvareaid=100943">娄底</a><a pid="430000" id="P_430500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/shaoyang/#pvareaid=100943">邵阳</a><a pid="430000" id="P_430300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/xiangtan/#pvareaid=100943">湘潭</a><a pid="430000" id="P_433100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/xiangxi/#pvareaid=100943">湘西</a><a pid="430000" id="P_431100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/yongzhou/#pvareaid=100943">永州</a><a pid="430000" id="P_430600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/yueyang/#pvareaid=100943">岳阳</a><a pid="430000" id="P_430900" onclick="SetAreaCookie(this)" href="https://127.0.0.1/yiyang/#pvareaid=100943">益阳</a><a pid="430000" id="P_430200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/zhuzhou/#pvareaid=100943">株洲</a><a pid="430000" id="P_430800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/zhangjiajie/#pvareaid=100943">张家界</a></div></div><div class="fn-clear"><span class="letter"></span><span class="capital"><a pid="130000" id="P_130000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/hebei/">河北</a></span><div class="city"><a pid="130000" id="P_130600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/baoding/#pvareaid=100943">保定</a><a pid="130000" id="P_130800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/chengde/#pvareaid=100943">承德</a><a pid="130000" id="P_130900" onclick="SetAreaCookie(this)" href="https://127.0.0.1/cangzhou/#pvareaid=100943">沧州</a><a pid="130000" id="P_131100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/hengshui/#pvareaid=100943">衡水</a><a pid="130000" id="P_130400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/handan/#pvareaid=100943">邯郸</a><a pid="130000" id="P_131000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/langfang/#pvareaid=100943">廊坊</a><a pid="130000" id="P_130300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/qinhuangdao/#pvareaid=100943">秦皇岛</a><a pid="130000" id="P_130100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/shijiazhuang/#pvareaid=100943">石家庄</a><a pid="130000" id="P_130200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/tangshan/#pvareaid=100943">唐山</a><a pid="130000" id="P_130500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/xingtai/#pvareaid=100943">邢台</a><a pid="130000" id="P_130700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/zhangjiakou/#pvareaid=100943">张家口</a></div></div><div class="fn-clear"><span class="letter"></span><span class="capital"><a pid="230000" id="P_230000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/heilongjiang/">黑龙江</a></span><div class="city"><a pid="230000" id="P_230600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/daqing/#pvareaid=100943">大庆</a><a pid="230000" id="P_232700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/daxinganling/#pvareaid=100943">大兴安岭</a><a pid="230000" id="P_231100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/heihe/#pvareaid=100943">黑河</a><a pid="230000" id="P_230400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/hegang/#pvareaid=100943">鹤岗</a><a pid="230000" id="P_230100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/haerbin/#pvareaid=100943">哈尔滨</a><a pid="230000" id="P_230300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/jixi/#pvareaid=100943">鸡西</a><a pid="230000" id="P_230800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/jiamusi/#pvareaid=100943">佳木斯</a><a pid="230000" id="P_231000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/mudanjiang/#pvareaid=100943">牡丹江</a><a pid="230000" id="P_230900" onclick="SetAreaCookie(this)" href="https://127.0.0.1/qitaihe/#pvareaid=100943">七台河</a><a pid="230000" id="P_230200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/qiqihaer/#pvareaid=100943">齐齐哈尔</a><a pid="230000" id="P_230500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/shuangyashan/#pvareaid=100943">双鸭山</a><a pid="230000" id="P_231200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/suihua/#pvareaid=100943">绥化</a><a pid="230000" id="P_230700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/yichun/#pvareaid=100943">伊春</a></div></div></div><div class="cap-city fn-clear" id="J"><div class="fn-clear"><span class="letter">J</span><span class="capital"><a pid="320000" id="P_320000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/jiangsu/">江苏</a></span><div class="city"><a pid="320000" id="P_320400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/changzhou/#pvareaid=100943">常州</a><a pid="320000" id="P_320800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/huaian/#pvareaid=100943">淮安</a><a pid="320000" id="P_320700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/lianyungang/#pvareaid=100943">连云港</a><a pid="320000" id="P_320600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/nantong/#pvareaid=100943">南通</a><a pid="320000" id="P_320100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/nanjing/#pvareaid=100943">南京</a><a pid="320000" id="P_320500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/suzhou/#pvareaid=100943">苏州</a><a pid="320000" id="P_321300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/suqian/#pvareaid=100943">宿迁</a><a pid="320000" id="P_321200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/tai_zhou/#pvareaid=100943">泰州</a><a pid="320000" id="P_320200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/wuxi/#pvareaid=100943">无锡</a><a pid="320000" id="P_320300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/xuzhou/#pvareaid=100943">徐州</a><a pid="320000" id="P_320900" onclick="SetAreaCookie(this)" href="https://127.0.0.1/yancheng/#pvareaid=100943">盐城</a><a pid="320000" id="P_321000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/yangzhou/#pvareaid=100943">扬州</a><a pid="320000" id="P_321100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/zhenjiang/#pvareaid=100943">镇江</a></div></div><div class="fn-clear"><span class="letter"></span><span class="capital"><a pid="360000" id="P_360000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/jiangxi/">江西</a></span><div class="city"><a pid="360000" id="P_361000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/fu_zhou/#pvareaid=100943">抚州</a><a pid="360000" id="P_360700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/ganzhou/#pvareaid=100943">赣州</a><a pid="360000" id="P_360800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/jian/#pvareaid=100943">吉安</a><a pid="360000" id="P_360400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/jiujiang/#pvareaid=100943">九江</a><a pid="360000" id="P_360200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/jingdezhen/#pvareaid=100943">景德镇</a><a pid="360000" id="P_360100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/nanchang/#pvareaid=100943">南昌</a><a pid="360000" id="P_360300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/ping_xiang/#pvareaid=100943">萍乡</a><a pid="360000" id="P_361100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/shangrao/#pvareaid=100943">上饶</a><a pid="360000" id="P_360500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/xinyu/#pvareaid=100943">新余</a><a pid="360000" id="P_360600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/yingtan/#pvareaid=100943">鹰潭</a><a pid="360000" id="P_360900" onclick="SetAreaCookie(this)" href="https://127.0.0.1/yi_chun/#pvareaid=100943">宜春</a></div></div><div class="fn-clear"><span class="letter"></span><span class="capital"><a pid="220000" id="P_220000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/jilin/">吉林</a></span><div class="city"><a pid="220000" id="P_220600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/baishan/#pvareaid=100943">白山</a><a pid="220000" id="P_220800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/baicheng/#pvareaid=100943">白城</a><a pid="220000" id="P_220100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/changchun/#pvareaid=100943">长春</a><a pid="220000" id="P_220200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/jilinshi/#pvareaid=100943">吉林</a><a pid="220000" id="P_220400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/liaoyuan/#pvareaid=100943">辽源</a><a pid="220000" id="P_220700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/songyuan/#pvareaid=100943">松原</a><a pid="220000" id="P_220300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/siping/#pvareaid=100943">四平</a><a pid="220000" id="P_220500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/tonghua/#pvareaid=100943">通化</a><a pid="220000" id="P_222400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/yanbian/#pvareaid=100943">延边</a></div></div></div><div class="cap-city fn-clear" id="L"><div class="fn-clear"><span class="letter">L</span><span class="capital"><a pid="210000" id="P_210000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/liaoning/">辽宁</a></span><div class="city"><a pid="210000" id="P_210300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/anshan/#pvareaid=100943">鞍山</a><a pid="210000" id="P_210500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/benxi/#pvareaid=100943">本溪</a><a pid="210000" id="P_211300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/chaoyang/#pvareaid=100943">朝阳</a><a pid="210000" id="P_210600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/dandong/#pvareaid=100943">丹东</a><a pid="210000" id="P_210200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/dalian/#pvareaid=100943">大连</a><a pid="210000" id="P_210400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/fushun/#pvareaid=100943">抚顺</a><a pid="210000" id="P_210900" onclick="SetAreaCookie(this)" href="https://127.0.0.1/fuxin/#pvareaid=100943">阜新</a><a pid="210000" id="P_211400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/huludao/#pvareaid=100943">葫芦岛</a><a pid="210000" id="P_210700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/jinzhou/#pvareaid=100943">锦州</a><a pid="210000" id="P_211000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/liaoyang/#pvareaid=100943">辽阳</a><a pid="210000" id="P_211100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/panjin/#pvareaid=100943">盘锦</a><a pid="210000" id="P_210100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/shenyang/#pvareaid=100943">沈阳</a><a pid="210000" id="P_211200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/tieling/#pvareaid=100943">铁岭</a><a pid="210000" id="P_210800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/yingkou/#pvareaid=100943">营口</a></div></div></div><div class="cap-city fn-clear" id="N"><div class="fn-clear"><span class="letter">N</span><span class="capital"><a pid="150000" id="P_150000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/namenggu/">内蒙古</a></span><div class="city"><a pid="150000" id="P_152900" onclick="SetAreaCookie(this)" href="https://127.0.0.1/alashanmeng/#pvareaid=100943">阿拉善盟</a><a pid="150000" id="P_150200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/baotou/#pvareaid=100943">包头</a><a pid="150000" id="P_150800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/bayannaoer/#pvareaid=100943">巴彦淖尔</a><a pid="150000" id="P_150400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/chifeng/#pvareaid=100943">赤峰</a><a pid="150000" id="P_150700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/hulunbeier/#pvareaid=100943">呼伦贝尔</a><a pid="150000" id="P_152200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/xinganmeng/#pvareaid=100943">兴安盟</a><a pid="150000" id="P_150100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/huhehaote/#pvareaid=100943">呼和浩特</a><a pid="150000" id="P_150600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/eerduosi/#pvareaid=100943">鄂尔多斯</a><a pid="150000" id="P_150500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/tongliao/#pvareaid=100943">通辽</a><a pid="150000" id="P_150900" onclick="SetAreaCookie(this)" href="https://127.0.0.1/wulanchabu/#pvareaid=100943">乌兰察布</a><a pid="150000" id="P_150300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/wuhai/#pvareaid=100943">乌海</a><a pid="150000" id="P_152500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/xilinguolemeng/#pvareaid=100943">锡林郭勒盟</a></div></div><div class="fn-clear"><span class="letter"></span><span class="capital"><a pid="640000" id="P_640000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/ningxia/">宁夏</a></span><div class="city"><a pid="640000" id="P_640400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/guyuan/#pvareaid=100943">固原</a><a pid="640000" id="P_640200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/shizuishan/#pvareaid=100943">石嘴山</a><a pid="640000" id="P_640300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/wuzhong/#pvareaid=100943">吴忠</a><a pid="640000" id="P_640100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/yinchuan/#pvareaid=100943">银川</a><a pid="640000" id="P_640500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/zhongwei/#pvareaid=100943">中卫</a></div></div></div><div class="cap-city fn-clear" id="Q"><div class="fn-clear"><span class="letter">Q</span><span class="capital"><a pid="630000" id="P_630000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/qinghai/">青海</a></span><div class="city"><a pid="630000" id="P_632600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/guoluo/#pvareaid=100943">果洛</a><a pid="630000" id="P_632800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/haixi/#pvareaid=100943">海西</a><a pid="630000" id="P_630200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/haidong/#pvareaid=100943">海东</a><a pid="630000" id="P_632200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/haibei/#pvareaid=100943">海北</a><a pid="630000" id="P_632300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/huangnan/#pvareaid=100943">黄南</a><a pid="630000" id="P_632500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/hai_nan/#pvareaid=100943">海南</a><a pid="630000" id="P_630100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/xining/#pvareaid=100943">西宁</a><a pid="630000" id="P_632700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/yushu/#pvareaid=100943">玉树</a></div></div></div><div class="cap-city fn-clear" id="S"><div class="fn-clear"><span class="letter">S</span><span class="capital"><a pid="610000" id="P_610000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/shan_xi/">陕西</a></span><div class="city"><a pid="610000" id="P_610900" onclick="SetAreaCookie(this)" href="https://127.0.0.1/ankang/#pvareaid=100943">安康</a><a pid="610000" id="P_610300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/baoji/#pvareaid=100943">宝鸡</a><a pid="610000" id="P_610700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/hanzhong/#pvareaid=100943">汉中</a><a pid="610000" id="P_611000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/shangluo/#pvareaid=100943">商洛</a><a pid="610000" id="P_610200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/tongchuan/#pvareaid=100943">铜川</a><a pid="610000" id="P_610500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/weinan/#pvareaid=100943">渭南</a><a pid="610000" id="P_610400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/xianyang/#pvareaid=100943">咸阳</a><a pid="610000" id="P_610100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/xian/#pvareaid=100943">西安</a><a pid="610000" id="P_611100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/xixianxinqu/#pvareaid=100943">西咸新区</a><a pid="610000" id="P_610800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/yulin/#pvareaid=100943">榆林</a><a pid="610000" id="P_610600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/yanan/#pvareaid=100943">延安</a></div></div><div class="fn-clear"><span class="letter"></span><span class="capital"><a pid="510000" id="P_510000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/sichuan/">四川</a></span><div class="city"><a pid="510000" id="P_513200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/aba/#pvareaid=100943">阿坝</a><a pid="510000" id="P_511900" onclick="SetAreaCookie(this)" href="https://127.0.0.1/bazhong/#pvareaid=100943">巴中</a><a pid="510000" id="P_510100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/chengdu/#pvareaid=100943">成都</a><a pid="510000" id="P_511700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/dazhou/#pvareaid=100943">达州</a><a pid="510000" id="P_510600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/deyang/#pvareaid=100943">德阳</a><a pid="510000" id="P_510800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/guangyuan/#pvareaid=100943">广元</a><a pid="510000" id="P_511600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/guangan/#pvareaid=100943">广安</a><a pid="510000" id="P_513300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/ganzi/#pvareaid=100943">甘孜</a><a pid="510000" id="P_513400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/liangshan/#pvareaid=100943">凉山</a><a pid="510000" id="P_511100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/leshan/#pvareaid=100943">乐山</a><a pid="510000" id="P_510500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/luzhou/#pvareaid=100943">泸州</a><a pid="510000" id="P_510700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/mianyang/#pvareaid=100943">绵阳</a><a pid="510000" id="P_511400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/meishan/#pvareaid=100943">眉山</a><a pid="510000" id="P_511000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/neijiang/#pvareaid=100943">内江</a><a pid="510000" id="P_511300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/nanchong/#pvareaid=100943">南充</a><a pid="510000" id="P_510400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/panzhihua/#pvareaid=100943">攀枝花</a><a pid="510000" id="P_510900" onclick="SetAreaCookie(this)" href="https://127.0.0.1/suining/#pvareaid=100943">遂宁</a><a pid="510000" id="P_511500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/yibin/#pvareaid=100943">宜宾</a><a pid="510000" id="P_511800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/yaan/#pvareaid=100943">雅安</a><a pid="510000" id="P_512000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/ziyang/#pvareaid=100943">资阳</a><a pid="510000" id="P_510300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/zigong/#pvareaid=100943">自贡</a></div></div><div class="fn-clear"><span class="letter"></span><span class="capital"><a pid="310000" id="P_310000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/shanghai/">上海</a></span><div class="city"><a pid="310000" id="P_310100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/shanghai/#pvareaid=100943">上海</a></div></div><div class="fn-clear"><span class="letter"></span><span class="capital"><a pid="140000" id="P_140000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/shanxi/">山西</a></span><div class="city"><a pid="140000" id="P_140400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/zhangzhi/#pvareaid=100943">长治</a><a pid="140000" id="P_140200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/datong/#pvareaid=100943">大同</a><a pid="140000" id="P_140500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/jincheng/#pvareaid=100943">晋城</a><a pid="140000" id="P_140700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/jinzhong/#pvareaid=100943">晋中</a><a pid="140000" id="P_141000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/linfen/#pvareaid=100943">临汾</a><a pid="140000" id="P_141100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/lvliang/#pvareaid=100943">吕梁</a><a pid="140000" id="P_140600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/shuozhou/#pvareaid=100943">朔州</a><a pid="140000" id="P_140100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/taiyuan/#pvareaid=100943">太原</a><a pid="140000" id="P_140900" onclick="SetAreaCookie(this)" href="https://127.0.0.1/xinzhou/#pvareaid=100943">忻州</a><a pid="140000" id="P_140800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/yuncheng/#pvareaid=100943">运城</a><a pid="140000" id="P_140300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/yangquan/#pvareaid=100943">阳泉</a></div></div><div class="fn-clear"><span class="letter"></span><span class="capital"><a pid="370000" id="P_370000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/shandong/">山东</a></span><div class="city"><a pid="370000" id="P_371600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/binzhou/#pvareaid=100943">滨州</a><a pid="370000" id="P_371400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/dezhou/#pvareaid=100943">德州</a><a pid="370000" id="P_370500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/dongying/#pvareaid=100943">东营</a><a pid="370000" id="P_371700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/heze/#pvareaid=100943">菏泽</a><a pid="370000" id="P_370800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/jining/#pvareaid=100943">济宁</a><a pid="370000" id="P_370100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/jinan/#pvareaid=100943">济南</a><a pid="370000" id="P_371500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/liaocheng/#pvareaid=100943">聊城</a><a pid="370000" id="P_371200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/laiwu/#pvareaid=100943">莱芜</a><a pid="370000" id="P_371300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/linyi/#pvareaid=100943">临沂</a><a pid="370000" id="P_370200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/qingdao/#pvareaid=100943">青岛</a><a pid="370000" id="P_371100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/rizhao/#pvareaid=100943">日照</a><a pid="370000" id="P_370900" onclick="SetAreaCookie(this)" href="https://127.0.0.1/taian/#pvareaid=100943">泰安</a><a pid="370000" id="P_371000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/weihai/#pvareaid=100943">威海</a><a pid="370000" id="P_370700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/weifang/#pvareaid=100943">潍坊</a><a pid="370000" id="P_370600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/yantai/#pvareaid=100943">烟台</a><a pid="370000" id="P_370300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/zibo/#pvareaid=100943">淄博</a><a pid="370000" id="P_370400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/zaozhuang/#pvareaid=100943">枣庄</a></div></div></div><div class="cap-city fn-clear" id="T"><div class="fn-clear"><span class="letter">T</span><span class="capital"><a pid="120000" id="P_120000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/tianjin/">天津</a></span><div class="city"><a pid="120000" id="P_120100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/tianjin/#pvareaid=100943">天津</a></div></div></div><div class="cap-city fn-clear" id="X"><div class="fn-clear"><span class="letter">X</span><span class="capital"><a pid="650000" id="P_650000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/xinjiang/">新疆</a></span><div class="city"><a pid="650000" id="P_652900" onclick="SetAreaCookie(this)" href="https://127.0.0.1/akesu/#pvareaid=100943">阿克苏</a><a pid="650000" id="P_654300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/aletai/#pvareaid=100943">阿勒泰</a><a pid="650000" id="P_659002" onclick="SetAreaCookie(this)" href="https://127.0.0.1/aral/#pvareaid=100943">阿拉尔</a><a pid="650000" id="P_659005" onclick="SetAreaCookie(this)" href="https://127.0.0.1/beitun/#pvareaid=100943">北屯</a><a pid="650000" id="P_652700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/boertala/#pvareaid=100943">博尔塔拉</a><a pid="650000" id="P_652800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/bayinguoleng/#pvareaid=100943">巴音郭楞</a><a pid="650000" id="P_652300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/changji/#pvareaid=100943">昌吉</a><a pid="650000" id="P_650500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/hami/#pvareaid=100943">哈密</a><a pid="650000" id="P_653200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/hetian/#pvareaid=100943">和田</a><a pid="650000" id="P_654000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/yili/#pvareaid=100943">伊犁</a><a pid="650000" id="P_650200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/kelamayi/#pvareaid=100943">克拉玛依</a><a pid="650000" id="P_653000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/kezilesu/#pvareaid=100943">克孜勒苏</a><a pid="650000" id="P_653100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/kashen/#pvareaid=100943">喀什</a><a pid="650000" id="P_659008" onclick="SetAreaCookie(this)" href="https://127.0.0.1/kokdala/#pvareaid=100943">可克达拉</a><a pid="650000" id="P_659009" onclick="SetAreaCookie(this)" href="https://127.0.0.1/kunyu/#pvareaid=100943">昆玉</a><a pid="650000" id="P_654200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/tacheng/#pvareaid=100943">塔城</a><a pid="650000" id="P_659001" onclick="SetAreaCookie(this)" href="https://127.0.0.1/shihezi/#pvareaid=100943">石河子</a><a pid="650000" id="P_659007" onclick="SetAreaCookie(this)" href="https://127.0.0.1/shuanghe/#pvareaid=100943">双河</a><a pid="650000" id="P_659006" onclick="SetAreaCookie(this)" href="https://127.0.0.1/tiemenguan/#pvareaid=100943">铁门关</a><a pid="650000" id="P_659003" onclick="SetAreaCookie(this)" href="https://127.0.0.1/tumxuk/#pvareaid=100943">图木舒克</a><a pid="650000" id="P_650400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/turpan/#pvareaid=100943">吐鲁番</a><a pid="650000" id="P_659004" onclick="SetAreaCookie(this)" href="https://127.0.0.1/wujiaqu/#pvareaid=100943">五家渠</a><a pid="650000" id="P_650100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/wulumuqi/#pvareaid=100943">乌鲁木齐</a></div></div><div class="fn-clear"><span class="letter"></span><span class="capital"><a pid="540000" id="P_540000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/xizang/">西藏</a></span><div class="city"><a pid="540000" id="P_540100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/lasa/#pvareaid=100943">拉萨</a><a pid="540000" id="P_540400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/nyingchi/#pvareaid=100943">林芝</a><a pid="540000" id="P_542400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/naqu/#pvareaid=100943">那曲</a><a pid="540000" id="P_542500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/ali/#pvareaid=100943">阿里</a><a pid="540000" id="P_540300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/qamdo/#pvareaid=100943">昌都</a><a pid="540000" id="P_540200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/rikaze/#pvareaid=100943">日喀则</a><a pid="540000" id="P_540500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/shannan/#pvareaid=100943">山南</a></div></div></div><div class="cap-city fn-clear" id="Y"><div class="fn-clear"><span class="letter">Y</span><span class="capital"><a pid="530000" id="P_530000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/yunnan/">云南</a></span><div class="city"><a pid="530000" id="P_530500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/baoshan/#pvareaid=100943">保山</a><a pid="530000" id="P_532300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/chuxiong/#pvareaid=100943">楚雄</a><a pid="530000" id="P_532900" onclick="SetAreaCookie(this)" href="https://127.0.0.1/dali/#pvareaid=100943">大理</a><a pid="530000" id="P_533100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/dehong/#pvareaid=100943">德宏</a><a pid="530000" id="P_533400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/diqing/#pvareaid=100943">迪庆</a><a pid="530000" id="P_532500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/honghe/#pvareaid=100943">红河</a><a pid="530000" id="P_530100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/kunming/#pvareaid=100943">昆明</a><a pid="530000" id="P_530900" onclick="SetAreaCookie(this)" href="https://127.0.0.1/lincang/#pvareaid=100943">临沧</a><a pid="530000" id="P_530700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/lijiang/#pvareaid=100943">丽江</a><a pid="530000" id="P_533300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/nujiang/#pvareaid=100943">怒江</a><a pid="530000" id="P_530800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/puer/#pvareaid=100943">普洱</a><a pid="530000" id="P_530300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/qujing/#pvareaid=100943">曲靖</a><a pid="530000" id="P_532600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/wenshan/#pvareaid=100943">文山</a><a pid="530000" id="P_532800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/xishuangbanna/#pvareaid=100943">西双版纳</a><a pid="530000" id="P_530400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/yuxi/#pvareaid=100943">玉溪</a><a pid="530000" id="P_530600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/zhaotong/#pvareaid=100943">昭通</a></div></div></div><div class="cap-city fn-clear" id="Z"><div class="fn-clear"><span class="letter">Z</span><span class="capital"><a pid="330000" id="P_330000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/zhejiang/">浙江</a></span><div class="city"><a pid="330000" id="P_330100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/hangzhou/#pvareaid=100943">杭州</a><a pid="330000" id="P_330500" onclick="SetAreaCookie(this)" href="https://127.0.0.1/huzhou/#pvareaid=100943">湖州</a><a pid="330000" id="P_330700" onclick="SetAreaCookie(this)" href="https://127.0.0.1/jinhua/#pvareaid=100943">金华</a><a pid="330000" id="P_330400" onclick="SetAreaCookie(this)" href="https://127.0.0.1/jiaxing/#pvareaid=100943">嘉兴</a><a pid="330000" id="P_331100" onclick="SetAreaCookie(this)" href="https://127.0.0.1/lishui/#pvareaid=100943">丽水</a><a pid="330000" id="P_330200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/ningbo/#pvareaid=100943">宁波</a><a pid="330000" id="P_330800" onclick="SetAreaCookie(this)" href="https://127.0.0.1/quzhou/#pvareaid=100943">衢州</a><a pid="330000" id="P_330600" onclick="SetAreaCookie(this)" href="https://127.0.0.1/shaoxing/#pvareaid=100943">绍兴</a><a pid="330000" id="P_331000" onclick="SetAreaCookie(this)" href="https://127.0.0.1/taizhou/#pvareaid=100943">台州</a><a pid="330000" id="P_330300" onclick="SetAreaCookie(this)" href="https://127.0.0.1/wenzhou/#pvareaid=100943">温州</a><a pid="330000" id="P_330900" onclick="SetAreaCookie(this)" href="https://127.0.0.1/zhoushan/#pvareaid=100943">舟山</a><a pid="330000" id="P_331200" onclick="SetAreaCookie(this)" href="https://127.0.0.1/zhoushanxinqu/#pvareaid=100943">舟山群岛新区</a></div></div></div>
+            </div>
+        </div>
+  </div>
+  </div>
+  <div class="nav-main" id="nav-main">
+    <ul>
+          <li class=""><a id="a_home" href="http://127.0.0.1:5000/index">首页</a>|</li>
+         <li class=""><a id="a_sale" href="https://127.0.0.1/user/modify/">账户设置</a>|</li>
+        <li class=""><a id="a_buy" href="https://127.0.0.1/notice/">消息</a><em id="messageNum"></em>
+        </li>
+      </ul>
+  </div>
+</div>
+</div>
+<input id="sltType" type="hidden" value="0">
+<input id="isshowarea" type="hidden" value="1">
+
+
+<!--<script src="../../../static/js/city.js" type="text/javascript"></script>-->
+<!--<script type="text/javascript">-->
+<!--    //-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;智能搜索 begin-&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;/    -->
+<!--    /* 搜索提交 */ -->
+<!--    function onSearch() {-->
+<!--        var form = C.$("souform");-->
+<!--        var val = form.getElementsByTagName("input")[0].value;-->
+<!--        val = val.replace(/(^\s*)(\s*$)/g, "");-->
+<!--        val = val.replace(/(<|>)/g, "");-->
+<!--        //C.$('searchpop').style.display = 'none';-->
+<!--        form.getElementsByTagName("input")[0].value = val;-->
+<!--        form.target = C.$('sltType').value != 2 ? '_blank' : '_self';-->
+<!--        if (C.$('prece_list').getElementsByTagName('li').length > 0) {-->
+<!--            addSearchHistory(0, 0, val);-->
+<!--        }-->
+<!--        C.setCookie('searchhistoryval', encodeURIComponent(val),0, '/', '.che168.com'); -->
+<!--        form.submit();-->
+<!--    };-->
+<!--    function searchSumbit() {-->
+<!--        var search2scObj = document.getElementById('search2sc');-->
+<!--        if (search2scObj.value == search2scObj.origval) search2scObj.value = '';-->
+<!--        onSearch();-->
+<!--    };-->
+<!--    function searchBoxEvt(e) {-->
+<!--        var search2scObj = C.$('search2sc');-->
+<!--        if (search2scObj.value == search2scObj.origval)-->
+<!--            search2scObj.value = '';-->
+
+<!--        //处理键盘的“上”、“下”、“回车”键-->
+<!--        e = window.event || e;-->
+<!--        var keyCode = e.keyCode || e.which || e.charCode;-->
+<!--        if (C.$('searchpop').style.display != 'none' && C.$('search_history').style.display == 'none' && C.$('prece_list').childNodes.length>0) {-->
+<!--            var shistory_list = C.$('prece_list').childNodes;-->
+<!--            var index = 0;-->
+<!--            var curli = null;-->
+<!--            for (; index < shistory_list.length; index++) {-->
+<!--                curli = shistory_list[index];-->
+<!--                if (curli.className.indexOf('current') < 0) {-->
+<!--                    curli = null;-->
+<!--                    continue;-->
+<!--                }-->
+<!--                break;-->
+<!--            }-->
+<!--            switch (keyCode) {-->
+<!--                case 13:-->
+<!--                    if (curli) {-->
+<!--                        if (document.all) {-->
+<!--                            curli.firstChild.click();-->
+<!--                        } else if (document.createEvent) {-->
+<!--                            var ev = document.createEvent('MouseEvents');-->
+<!--                            ev.initEvent('click', false, true);-->
+<!--                            curli.firstChild.dispatchEvent(ev);-->
+<!--                        }-->
+<!--                    }-->
+<!--                    else {-->
+<!--                        onSearch();-->
+<!--                    }-->
+<!--                    return;-->
+<!--                case 38:-->
+<!--                    if (curli != null) {-->
+<!--                        index&#45;&#45;;-->
+<!--                        curli.className = curli.className.replace('current');-->
+<!--                    }-->
+<!--                    else {-->
+<!--                        index = shistory_list.length - 1;-->
+<!--                    }-->
+<!--                    if (index < 0)-->
+<!--                        index = shistory_list.length - 1;-->
+<!--                    curli = shistory_list[index];-->
+<!--                    curli.className = curli.className + ' current';-->
+<!--                    C.$('search2sc').value = curli.childNodes[0].childNodes[1].nodeValue;-->
+<!--                    return;//向上-->
+<!--                case 40:-->
+<!--                    if (curli != null) {-->
+<!--                        index++;-->
+<!--                        curli.className = curli.className.replace('current');-->
+<!--                    }-->
+<!--                    else {-->
+<!--                        index = 0;-->
+<!--                    }-->
+<!--                    if (index >= shistory_list.length)-->
+<!--                        index = 0;-->
+<!--                    curli = shistory_list[index];-->
+<!--                    curli.className = curli.className + ' current';-->
+<!--                    C.$('search2sc').value = curli.childNodes[0].childNodes[1].nodeValue;-->
+<!--                    return;//向下-->
+<!--            }-->
+<!--        } else if (keyCode == 13) {-->
+<!--            onSearch();-->
+<!--            return;//回车-->
+<!--        }-->
+<!--       // C.loadJS(['//127.0.0.1/handler/searchperception.ashx?kw=', search2scObj.value, '&prov=', C.$('py').value, '&callback=showSearchList'].join(''));-->
+<!--        var urlStr='//souap127.0.0.1/perception/car.ashx?_appid=2sc.pc&_encoding=gb2312&kw='+escape(search2scObj.value)+'&prov='+$('#py').val();-->
+<!--        if(navigator.userAgent.indexOf("MSIE 6.0") > 0){-->
+<!--            urlStr+='&ie=6';-->
+<!--        }-->
+<!--        $("#risk").val(0);-->
+<!--        var urlStr1 = '//cacheap127.0.0.1/Search/GetLabelData.ashx?business_name=2sc.pc&content=' + escape(search2scObj.value);-->
+<!--        $.ajax({-->
+<!--            url: urlStr1,-->
+<!--            type: 'GET',-->
+<!--            dataType: 'jsonp',-->
+<!--            cache: true,-->
+<!--            jsonp: '_callback',-->
+<!--            jsonpCallback: 'SearchCarCallback',-->
+<!--            success: function (data) {-->
+<!--                if ((data && data.keyword && data.keyword.length <= 0) || (data && data.code == "FAIL")) {-->
+<!--                    $.ajax({-->
+<!--                        url: urlStr,-->
+<!--                        type: 'GET',-->
+<!--                        dataType: 'jsonp',-->
+<!--                        cache: true,-->
+<!--                        jsonp: '_callback',-->
+<!--                        jsonpCallback: 'SearchCarCallback',-->
+<!--                        success: function (data) {-->
+<!--                            if (data && data.returncode == 0) {-->
+<!--                                var d = data.result;-->
+<!--                                showSearchList(d);-->
+<!--                            }-->
+<!--                        }-->
+<!--                    });-->
+<!--                }-->
+<!--                else {-->
+<!--                    $("#risk").val(1);-->
+<!--                }-->
+<!--            }-->
+<!--        });-->
+<!--        -->
+<!--    };-->
+
+<!--    var content = [];-->
+
+<!--    function showSearchList(data) {-->
+<!--        if (data.kw != C.$('search2sc').value.replace(/^\s+|\s+$/g,""))-->
+<!--            return;        -->
+<!--        var _blankpage = C.$('sltType').value != 2;-->
+<!--        C.$('shistory_list').style.display = data.kw == '' ? '' : 'none';-->
+<!--        C.$('search_history').style.display = data.kw == '' ? '' : 'none';-->
+<!--        C.$('prece_hottitle').style.display = data.kw == '' ? '' : 'none';-->
+<!--        C.$('shistory_list').innerHTML = '';-->
+<!--       -->
+<!--        C.$('prece_list').innerHTML = '';-->
+<!--        if (C.$('search_history').style.display != 'none') {-->
+<!--            var history = getSearchHistory();-->
+<!--            if (history.length != 0) {-->
+<!--                var hcontent = [];-->
+<!--                for (var i = 0; i < history.length; i++) {-->
+<!--                    var item = history[i].split('|');-->
+<!--                    var name = item[2].split(' ');                    -->
+<!--                    if (name.length > 1) { name[0] = ''; }-->
+<!--                    name = name.join(' ');-->
+<!--                    if(item[1]==3){//商家名称链接，单独处理-->
+<!--                        hcontent = hcontent.concat(['<a href="//127.0.0.1/china/a0_0msdgscncgpiltocspexg'+item[0]+'/#pvareaid=101022"','target="', (_blankpage ? '_blank' : '_self'),'">', name, '</a>']);-->
+<!--                    }else{-->
+<!--                        hcontent = hcontent.concat(['<a href="//127.0.0.1/handler/searchclick.ashx?id=', item[0], '&tag=', item[1], '&prov=', C.$('py').value, '&kw=', item[2], '&pvareaid=101022','" target="', (_blankpage ? '_blank' : '_self'),'">', name, '</a>']);-->
+<!--                    }-->
+<!--                }-->
+<!--                C.$('shistory_list').innerHTML = hcontent.join('');-->
+<!--            } else {-->
+<!--                C.$('shistory_list').style.display =  'none';-->
+<!--                C.$('search_history').style.display = 'none';-->
+<!--            }-->
+<!--        }-->
+
+<!--        function showPrice(min, max) {-->
+<!--            if (min <= 0 && max <= 0)-->
+<!--                return '';-->
+<!--            if (min <= 0)-->
+<!--                return max + '万以内 ';-->
+<!--            if (min == max)-->
+<!--                return max + '万左右 ';-->
+<!--            return [min, '-', max, '万 '].join('');-->
+<!--        }-->
+<!--        function showNumfound(num) {-->
+<!--            if (num < 1)-->
+<!--                return '';-->
+<!--            return ['', num, '辆'].join('');-->
+<!--        }        -->
+<!--        content=[];-->
+<!--        for (var i = 0; i < (data.list.length>10?10:data.list.length); i++) {-->
+<!--            var item = data.list[i];-->
+<!--            if(item.keyword=="家家好车")-->
+<!--            {-->
+<!--                content = content.concat(['<li><a onclick="addSearchHistory(', item.id, ',', item.typetag, ',\'', item.keyword, '\')" kw="', item.keyword, '" href="//127.0.0.1/handler/searchclick.ashx?id=', item.id, '&tag=', item.typetag, '&prov=', C.$('py').value, '&kw=', item.keyword,'&pvareaid=101022', '" target="', (_blankpage ? '_blank' : '_self'), '">', item.keyword, '</a></li>']);-->
+<!--            }else-->
+<!--            {-->
+<!--                content = content.concat(['<li><a onclick="addSearchHistory(', item.id, ',', item.typetag, ',\'', item.keyword, '\')" kw="', item.keyword, '" href="//127.0.0.1/handler/searchclick.ashx?id=', item.id, '&tag=', item.typetag, '&prov=', C.$('py').value, '&kw=', data.kw,'&pvareaid=101022', '" target="', (_blankpage ? '_blank' : '_self'), '"><span class="fn-right">', showPrice(item.minprice, item.maxprice), '<span class="lightcolor">',showNumfound(item.numfound),'</span>',  '</span>', item.keyword, '</a></li>']);-->
+<!--            }-->
+<!--        }-->
+<!--        /*搜索车源不够10个，查询店铺*/-->
+<!--        if(data.list.length<10)-->
+<!--        {-->
+<!--            var topNum=10-data.list.length;-->
+<!--            //var url='/handler/SeachDealer.ashx?kw='+escape(C.$('search2sc').value)+'&num='+topNum;-->
+<!--            //if(navigator.userAgent.indexOf("MSIE 6.0") > 0){-->
+<!--            //    url+='&ie=6';-->
+<!--            //}-->
+<!--            //C.loadJS(['//127.0.0.1/handler/SeachDealer.ashx?kw=', escape(C.$('search2sc').value), '&num=', topNum, '&callback=showShopList'].join(''));-->
+<!--            var url='//souap127.0.0.1/perception/dealer.ashx?_appid=2sc.pc&_encoding=gb2312&kw='+escape($('#search2sc').val())+'&num='+topNum;-->
+<!--            if(navigator.userAgent.indexOf("MSIE 6.0") > 0){-->
+<!--                url+='&ie=6';-->
+<!--            }-->
+
+<!--            $.ajax({-->
+<!--                url: url,-->
+<!--                dataType: 'jsonp',-->
+<!--                cache: true,-->
+<!--                jsonp: '_callback',-->
+<!--                jsonpCallback:'SearchDealersCallback',-->
+<!--                success: function (data) {-->
+<!--                    if (data&&data.returncode==0) {-->
+<!--                        //var carNumStr='';-->
+<!--                        var result = data.result;-->
+<!--                        var content2=[];-->
+<!--                        for (var i = 0; i < result.length; i++) {-->
+<!--                            var item = result[i];-->
+<!--                            content2 = content2.concat(['<li><a onclick="addSearchHistory(', item.dealerid, ',', 3, ',\'', item.dealername, '\')" kw="', item.dealername, '" href="//127.0.0.1/china/a0_0msdgscncgpiltocspexg', item.dealerid, '/#pvareaid=101022" target="', (_blankpage ? '_blank' : '_self'), '">', item.dealername,'<span class="fn-right"> ',' ','</span></a></li>']);-->
+<!--                        }-->
+<!--                    }-->
+<!--                    if (content.length == 0 && content2.length == 0) {-->
+<!--                        // C.$('searchpop').style.display = 'none';-->
+<!--                    } else {-->
+<!--                        $('#prece_list').html('');-->
+<!--                        $('#prece_list').html(content.join('')+content2.join(''));-->
+<!--                    }-->
+<!--                }-->
+<!--            });-->
+<!--        }else{-->
+<!--            if (content.length == 0) {-->
+<!--               // C.$('searchpop').style.display = 'none';-->
+<!--            } else {-->
+<!--                C.$('prece_list').innerHTML = '';-->
+<!--                C.$('prece_list').innerHTML = content.join('');-->
+<!--            }-->
+<!--        }      -->
+<!--    }-->
+
+<!--   -->
+<!--    /* 搜索记录 */-->
+<!--    function addSearchHistory(id, tag, kw) {-->
+<!--        var history = getSearchHistory();-->
+<!--        var item = [id, '|', tag, '|', kw].join('');-->
+<!--        for (var i = 0; i < history.length; i++) {-->
+<!--            if (history[i] == item)-->
+<!--                history[i] = null;-->
+<!--        }-->
+<!--        history = [item].concat(history);-->
+<!--        var newlist = [];-->
+<!--        for (var i = 0; i < history.length; i++) {-->
+<!--            if (history[i] != null && history[i] != '')-->
+<!--                newlist.push(history[i]);-->
+<!--        }-->
+<!--        if (newlist.length > 7)-->
+<!--            newlist.length = 7;-->
+<!--        C.setCookie('searchhistoryval', encodeURIComponent(kw),0, '/', '.che168.com'); -->
+<!--        C.setCookie('searchhistory', encodeURIComponent(newlist.join(',')), 24 * 60 * 60 * 30, '/', '.che168.com');-->
+<!--        return false;//避免ie6下的click事件导致href跳转失效-->
+<!--    }-->
+<!--    function getSearchHistory() {-->
+<!--        var history = decodeURIComponent(C.getCookie('searchhistory') || '').split(',');-->
+<!--        if (history == null || (history.length == 1 && history[0] == ''))-->
+<!--            return [];-->
+<!--        return history;-->
+<!--    }-->
+<!--    /* 搜索 */-->
+<!--    $("#search2sc").bind('keyup', searchBoxEvt);-->
+<!--    $("#search2sc").bind('blur', searchBoxEvt);-->
+<!--    $("#search2sc").bind('focus', searchBoxEvt);-->
+<!--    $("#search2sc").bind('input propertychange', searchBoxEvt);-->
+<!--    function searchChe168() {-->
+<!--        var search2scObj = document.getElementById('search2sc');-->
+<!--        search2scObj.origval = '请输入车辆名称';-->
+<!--        if (search2scObj.value == '') {-->
+<!--            search2scObj.value = search2scObj.origval;-->
+<!--        }-->
+<!--        var searchVal = decodeURIComponent(C.getCookie('searchhistoryval') || ''); -->
+<!--          var selectindex = '0';-->
+<!--        if(searchVal && selectindex==2){ -->
+<!--            search2scObj.value=searchVal;-->
+<!--        } -->
+<!--        C.bind('search2sc', 'blur', function () {-->
+<!--            if (document.activeElement.id != "btnKeyword") {-->
+<!--                if (search2scObj.value == '') search2scObj.value = search2scObj.origval;-->
+<!--            }-->
+<!--        });-->
+<!--        C.bind('btnKeyword', 'click', searchSumbit);-->
+
+<!--        var getEvent = function () {-->
+<!--            if (document.all) {-->
+<!--                return window.event; //如果是ie-->
+<!--            }-->
+<!--            func = getEvent.caller;-->
+<!--            while (func != null) {-->
+<!--                var arg0 = func.arguments[0];-->
+<!--                if (arg0) {-->
+<!--                    if ((arg0.constructor == Event || arg0.constructor == MouseEvent) || (typeof (arg0) == "object" && arg0.preventDefault && arg0.stopPropagation)) {        -->
+<!--                        return arg0;-->
+<!--                    }-->
+<!--                }-->
+<!--                func = func.caller;-->
+<!--            }-->
+<!--            return null;-->
+<!--        };-->
+<!--        var docClick = function () {-->
+<!--            var evt = getEvent();-->
+<!--            if (evt) {-->
+<!--                var curobj = evt.srcElement || evt.target;-->
+<!--                while (curobj) {-->
+<!--                    if (typeof curobj.tagName == 'undefined' || curobj.tagName.toLowerCase() == 'body') {-->
+<!--                        //C.$('searchpop').style.display = 'none';-->
+<!--                        break;-->
+<!--                    }-->
+<!--                    if (curobj.id == 'searchpop' || curobj.id == 'btnKeyword' || curobj.id == 'search2sc')-->
+<!--                        break;-->
+<!--                    curobj = curobj.parentNode;-->
+<!--                }-->
+<!--            }-->
+<!--        }-->
+<!--        var doc = document.body;-->
+<!--        if (doc.addEventListener) {-->
+<!--            doc.addEventListener('click', docClick, false);-->
+<!--        }-->
+<!--        else if (window.attachEvent) {-->
+<!--            doc.attachEvent('onclick', docClick);-->
+<!--        }-->
+<!--        else {-->
+<!--            doc['onclick'] = docClick;-->
+<!--        }-->
+<!--    };-->
+<!--    searchChe168();-->
+<!--    /*&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;智能搜索end&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;*/-->
+<!--    var cityArray = [{"name":"安徽","py":"anhui","id":340000},{"name":"合肥","py":"hefei","id":340100,"citysite":1},{"name":"芜湖","py":"wuhu","id":340200,"citysite":1},{"name":"安庆","py":"anqing","id":340800,"citysite":1},{"name":"阜阳","py":"fu_yang","id":341200,"citysite":1},{"name":"亳州","py":"bozhou","id":341600,"citysite":0},{"name":"蚌埠","py":"bangbu","id":340300,"citysite":0},{"name":"池州","py":"chizhou","id":341700,"citysite":0},{"name":"滁州","py":"chuzhou","id":341100,"citysite":0},{"name":"黄山","py":"huangshan","id":341000,"citysite":0},{"name":"淮北","py":"huaibei","id":340600,"citysite":0},{"name":"淮南","py":"huainan","id":340400,"citysite":0},{"name":"六安","py":"liuan","id":341500,"citysite":0},{"name":"马鞍山","py":"maanshan","id":340500,"citysite":0},{"name":"宿州","py":"su_zhou","id":341300,"citysite":0},{"name":"铜陵","py":"tongling","id":340700,"citysite":0},{"name":"宣城","py":"xuancheng","id":341800,"citysite":0},{"name":"北京","py":"beijing","id":110000},{"name":"重庆","py":"chongqing","id":500000},{"name":"福建","py":"fujian","id":350000},{"name":"福州","py":"fuzhou","id":350100,"citysite":1},{"name":"厦门","py":"xiamen","id":350200,"citysite":1},{"name":"泉州","py":"quanzhou","id":350500,"citysite":1},{"name":"龙岩","py":"longyan","id":350800,"citysite":0},{"name":"宁德","py":"ningde","id":350900,"citysite":0},{"name":"南平","py":"nanping","id":350700,"citysite":0},{"name":"莆田","py":"putian","id":350300,"citysite":0},{"name":"三明","py":"sanming","id":350400,"citysite":0},{"name":"漳州","py":"zhangzhou","id":350600,"citysite":0},{"name":"广东","py":"guangdong","id":440000},{"name":"广州","py":"guangzhou","id":440100,"citysite":1},{"name":"韶关","py":"shaoguan","id":440200,"citysite":1},{"name":"深圳","py":"shenzhen","id":440300,"citysite":1},{"name":"珠海","py":"zhuhai","id":440400,"citysite":1},{"name":"汕头","py":"shantou","id":440500,"citysite":1},{"name":"佛山","py":"foshan","id":440600,"citysite":1},{"name":"江门","py":"jiangmen","id":440700,"citysite":1},{"name":"惠州","py":"huizhou","id":441300,"citysite":1},{"name":"东莞","py":"dongguan","id":441900,"citysite":1},{"name":"中山","py":"zhongshan","id":442000,"citysite":1},{"name":"潮州","py":"chaozhou","id":445100,"citysite":0},{"name":"河源","py":"heyuan","id":441600,"citysite":0},{"name":"揭阳","py":"jieyang","id":445200,"citysite":0},{"name":"梅州","py":"meizhou","id":441400,"citysite":0},{"name":"茂名","py":"maoming","id":440900,"citysite":0},{"name":"清远","py":"qingyuan","id":441800,"citysite":0},{"name":"汕尾","py":"shanwei","id":441500,"citysite":0},{"name":"云浮","py":"yunfu","id":445300,"citysite":0},{"name":"阳江","py":"yangjiang","id":441700,"citysite":0},{"name":"湛江","py":"zhanjiang","id":440800,"citysite":0},{"name":"肇庆","py":"zhaoqing","id":441200,"citysite":0},{"name":"广西","py":"guangxi","id":450000},{"name":"南宁","py":"nanning","id":450100,"citysite":1},{"name":"柳州","py":"liuzhou","id":450200,"citysite":1},{"name":"桂林","py":"guilin","id":450300,"citysite":1},{"name":"北海","py":"beihai","id":450500,"citysite":0},{"name":"百色","py":"baise","id":451000,"citysite":0},{"name":"崇左","py":"chongzuo","id":451400,"citysite":0},{"name":"防城港","py":"fangchenggang","id":450600,"citysite":0},{"name":"贵港","py":"guigang","id":450800,"citysite":0},{"name":"贺州","py":"hezhou","id":451100,"citysite":0},{"name":"河池","py":"hechi","id":451200,"citysite":0},{"name":"来宾","py":"laibin","id":451300,"citysite":0},{"name":"钦州","py":"qinzhou","id":450700,"citysite":0},{"name":"梧州","py":"wuzhou","id":450400,"citysite":0},{"name":"玉林","py":"yu_lin","id":450900,"citysite":0},{"name":"贵州","py":"guizhou","id":520000},{"name":"贵阳","py":"guiyang","id":520100,"citysite":1},{"name":"遵义","py":"zunyi","id":520300,"citysite":1},{"name":"安顺","py":"anshun","id":520400,"citysite":0},{"name":"毕节","py":"bijie","id":520500,"citysite":0},{"name":"六盘水","py":"liupanshui","id":520200,"citysite":0},{"name":"黔西南","py":"qianxinan","id":522300,"citysite":0},{"name":"黔东南","py":"qiandongnan","id":522600,"citysite":0},{"name":"黔南","py":"qiannan","id":522700,"citysite":0},{"name":"铜仁","py":"tongren","id":520600,"citysite":0},{"name":"甘肃","py":"gansu","id":620000},{"name":"兰州","py":"lanzhou","id":620100,"citysite":1},{"name":"白银","py":"baiyin","id":620400,"citysite":0},{"name":"定西","py":"dingxi","id":621100,"citysite":0},{"name":"甘南","py":"gannan","id":623000,"citysite":0},{"name":"酒泉","py":"jiuquan","id":620900,"citysite":0},{"name":"嘉峪关","py":"jiayuguan","id":620200,"citysite":0},{"name":"金昌","py":"jinchang","id":620300,"citysite":0},{"name":"陇南","py":"longnan","id":621200,"citysite":0},{"name":"临夏","py":"linxia","id":622900,"citysite":0},{"name":"平凉","py":"pingliang","id":620800,"citysite":0},{"name":"庆阳","py":"qingyang","id":621000,"citysite":0},{"name":"天水","py":"tianshui","id":620500,"citysite":0},{"name":"武威","py":"wuwei","id":620600,"citysite":0},{"name":"张掖","py":"zhangye","id":620700,"citysite":0},{"name":"海南","py":"hainan","id":460000},{"name":"海口","py":"haikou","id":460100,"citysite":1},{"name":"白沙","py":"baisha","id":469025,"citysite":0},{"name":"保亭","py":"baoting","id":469029,"citysite":0},{"name":"昌江","py":"changjiang","id":469026,"citysite":0},{"name":"澄迈","py":"chengmai","id":469023,"citysite":0},{"name":"东方","py":"dongfang","id":469007,"citysite":0},{"name":"定安","py":"dingan","id":469021,"citysite":0},{"name":"儋州","py":"danzhou","id":460400,"citysite":0},{"name":"临高","py":"lingao","id":469024,"citysite":0},{"name":"乐东","py":"ledong","id":469027,"citysite":0},{"name":"陵水","py":"lingshui","id":469028,"citysite":0},{"name":"琼中","py":"qiongzhong","id":469030,"citysite":0},{"name":"琼海","py":"qionghai","id":469002,"citysite":0},{"name":"三亚","py":"sanya","id":460200,"citysite":0},{"name":"三沙","py":"sansha","id":460300,"citysite":0},{"name":"屯昌","py":"tunchang","id":469022,"citysite":0},{"name":"文昌","py":"wenchang","id":469005,"citysite":0},{"name":"万宁","py":"wanning","id":469006,"citysite":0},{"name":"五指山","py":"wuzhishan","id":469001,"citysite":0},{"name":"河南","py":"henan","id":410000},{"name":"郑州","py":"zhengzhou","id":410100,"citysite":1},{"name":"开封","py":"kaifeng","id":410200,"citysite":1},{"name":"洛阳","py":"luoyang","id":410300,"citysite":1},{"name":"平顶山","py":"pingdingshan","id":410400,"citysite":1},{"name":"安阳","py":"anyang","id":410500,"citysite":1},{"name":"新乡","py":"xinxiang","id":410700,"citysite":1},{"name":"焦作","py":"jiaozuo","id":410800,"citysite":1},{"name":"濮阳","py":"puyang","id":410900,"citysite":1},{"name":"许昌","py":"xuchang","id":411000,"citysite":1},{"name":"南阳","py":"nanyang","id":411300,"citysite":1},{"name":"商丘","py":"shangqiu","id":411400,"citysite":1},{"name":"信阳","py":"xinyang","id":411500,"citysite":1},{"name":"周口","py":"zhoukou","id":411600,"citysite":1},{"name":"驻马店","py":"zhumadian","id":411700,"citysite":1},{"name":"鹤壁","py":"hebi","id":410600,"citysite":0},{"name":"济源","py":"jiyuan","id":419001,"citysite":0},{"name":"漯河","py":"luohe","id":411100,"citysite":0},{"name":"三门峡","py":"sanmenxia","id":411200,"citysite":0},{"name":"湖北","py":"hubei","id":420000},{"name":"武汉","py":"wuhan","id":420100,"citysite":1},{"name":"十堰","py":"shiyan","id":420300,"citysite":1},{"name":"宜昌","py":"yichang","id":420500,"citysite":1},{"name":"襄阳","py":"xiangyang","id":420600,"citysite":1},{"name":"鄂州","py":"ezhou","id":420700,"citysite":0},{"name":"恩施","py":"enshi","id":422800,"citysite":0},{"name":"黄冈","py":"huanggang","id":421100,"citysite":0},{"name":"黄石","py":"huangshi","id":420200,"citysite":0},{"name":"荆门","py":"jingmen","id":420800,"citysite":0},{"name":"荆州","py":"jingzhou","id":421000,"citysite":0},{"name":"潜江","py":"qianjiang","id":429005,"citysite":0},{"name":"神农架","py":"shennongjia","id":429021,"citysite":0},{"name":"随州","py":"suizhou","id":421300,"citysite":0},{"name":"天门","py":"tianmen","id":429006,"citysite":0},{"name":"孝感","py":"xiaogan","id":420900,"citysite":0},{"name":"咸宁","py":"xianning","id":421200,"citysite":0},{"name":"仙桃","py":"xiantao","id":429004,"citysite":0},{"name":"湖南","py":"hunan","id":430000},{"name":"长沙","py":"changsha","id":430100,"citysite":1},{"name":"株洲","py":"zhuzhou","id":430200,"citysite":1},{"name":"湘潭","py":"xiangtan","id":430300,"citysite":1},{"name":"衡阳","py":"hengyang","id":430400,"citysite":1},{"name":"常德","py":"changde","id":430700,"citysite":0},{"name":"郴州","py":"chenzhou","id":431000,"citysite":0},{"name":"怀化","py":"huaihua","id":431200,"citysite":0},{"name":"娄底","py":"loudi","id":431300,"citysite":0},{"name":"邵阳","py":"shaoyang","id":430500,"citysite":0},{"name":"湘西","py":"xiangxi","id":433100,"citysite":0},{"name":"永州","py":"yongzhou","id":431100,"citysite":0},{"name":"岳阳","py":"yueyang","id":430600,"citysite":0},{"name":"益阳","py":"yiyang","id":430900,"citysite":0},{"name":"张家界","py":"zhangjiajie","id":430800,"citysite":0},{"name":"河北","py":"hebei","id":130000},{"name":"石家庄","py":"shijiazhuang","id":130100,"citysite":1},{"name":"唐山","py":"tangshan","id":130200,"citysite":1},{"name":"秦皇岛","py":"qinhuangdao","id":130300,"citysite":1},{"name":"邯郸","py":"handan","id":130400,"citysite":1},{"name":"邢台","py":"xingtai","id":130500,"citysite":1},{"name":"保定","py":"baoding","id":130600,"citysite":1},{"name":"张家口","py":"zhangjiakou","id":130700,"citysite":1},{"name":"承德","py":"chengde","id":130800,"citysite":1},{"name":"沧州","py":"cangzhou","id":130900,"citysite":1},{"name":"廊坊","py":"langfang","id":131000,"citysite":1},{"name":"衡水","py":"hengshui","id":131100,"citysite":1},{"name":"黑龙江","py":"heilongjiang","id":230000},{"name":"哈尔滨","py":"haerbin","id":230100,"citysite":1},{"name":"齐齐哈尔","py":"qiqihaer","id":230200,"citysite":1},{"name":"大庆","py":"daqing","id":230600,"citysite":1},{"name":"大兴安岭","py":"daxinganling","id":232700,"citysite":0},{"name":"黑河","py":"heihe","id":231100,"citysite":0},{"name":"鹤岗","py":"hegang","id":230400,"citysite":0},{"name":"鸡西","py":"jixi","id":230300,"citysite":0},{"name":"佳木斯","py":"jiamusi","id":230800,"citysite":0},{"name":"牡丹江","py":"mudanjiang","id":231000,"citysite":0},{"name":"七台河","py":"qitaihe","id":230900,"citysite":0},{"name":"双鸭山","py":"shuangyashan","id":230500,"citysite":0},{"name":"绥化","py":"suihua","id":231200,"citysite":0},{"name":"伊春","py":"yichun","id":230700,"citysite":0},{"name":"江苏","py":"jiangsu","id":320000},{"name":"南京","py":"nanjing","id":320100,"citysite":1},{"name":"无锡","py":"wuxi","id":320200,"citysite":1},{"name":"徐州","py":"xuzhou","id":320300,"citysite":1},{"name":"常州","py":"changzhou","id":320400,"citysite":1},{"name":"苏州","py":"suzhou","id":320500,"citysite":1},{"name":"南通","py":"nantong","id":320600,"citysite":1},{"name":"连云港","py":"lianyungang","id":320700,"citysite":1},{"name":"淮安","py":"huaian","id":320800,"citysite":1},{"name":"盐城","py":"yancheng","id":320900,"citysite":1},{"name":"扬州","py":"yangzhou","id":321000,"citysite":1},{"name":"镇江","py":"zhenjiang","id":321100,"citysite":1},{"name":"泰州","py":"tai_zhou","id":321200,"citysite":1},{"name":"宿迁","py":"suqian","id":321300,"citysite":1},{"name":"江西","py":"jiangxi","id":360000},{"name":"南昌","py":"nanchang","id":360100,"citysite":1},{"name":"九江","py":"jiujiang","id":360400,"citysite":1},{"name":"赣州","py":"ganzhou","id":360700,"citysite":1},{"name":"上饶","py":"shangrao","id":361100,"citysite":1},{"name":"抚州","py":"fu_zhou","id":361000,"citysite":0},{"name":"吉安","py":"jian","id":360800,"citysite":0},{"name":"景德镇","py":"jingdezhen","id":360200,"citysite":0},{"name":"萍乡","py":"ping_xiang","id":360300,"citysite":0},{"name":"新余","py":"xinyu","id":360500,"citysite":0},{"name":"鹰潭","py":"yingtan","id":360600,"citysite":0},{"name":"宜春","py":"yi_chun","id":360900,"citysite":0},{"name":"吉林","py":"jilin","id":220000},{"name":"长春","py":"changchun","id":220100,"citysite":1},{"name":"吉林","py":"jilinshi","id":220200,"citysite":1},{"name":"白山","py":"baishan","id":220600,"citysite":0},{"name":"白城","py":"baicheng","id":220800,"citysite":0},{"name":"辽源","py":"liaoyuan","id":220400,"citysite":0},{"name":"松原","py":"songyuan","id":220700,"citysite":0},{"name":"四平","py":"siping","id":220300,"citysite":0},{"name":"通化","py":"tonghua","id":220500,"citysite":0},{"name":"延边","py":"yanbian","id":222400,"citysite":0},{"name":"辽宁","py":"liaoning","id":210000},{"name":"沈阳","py":"shenyang","id":210100,"citysite":1},{"name":"大连","py":"dalian","id":210200,"citysite":1},{"name":"鞍山","py":"anshan","id":210300,"citysite":1},{"name":"营口","py":"yingkou","id":210800,"citysite":1},{"name":"本溪","py":"benxi","id":210500,"citysite":0},{"name":"朝阳","py":"chaoyang","id":211300,"citysite":0},{"name":"丹东","py":"dandong","id":210600,"citysite":0},{"name":"抚顺","py":"fushun","id":210400,"citysite":0},{"name":"阜新","py":"fuxin","id":210900,"citysite":0},{"name":"葫芦岛","py":"huludao","id":211400,"citysite":0},{"name":"锦州","py":"jinzhou","id":210700,"citysite":0},{"name":"辽阳","py":"liaoyang","id":211000,"citysite":0},{"name":"盘锦","py":"panjin","id":211100,"citysite":0},{"name":"铁岭","py":"tieling","id":211200,"citysite":0},{"name":"内蒙古","py":"namenggu","id":150000},{"name":"呼和浩特","py":"huhehaote","id":150100,"citysite":1},{"name":"包头","py":"baotou","id":150200,"citysite":1},{"name":"赤峰","py":"chifeng","id":150400,"citysite":1},{"name":"通辽","py":"tongliao","id":150500,"citysite":1},{"name":"鄂尔多斯","py":"eerduosi","id":150600,"citysite":1},{"name":"阿拉善盟","py":"alashanmeng","id":152900,"citysite":0},{"name":"巴彦淖尔","py":"bayannaoer","id":150800,"citysite":0},{"name":"呼伦贝尔","py":"hulunbeier","id":150700,"citysite":0},{"name":"兴安盟","py":"xinganmeng","id":152200,"citysite":0},{"name":"乌兰察布","py":"wulanchabu","id":150900,"citysite":0},{"name":"乌海","py":"wuhai","id":150300,"citysite":0},{"name":"锡林郭勒盟","py":"xilinguolemeng","id":152500,"citysite":0},{"name":"宁夏","py":"ningxia","id":640000},{"name":"银川","py":"yinchuan","id":640100,"citysite":1},{"name":"固原","py":"guyuan","id":640400,"citysite":0},{"name":"石嘴山","py":"shizuishan","id":640200,"citysite":0},{"name":"吴忠","py":"wuzhong","id":640300,"citysite":0},{"name":"中卫","py":"zhongwei","id":640500,"citysite":0},{"name":"青海","py":"qinghai","id":630000},{"name":"西宁","py":"xining","id":630100,"citysite":1},{"name":"果洛","py":"guoluo","id":632600,"citysite":0},{"name":"海西","py":"haixi","id":632800,"citysite":0},{"name":"海东","py":"haidong","id":630200,"citysite":0},{"name":"海北","py":"haibei","id":632200,"citysite":0},{"name":"黄南","py":"huangnan","id":632300,"citysite":0},{"name":"海南","py":"hai_nan","id":632500,"citysite":0},{"name":"玉树","py":"yushu","id":632700,"citysite":0},{"name":"陕西","py":"shan_xi","id":610000},{"name":"西安","py":"xian","id":610100,"citysite":1},{"name":"榆林","py":"yulin","id":610800,"citysite":1},{"name":"安康","py":"ankang","id":610900,"citysite":0},{"name":"宝鸡","py":"baoji","id":610300,"citysite":0},{"name":"汉中","py":"hanzhong","id":610700,"citysite":0},{"name":"商洛","py":"shangluo","id":611000,"citysite":0},{"name":"铜川","py":"tongchuan","id":610200,"citysite":0},{"name":"渭南","py":"weinan","id":610500,"citysite":0},{"name":"咸阳","py":"xianyang","id":610400,"citysite":0},{"name":"西咸新区","py":"xixianxinqu","id":611100,"citysite":0},{"name":"延安","py":"yanan","id":610600,"citysite":0},{"name":"四川","py":"sichuan","id":510000},{"name":"成都","py":"chengdu","id":510100,"citysite":1},{"name":"德阳","py":"deyang","id":510600,"citysite":1},{"name":"绵阳","py":"mianyang","id":510700,"citysite":1},{"name":"南充","py":"nanchong","id":511300,"citysite":1},{"name":"阿坝","py":"aba","id":513200,"citysite":0},{"name":"巴中","py":"bazhong","id":511900,"citysite":0},{"name":"达州","py":"dazhou","id":511700,"citysite":0},{"name":"广元","py":"guangyuan","id":510800,"citysite":0},{"name":"广安","py":"guangan","id":511600,"citysite":0},{"name":"甘孜","py":"ganzi","id":513300,"citysite":0},{"name":"凉山","py":"liangshan","id":513400,"citysite":0},{"name":"乐山","py":"leshan","id":511100,"citysite":0},{"name":"泸州","py":"luzhou","id":510500,"citysite":0},{"name":"眉山","py":"meishan","id":511400,"citysite":0},{"name":"内江","py":"neijiang","id":511000,"citysite":0},{"name":"攀枝花","py":"panzhihua","id":510400,"citysite":0},{"name":"遂宁","py":"suining","id":510900,"citysite":0},{"name":"宜宾","py":"yibin","id":511500,"citysite":0},{"name":"雅安","py":"yaan","id":511800,"citysite":0},{"name":"资阳","py":"ziyang","id":512000,"citysite":0},{"name":"自贡","py":"zigong","id":510300,"citysite":0},{"name":"上海","py":"shanghai","id":310000},{"name":"山西","py":"shanxi","id":140000},{"name":"太原","py":"taiyuan","id":140100,"citysite":1},{"name":"大同","py":"datong","id":140200,"citysite":1},{"name":"长治","py":"zhangzhi","id":140400,"citysite":1},{"name":"晋城","py":"jincheng","id":140500,"citysite":1},{"name":"晋中","py":"jinzhong","id":140700,"citysite":1},{"name":"运城","py":"yuncheng","id":140800,"citysite":1},{"name":"临汾","py":"linfen","id":141000,"citysite":1},{"name":"吕梁","py":"lvliang","id":141100,"citysite":0},{"name":"朔州","py":"shuozhou","id":140600,"citysite":0},{"name":"忻州","py":"xinzhou","id":140900,"citysite":0},{"name":"阳泉","py":"yangquan","id":140300,"citysite":0},{"name":"山东","py":"shandong","id":370000},{"name":"济南","py":"jinan","id":370100,"citysite":1},{"name":"青岛","py":"qingdao","id":370200,"citysite":1},{"name":"淄博","py":"zibo","id":370300,"citysite":1},{"name":"枣庄","py":"zaozhuang","id":370400,"citysite":1},{"name":"东营","py":"dongying","id":370500,"citysite":1},{"name":"烟台","py":"yantai","id":370600,"citysite":1},{"name":"潍坊","py":"weifang","id":370700,"citysite":1},{"name":"济宁","py":"jining","id":370800,"citysite":1},{"name":"泰安","py":"taian","id":370900,"citysite":1},{"name":"威海","py":"weihai","id":371000,"citysite":1},{"name":"日照","py":"rizhao","id":371100,"citysite":1},{"name":"莱芜","py":"laiwu","id":371200,"citysite":1},{"name":"临沂","py":"linyi","id":371300,"citysite":1},{"name":"德州","py":"dezhou","id":371400,"citysite":1},{"name":"聊城","py":"liaocheng","id":371500,"citysite":1},{"name":"滨州","py":"binzhou","id":371600,"citysite":1},{"name":"菏泽","py":"heze","id":371700,"citysite":1},{"name":"天津","py":"tianjin","id":120000},{"name":"新疆","py":"xinjiang","id":650000},{"name":"乌鲁木齐","py":"wulumuqi","id":650100,"citysite":1},{"name":"阿克苏","py":"akesu","id":652900,"citysite":0},{"name":"阿勒泰","py":"aletai","id":654300,"citysite":0},{"name":"阿拉尔","py":"aral","id":659002,"citysite":0},{"name":"北屯","py":"beitun","id":659005,"citysite":0},{"name":"博尔塔拉","py":"boertala","id":652700,"citysite":0},{"name":"巴音郭楞","py":"bayinguoleng","id":652800,"citysite":0},{"name":"昌吉","py":"changji","id":652300,"citysite":0},{"name":"哈密","py":"hami","id":650500,"citysite":0},{"name":"和田","py":"hetian","id":653200,"citysite":0},{"name":"伊犁","py":"yili","id":654000,"citysite":0},{"name":"克拉玛依","py":"kelamayi","id":650200,"citysite":0},{"name":"克孜勒苏","py":"kezilesu","id":653000,"citysite":0},{"name":"喀什","py":"kashen","id":653100,"citysite":0},{"name":"可克达拉","py":"kokdala","id":659008,"citysite":0},{"name":"昆玉","py":"kunyu","id":659009,"citysite":0},{"name":"塔城","py":"tacheng","id":654200,"citysite":0},{"name":"石河子","py":"shihezi","id":659001,"citysite":0},{"name":"双河","py":"shuanghe","id":659007,"citysite":0},{"name":"铁门关","py":"tiemenguan","id":659006,"citysite":0},{"name":"图木舒克","py":"tumxuk","id":659003,"citysite":0},{"name":"吐鲁番","py":"turpan","id":650400,"citysite":0},{"name":"五家渠","py":"wujiaqu","id":659004,"citysite":0},{"name":"西藏","py":"xizang","id":540000},{"name":"拉萨","py":"lasa","id":540100,"citysite":0},{"name":"林芝","py":"nyingchi","id":540400,"citysite":0},{"name":"那曲","py":"naqu","id":542400,"citysite":0},{"name":"阿里","py":"ali","id":542500,"citysite":0},{"name":"昌都","py":"qamdo","id":540300,"citysite":0},{"name":"日喀则","py":"rikaze","id":540200,"citysite":0},{"name":"山南","py":"shannan","id":540500,"citysite":0},{"name":"云南","py":"yunnan","id":530000},{"name":"昆明","py":"kunming","id":530100,"citysite":1},{"name":"曲靖","py":"qujing","id":530300,"citysite":1},{"name":"保山","py":"baoshan","id":530500,"citysite":0},{"name":"楚雄","py":"chuxiong","id":532300,"citysite":0},{"name":"大理","py":"dali","id":532900,"citysite":0},{"name":"德宏","py":"dehong","id":533100,"citysite":0},{"name":"迪庆","py":"diqing","id":533400,"citysite":0},{"name":"红河","py":"honghe","id":532500,"citysite":0},{"name":"临沧","py":"lincang","id":530900,"citysite":0},{"name":"丽江","py":"lijiang","id":530700,"citysite":0},{"name":"怒江","py":"nujiang","id":533300,"citysite":0},{"name":"普洱","py":"puer","id":530800,"citysite":0},{"name":"文山","py":"wenshan","id":532600,"citysite":0},{"name":"西双版纳","py":"xishuangbanna","id":532800,"citysite":0},{"name":"玉溪","py":"yuxi","id":530400,"citysite":0},{"name":"昭通","py":"zhaotong","id":530600,"citysite":0},{"name":"浙江","py":"zhejiang","id":330000},{"name":"杭州","py":"hangzhou","id":330100,"citysite":1},{"name":"宁波","py":"ningbo","id":330200,"citysite":1},{"name":"温州","py":"wenzhou","id":330300,"citysite":1},{"name":"嘉兴","py":"jiaxing","id":330400,"citysite":1},{"name":"湖州","py":"huzhou","id":330500,"citysite":1},{"name":"绍兴","py":"shaoxing","id":330600,"citysite":1},{"name":"金华","py":"jinhua","id":330700,"citysite":1},{"name":"衢州","py":"quzhou","id":330800,"citysite":1},{"name":"台州","py":"taizhou","id":331000,"citysite":1},{"name":"丽水","py":"lishui","id":331100,"citysite":0},{"name":"舟山","py":"zhoushan","id":330900,"citysite":0},{"name":"舟山群岛新区","py":"zhoushanxinqu","id":331200,"citysite":0}];-->
+<!--    var loadBlock = function (curArea) {-->
+<!--        var consign = [110000];-->
+<!--        var auction = [310000,440300,441900];-->
+<!--        if (auction.indexOf(curArea) > -1) {-->
+<!--            return true;-->
+<!--        }-->
+<!--        if (consign.indexOf(curArea) > -1) {-->
+<!--            return true;-->
+<!--        }-->
+<!--        return false;-->
+<!--    };-->
+<!--    /*判断是否加载渠道选择链接,设置页头地区,更改页头地区连接*/-->
+<!--    function setSltPublicCarUrl() {-->
+<!--        var curArea = C.getCookie('userarea');-->
+<!--        if (curArea == null) curArea = 0;-->
+<!--        var a_usearea = C.$("P_" + curArea);-->
+<!--        var exptPage = [540000,630000];-->
+<!--        if (a_usearea && a_usearea != null) {-->
+<!--            C.$('sltPName').innerHTML = a_usearea.innerHTML;  -->
+<!--            try{ -->
+<!--                C.$('sltPName').attributes["cid"]=curArea;-->
+<!--                for(var n=0;n<cityArray.length;n++){-->
+<!--                    if(a_usearea.innerHTML==cityArray[n]["name"] ){-->
+<!--                        C.$('sltPName').attributes["py"]=cityArray[n]["py"];-->
+<!--                    }-->
+<!--                }-->
+<!--            }catch(e){}-->
+<!--            var index=a_usearea.href.indexOf("#");-->
+<!--            var url="";-->
+<!--            var pvareaid="";-->
+<!--            if(index>=0)-->
+<!--            {-->
+<!--                url=a_usearea.href.substring(0,index);        -->
+<!--                pvareaid=a_usearea.href.substring(a_usearea.href.indexOf("#"));-->
+<!--            }-->
+<!--            else-->
+<!--            {-->
+<!--                url=a_usearea.href;-->
+<!--                pvareaid="";-->
+<!--            }-->
+<!--            var areapinyin = url.replace('list/', '');-->
+<!--            if (areapinyin.length > 0) {-->
+<!--                var icurArea=parseInt(curArea/10000)*10000;-->
+<!--                if (exptPage.indexOf(icurArea)>-1 && parseInt(curArea)===icurArea) {-->
+<!--                    var a_home= C.$('a_home');  -->
+<!--                    var pvareaid="";-->
+<!--                    if(a_home.href.indexOf("#")>=0)-->
+<!--                    {-->
+<!--                        pvareaid=a_home.href.substring(a_home.href.indexOf("#"));-->
+<!--                    }                                   -->
+<!--                    C.$('a_home').href = areapinyin+ 'list/'+pvareaid;-->
+<!--                }-->
+<!--                else{-->
+<!--                    var a_home= C.$('a_home'); -->
+<!--                    var pvareaid="";-->
+<!--                    if(a_home.href.indexOf("#")>=0)-->
+<!--                    {-->
+<!--                        pvareaid=a_home.href.substring(a_home.href.indexOf("#"));-->
+<!--                    }                                  -->
+<!--                    C.$('a_home').href = areapinyin+pvareaid;-->
+<!--                }-->
+<!--                -->
+<!--              -->
+<!--            }-->
+<!--          -->
+<!--            if (C.$('buycar') != null) {-->
+<!--                var buycar=C.$('buycar');-->
+<!--                var pvareaid="";-->
+<!--                if(buycar.href.indexOf("#")>=0)-->
+<!--                {-->
+<!--                    pvareaid=buycar.href.substring(buycar.href.indexOf("#"));-->
+<!--                }-->
+<!--                C.$('buycar').href = areapinyin + 'list/'+pvareaid;-->
+<!--            }-->
+<!--            if (C.$('needcar') != null) {-->
+<!--                var needcar=C.$("needcar");-->
+<!--                var pvareaid="";-->
+<!--                if(needcar.href.indexOf("#")>=0)-->
+<!--                {-->
+<!--                    pvareaid=needcar.href.substring(needcar.href.indexOf("#"));-->
+<!--                }              -->
+<!--            }-->
+<!--            areapinyin = areapinyin.substring(0, areapinyin.lastIndexOf('/'));-->
+<!--            C.$('py').value = areapinyin.substring(areapinyin.lastIndexOf('/') + 1);-->
+<!--        }-->
+<!--    };-->
+<!--    setSltPublicCarUrl();-->
+
+<!--    /*设置是否显示选择地区*/-->
+<!--    function HeaderSelectArea() {-->
+<!--        var sltArea = document.getElementById('isshowarea');-->
+<!--        if (sltArea.value == 1) {-->
+<!--            var miniUserInfo = new TipHover('sltArea', 'popBottom');-->
+<!--            miniUserInfo.init();-->
+<!--        }-->
+<!--        else {-->
+<!--            document.getElementById('sltArea').style.display = 'none';-->
+<!--        }-->
+<!--    };-->
+<!--    //HeaderSelectArea();-->
+
+<!--    /*设置用户地区cookie*/-->
+<!--    function SetAreaCookie(obj) {-->
+<!--        var userArea = obj.getAttribute('pid');-->
+<!--        C.setCookie('userarea', userArea, 24 * 60 * 60 * 365, '/', '.che168.com');-->
+<!--    };-->
+
+<!--    // 切换城市-->
+<!--    var isGetCityOffset = false;-->
+<!--    var divCityOffsetTop = 0;-->
+<!--    var letterTop = {};-->
+
+<!--    function closeCityPop() {-->
+<!--        C.$("popBottom").style.display = "none";-->
+<!--    }-->
+
+<!--    -->
+
+<!--    // 搜索城市-->
+<!--    function searchCity() {-->
+<!--        var id = "txtCity";-->
+<!--        var searchCity = C.$(id);-->
+<!--        searchCity.defaultTip = "请输入城市名";-->
+
+<!--        if (searchCity.value === '') {-->
+<!--            searchCity.value = searchCity.defaultTip;-->
+<!--        }-->
+
+<!--        C.bind(id, 'keyup', searchCityEvt);-->
+<!--        C.bind(id, 'focus', searchCityEvt);-->
+<!--        C.bind(id, 'blur', function() {-->
+<!--            if(document.activeElement.id!='divSearchCity'){-->
+<!--                setTimeout(function() {-->
+<!--                    C.$("divSearchCity").style.display = 'none';-->
+<!--                }, 200);-->
+<!--                if (searchCity.value === '') {-->
+<!--                    searchCity.value = searchCity.defaultTip;-->
+<!--                }-->
+<!--            }-->
+<!--        });-->
+<!--    }-->
+
+<!--    searchCity();-->
+<!--    var index = -1;-->
+<!--    -->
+<!--    function searchCityEvt(e) {-->
+<!--        var id = "txtCity";-->
+<!--        var searchCity = C.$(id);-->
+<!--        -->
+<!--        if (searchCity.value == searchCity.defaultTip)-->
+<!--        { searchCity.value = ''; }-->
+
+<!--        //处理键盘的“上”、“下”、“回车”键-->
+<!--        e = window.event || e;-->
+<!--        var keyCode = e.keyCode || e.which || e.charCode;-->
+<!--        var content = [];-->
+<!--        var isHave = false;-->
+<!--        var name, py;-->
+<!--        var i = 0;-->
+<!--        var url = location.href;-->
+<!--        var end = url.indexOf("#");-->
+<!--        if (end > -1) {-->
+<!--            url = url.substring(0, end);-->
+<!--        }-->
+<!--        var areaPy = C.$("py").value.toLowerCase();-->
+<!--        var searchFullCityUrl = "";-->
+<!--        var searchFullCityId = 0;-->
+
+<!--        if (searchCity.value) {-->
+<!--            var value = searchCity.value.toLowerCase();-->
+<!--            for (i = 0; i < cityArray.length; i++) {-->
+<!--                name = cityArray[i]["name"];-->
+<!--                py = cityArray[i]["py"];-->
+<!--                if (name.indexOf(value)==0 || py.toLowerCase().indexOf(value)==0) {-->
+<!--                    isHave = true;-->
+<!--                    if (url.toLowerCase().indexOf(areaPy) > -1 && url.indexOf('.com/sell/')==-1) {-->
+<!--                        content.push('<a pid="'+cityArray[i]["id"]+'" onclick="SetAreaCookie(this)" href="' + url.replace(areaPy, py)+'">' + name + '</a>');-->
+<!--                    } else {-->
+<!--                        content.push('<a pid="'+cityArray[i]["id"]+'" onclick="SetAreaCookie(this)" href=\"//127.0.0.1/'+py+'/">' + name + '</a>');-->
+<!--                    }-->
+<!--                }-->
+
+<!--                // 城市名称或拼音完全匹配，记录跳转的url-->
+<!--                if (name === value || py === value) {-->
+<!--                    searchFullCityId = cityArray[i]["id"];-->
+<!--                    if (url.toLowerCase().indexOf(areaPy) > -1 && url.indexOf('.com/sell/') == -1) {-->
+<!--                        searchFullCityUrl = url.replace(areaPy, py);-->
+<!--                    } else {-->
+<!--                        searchFullCityUrl = "//127.0.0.1/" + py + "/";-->
+<!--                    }-->
+<!--                }-->
+<!--            }-->
+<!--        } else {-->
+<!--            isHave = true;-->
+<!--            for (i = 0; i < 10; i++) {-->
+<!--                name = cityArray[i]["name"];-->
+<!--                py = cityArray[i]["py"];-->
+<!--                if (url.toLowerCase().indexOf(areaPy) > -1 && url.indexOf('.com/sell/')==-1) {-->
+<!--                    content.push('<a  pid="'+cityArray[i]["id"]+'" onclick="SetAreaCookie(this)" href="' + url.replace(areaPy, py) +'">' + name + '</a>');-->
+<!--                } -->
+<!--                else {-->
+<!--                    content.push('<a pid="'+cityArray[i]["id"]+'" onclick="SetAreaCookie(this)" href="//127.0.0.1/'+py+'/">' + name + '</a>');-->
+<!--                }-->
+<!--            }-->
+<!--        }-->
+<!--        -->
+<!--        if (isHave) {-->
+<!--            var result = content.join('');-->
+<!--            C.$("divSearchCity").style.display = "block";-->
+<!--            C.$("ulSearchCityResult").innerHTML = result;-->
+<!--        } else {-->
+<!--            C.$("divSearchCity").style.display = "block";-->
+<!--            C.$("ulSearchCityResult").innerHTML = '';-->
+<!--        }-->
+
+<!--        var liArr = C.$("ulSearchCityResult").childNodes;-->
+<!--        var liCount = liArr.length;-->
+<!--        -->
+<!--        switch (keyCode) {-->
+<!--            // 回车-->
+<!--            case 13:-->
+<!--                if (index > -1) {-->
+<!--                    window.location.href = liArr[index].childNodes[0].href;-->
+<!--                } else if(searchFullCityUrl) {  // 精确搜索城市名称或拼音则直接跳转-->
+<!--                    C.setCookie('userarea', searchFullCityId, 24 * 60 * 60 * 365, '/', '.che168.com');-->
+<!--                    window.location.href = searchFullCityUrl;-->
+<!--                }-->
+
+<!--                return;-->
+<!--                // 向上-->
+<!--            case 38:-->
+<!--                if (index == -1 || index == 0) {-->
+<!--                    index = &#45;&#45;liCount;-->
+<!--                } else {-->
+<!--                    index&#45;&#45;;-->
+<!--                }-->
+
+<!--                liArr[index].setAttribute("class","selected");-->
+
+<!--                return;-->
+<!--                // 向下-->
+<!--            case 40:-->
+<!--                if (index == &#45;&#45;liCount|| index == -1) {-->
+<!--                    index = 0;-->
+<!--                } else {-->
+<!--                    index++;-->
+<!--                }-->
+
+<!--                liArr[index].setAttribute("class","selected");-->
+<!--                return;-->
+<!--        }-->
+<!--    };-->
+
+<!--   -->
+
+<!--    /*输出广告使用的当前城市的ID*/-->
+<!--    var ad_Province=0,ad_City=0,cityCode=0,ProvinceAreaID=0;-->
+<!--    var areaId=C.getCookie('userarea');-->
+<!--    var isShowTransfer=false;-->
+<!--    -->
+<!--    if(areaId && !isNaN(areaId) && areaId.length==6 ){-->
+<!--        var cotyKey=areaId;-->
+<!--        if(areaId.substring(2,areaId.length)=="0000"){//直辖市获取省会省市ID-->
+<!--            cotyKey=parseInt(areaId)+100;-->
+<!--            if(cotyKey!=110100 && cotyKey!=310100 && cotyKey!=120100 && cotyKey!=500100){-->
+<!--                ad_Province=cityJson[cotyKey].pid;           -->
+<!--                ProvinceAreaID=cityJson[cotyKey].opid;-->
+<!--            }else{                      -->
+<!--                ad_City=cityJson[cotyKey].cid;-->
+<!--                ad_Province=cityJson[cotyKey].pid;-->
+<!--                cityCode=cityJson[cotyKey].ocid;-->
+<!--                ProvinceAreaID=cityJson[cotyKey].opid;-->
+<!--            }-->
+<!--        }else{-->
+<!--            ad_City=cityJson[areaId].cid;-->
+<!--            ad_Province=cityJson[areaId].pid;-->
+<!--            cityCode=cityJson[areaId].ocid;-->
+<!--            ProvinceAreaID=cityJson[areaId].opid;-->
+<!--        }-->
+<!--    }-->
+<!--    function loadTipHide()-->
+<!--    {-->
+<!--        if(!C.getCookie('city-tipHide')&&'False'=='True')-->
+<!--        {-->
+<!--            document.getElementById("city-tip").style.display="block";            -->
+<!--        }-->
+<!--    }-->
+<!--    function onHideGpsDIV()-->
+<!--    {-->
+<!--        document.getElementById("city-tip").style.display="none";        -->
+<!--        C.setCookie('city-tipHide',"1", 24 * 60 * 60 * 30, '/', '.che168.com');-->
+<!--    }-->
+<!--    loadTipHide();-->
+
+<!--    //论坛导航统计埋点-->
+<!--    //C.bind('a_club','click', function () {  -->
+<!--    //    C.loadJS('//127.0.0.1/collect/page_event.ashx?eventkey=c_pc_carforum_home_forum&ref='+document.referrer+'&cur='+location.href, function () { });-->
+<!--    //});-->
+<!--      -->
+
+
+<!--    /*选择地区滑动*/-->
+<!--    if(C.$("ul_firstChar")){-->
+<!--        var lis=document.getElementById("ul_firstChar").getElementsByTagName('li');-->
+<!--        var len=lis.length;-->
+<!--        for(var i=0;i<len;i++){-->
+<!--            lis[i].onmousemove = function () {-->
+<!--                lis[0].className='';-->
+<!--                var id=this.getElementsByTagName('a')[0].attributes["data-target"].nodeValue;                -->
+<!--                for(var j=1;j<6;j++){//-->
+<!--                    document.getElementById('#tabcity-'+j).className='tab-content-item city-tab-content-item';-->
+<!--                }                -->
+<!--                document.getElementById(""+id).className='tab-content-item city-tab-content-item current';-->
+<!--            }-->
+<!--        }-->
+<!--    };    -->
+<!--    //设置顶部导航消息-->
+<!--    var msgNum = $("#spanNotice .reda");-->
+<!--    if (msgNum.html() && parseInt(msgNum.html()) > 0) {-->
+<!--        $("#messageNum").addClass("nav-info-num");-->
+<!--        $("#messageNum").html(msgNum);-->
+<!--    }-->
+<!--    else {-->
+<!--        setTimeout("setMsgNum()", 2000);-->
+<!--    }-->
+<!--    function setMsgNum() {-->
+<!--        if ($("#spanNotice .reda").html() && parseInt($("#spanNotice .reda").html()) > 0) {-->
+<!--            $("#messageNum").addClass("nav-info-num");-->
+<!--            $("#messageNum").html($("#spanNotice .reda").html());-->
+<!--        }-->
+<!--    }-->
+<!--  -->
+<!--</script>-->
+
+
+	<!-- 焦点图侧边栏 -->
+	<div class="bg-content fn-clear">
+		<div class="wrapper fn-clear">
+			
+
+<div class="left-nav">
+    <ul>
+        <li class="left-nav-head">
+            <img id="userLogo" src="../../../static/images/person-weidenglu-logo.png">
+            <h3 id="UserName">CARFuns</h3>
+        </li>
+        <li><a href="javascript:void(0)"><i class="iconfont sell"></i>交易记录</a> </li>
+        <li class="comments-child "><a href="https://127.0.0.1/car/auctionmanager/">已成交</a> </li>
+        <li class="comments-child "><a href="https://127.0.0.1/car/manager/">待成交</a> </li>
+        <li><a href="javascript:void(0)"><i class="iconfont icon-dingdan"></i>我的订单</a> </li>
+        <li class="comments-child "><a href="https://127.0.0.1/myorder/orderlist/">订单记录</a> </li>
+        <li class="comments-child "><a href="https://127.0.0.1/caroffer/carofferindex/">询价记录</a> </li>
+	    <li class=""> <a href="https://127.0.0.1/ticket/myticketlist/"><i class="iconfont icon-youhuiquan"></i>我的优惠券</a> </li>
+        <li class=""><a href="https://127.0.0.1/collection/#pvareaid=103785"><i class="iconfont collection">&#59667;</i>我的收藏</a> </li>
+        <li><a href="javascript:void(0)"><i class="iconfont comment-right"></i>我的评论</a> </li> 
+        <li id="commentType1" class="comments-child"><a href="https://127.0.0.1/comment/mycomment/?type=1">收到的评论</a> </li>
+        <li id="commentType2" class="comments-child"><a href="https://127.0.0.1/comment/mycomment/?type=2">发表的评论</a> </li>
+        <li class="" id="financialOrder"><a href="https://127.0.0.1/financial/list.html"><i class="iconfont"></i>贷款订单</a></li>
+        <li class="left-nav-botinfo"><a href="javascript:void(0)"><i class="iconfont bargaining">&#59714;</i></a>
+            <p>客服电话<br>
+               400-888-8888</p>
+        </li>
+    </ul>
+</div>
+<!--<script>-->
+<!--    function getUserHead(headImageUrl) {-->
+<!--        try {-->
+<!--            if (headImageUrl == '' || headImageUrl == null) {-->
+<!--                return '//127.0.0.1/space/images/head_120X120.gif';-->
+<!--            }-->
+<!--            if (headImageUrl.indexOf("//") == 0) {-->
+<!--                return headImageUrl;-->
+<!--            }-->
+<!--            headImageUrl = headImageUrl.replace('userheaders', '');-->
+<!--            var domain = "";-->
+<!--            var randArr = [0, 1];-->
+<!--            var b = randArr[Math.floor((Math.random() * randArr.length))];-->
+
+<!--            if (headImageUrl.indexOf("autohomecar__") >= 0) {-->
+<!--                b += 2;-->
+<!--                domain = "//i" + b + ".autoimg.cn/userscenter/";-->
+<!--            }-->
+<!--            else {-->
+<!--                domain = "//i" + b + ".autoimg.cn/album/userheaders";-->
+<!--            }-->
+<!--            return domain + headImageUrl;-->
+<!--        } catch (e) {-->
+<!--            return "//127.0.0.1/space/images/head_120X120.gif";-->
+<!--        }-->
+<!--    };-->
+<!--    window.onload = function () {-->
+<!--        -->
+<!--        var sus = C.getCookie('clubUserShow');-->
+<!--        if (sus.length > 10) { //已登录-->
+<!--            var userinfo = sus.split('|');-->
+<!--            if (userinfo.length >= 7) {-->
+<!--                userPic = sus.split('|')[7];-->
+<!--                userName = sus.split('|')[3];-->
+<!--                document.getElementById("UserName").innerHTML = userName;-->
+<!--            }-->
+
+<!--            if (userPic != '') {-->
+<!--                userPic = getUserHead(userPic);-->
+<!--                $("#userLogo").attr("src", userPic);-->
+<!--            }-->
+
+<!--            $.ajax({-->
+<!--                type: 'get',-->
+<!--                url: '/handler/getNickName.ashx',-->
+<!--                cache: true,-->
+<!--                dataType: 'json',-->
+<!--                success: function (result) {-->
+<!--                    if (result&&result.result.newnickname) {-->
+<!--                        document.getElementById("UserName").innerHTML = result.result.newnickname;-->
+<!--                    }-->
+<!--                    -->
+<!--                }-->
+<!--            });-->
+
+<!--        }-->
+<!--    }-->
+
+<!--</script>-->
+
+			<div class="right-content" id="rightContent">
+                <div class="nodata">
+<!--                <img src="../../../static/images/person-me-sale-nodata.png">-->
+<!--                <p>您还没有卖的车</p>-->
+<!--                                                                        -->
+
+<!--                <div class="nodata-btn">-->
+<!--                    <a href="https://127.0.0.1/hangzhou/list/#pvareaid=100945" target="_blank" class="btn">我要买车</a>-->
+<!--                    <a href="https://127.0.0.1/car/sale/" target="_blank" class="btn">我要卖车</a>-->
+<!--                </div>-->
+            </div>
+                                                                        
+                                                                        
+           </div>
+		</div>
+	</div>
+
+    <div id="popNoSaleCar" class="layer layer-w420  fn-hide">
+		<div class="layer-content">
+            <a href="javascript:Cmd.Dialog.Hide('popNoSaleCar');" class="iconfont iconfont-close">X</a>
+			<h3 class="h3-title">确认不卖了吗?</h3>
+			<div class="ft-btm">
+                <a id="popNoSaleCarConfirm" href="javascript:noSellCar();" class="btn  btn-w145 btn-small">确认</a>
+                <a class="btn btn-cancel btn-w145 btn-small" href="javascript: Cmd.Dialog.Hide('popNoSaleCar');">取消</a>
+
+			</div>
+		</div>
+	</div>
+	<!-- 通用底部 -->
+<div class="footer">
+    <div class="footer-center">
+        <div class="footer-bot foot-text">
+            <div class="copy credit">           
+            权利声明：本网站对展示的车辆信息、检测报告、视频、图片等内容享有合法权利，未经许可，不得非法转载、复制等方式使用。
+            </div>
+            <div class="copy credit">
+            &copy;2020 旧卖车
+            </div>
+        </div>
+    </div>
+</div>
+	<!-- /通用底部 -->
+	
+	<!-- start 根据需求引入js文件（所有的js必须放在底部） -->
+	
+	<script>
+	    // seajs.config({
+	    //     // charset: 'gb2312',
+	    //     version: '2016011610', // 版本号, 可选
+	    //     alias: {
+	    //         //自定义JS
+	    //     },
+	    //     paths: {
+	    //         'as': '//127.0.0.1/as/as-3.1.2', //全站插件库
+	    //         '2sc': '//127.0.0.1/2sc_mass/js_pc/v1.0.6' //?二手车插件库
+	    //     }
+	    // });
+	    // seajs.use(["jquery", "as/focus", "as/tip", "as/tab", "as/support", "as/layer", "2sc/public", "2sc/search", "2sc/picExpand", "2sc/tabFollowed", "2sc/siderbar", "2sc/scrollBox", "2sc/topFixed", "2sc/header", "2sc/rightAside", "2sc/mfocus", "2sc/scrollBox", "2sc/topFixed", "2sc/placeholder", "2sc/cityChoice", "2sc/placeholder", "2sc/retina", "2sc/lazyload"], function () { });
+        //
+	    // function jumpSaleCar(specid, cid, regDate, mobile, mlg, seriesid) {
+	    //     var info = cid + '^' + seriesid + '^' + specid + '^' + regDate + '^' + mlg + '^' + mobile;
+	    //     var url = '//127.0.0.1/collect/page_event.ashx?eventkey=c_pc_2sc_mycenter_switch&ref=' + document.referrer + '&cur=' + location.href + '&info=' + info + '&rm=' + new Date().getTime();
+	    //     $.ajax({
+	    //         url: url,
+	    //         type: "get",
+	    //         dataType: "jsonp",
+	    //         complete: function () { }
+	    //     });
+	    //     location.href = '/car/add/?pvareaid=100663&spid=' + specid + "&cid=" + cid + "&cdate=" + regDate + "&mobile=" + mobile + "&mlg=" + mlg + "&type=1";
+	    // }
+	    // var uareaid = C.getCookie("userarea");
+	    // if (!uareaid || uareaid == 0) {
+	    //     uareaid = C.getCookie("area");
+	    // }
+	    // uareaid = parseInt(uareaid);
+	    // if (uareaid == 110000 || uareaid == 310000 || uareaid == 120000 || uareaid == 500000) {
+	    //     uareaid = uareaid + 100;
+	    // }
+	    // function getAucationCarList(pageindex) {
+	    //     if ($("#list-more")) {
+	    //         $("#list-more").remove();
+	    //     }
+	    //     $.ajax({
+	    //         url: '/Handler/AuctionSaleNew/GetAucationCarListByPage_V2.ashx?pageindex=' + pageindex + '&flag=2&cid=' + uareaid,
+	    //         type: 'Get',
+	    //         dataType: 'text',
+	    //         success: function (result) {
+	    //             if (pageindex == 1) {
+	    //                 $("#rightContent").html(result);
+	    //             }
+	    //             else {
+	    //                 $("#rightContent").append(result);
+	    //             }
+	    //         },
+	    //         complete: function () {
+	    //             getCarPrice();
+	    //         }
+	    //     });
+	    // }
+        //
+        // //获取车辆估值
+        // function getCarPrice(){
+        //     $('i[valuation="1"]').each(function(){
+        //         var $this = $(this);
+        //         var pid = $this.attr('pid');
+        //         var cid = $this.attr('cid');
+        //         var mileage = $this.attr('mileage');
+        //         var firstregtime = $this.attr('firstregtime');
+        //         var specid = $this.attr('specid');
+        //         $.ajax({
+        //             url: '//127.0.0.1/Assess/UsedCarAssess.ashx?_appid=2sc&_sign=&_encoding=gb2312&dir=3&_appversion=2.04v&mark=uahp10043',
+        //             type: 'get',
+        //             data: { pid: pid, cid: cid, mileage: mileage, firstregtime: firstregtime, specid: specid },
+        //             dataType: 'jsonp',
+        //             jsonp: "_callback",
+        //             success: function (data) {
+        //                  if(data && data.returncode == 0){
+        //                      var price = parseFloat(data.result.referenceprice.split('-')[0]) + parseFloat(data.result.referenceprice.split('-')[1]);
+        //                      price = (price.toFixed(2) / 2).toFixed(2);
+        //                      $this.html(price + "万");
+        //                  }
+        //             },
+        //             complete:function () {
+        //                 $this.attr('valuation' , 0);
+        //             }
+        //         });
+        //     });
+        // }
+        //
+        // getAucationCarList(1);
+        //
+	    // //不卖了按钮
+        // var delCclid = 0;
+        // var deling = 0;
+        // function showNoSaleCarPop(cclid) {
+        //     delCclid = cclid;
+        //     Cmd.Dialog("popNoSaleCar");
+        //
+        //     trackCustomClick({ 'biz': 'usc', 'type': 'show', 'action': 'usc_2sc_usercenter_mysellcar_deletecar_show', 'ctime': new Date().getTime(), 'area': 'middle_function_show' }, { 'platform': 10 });
+        // }
+        // function noSellCar() {
+        //
+        //     if (deling != 0) return;
+        //     deling = 1;
+        //
+        //     $.ajax({
+        //         type: 'post',
+        //         dataType: 'json',
+        //         url: '/handler/SaleCarV3/NoSaleCar.ashx',
+        //         data: { 'cclid': delCclid },
+        //         success: function (data) {
+        //             if (data) {
+        //                 if (data.returncode == 0) {
+        //                     $("#sale-car-item-" + delCclid).remove();
+        //                     Cmd.Dialog.Hide("popNoSaleCar");
+        //                     setTimeout(function () {
+        //                         alert("已删除");
+        //                         if ($("#rightContent").html().length == 0) {
+        //                             getAucationCarList(1);
+        //                         }
+        //                     }, 100);
+        //
+        //                 } else {
+        //                     alert(data.message );
+        //                 }
+        //             } else {
+        //                 alert("请求异常,请联系管理员。" );
+        //             }
+        //
+        //         },
+        //         complete: function () {
+        //             deling = 0;
+        //         }
+        //     });
+        //
+        //     trackCustomClick({ 'biz': 'usc', 'type': 'click', 'action': 'usc_2sc_usercenter_mysellcar_deletecar_click', 'ctime': new Date().getTime(), 'area': 'middle_function_click' }, { 'platform': 10 });
+        // }
+
+
+        //---------------------------------------------我的JQ代码-----------------------------------------
+//-------1. 刷新或进入页面, 首先判断是否有车辆信息关联, 如果有,返回车辆信息页面并显示车辆审核状态,如果没有,返回默认页面引导进入买车或者卖车页面-----------------------------------------
+//     var token = window.localStorage.getItem('dnblog_token');
+//     var username_token = window.localStorage.getItem('dnblog_user');
+//判断当前url里的username和token里的username是否一致,是否本人查看当前会员页
+        //取当前页面的url里的username
+        var username_url=window.location.pathname.split("/")[2];
+    var username={"username":"momo"};
+    if (username!=username_url){
+
+    }
+     $(document).ready(function (){
+        $.ajax({
+        url:"http://127.0.0.1:8000/beta/users/",
+        type:"post",
+        contentType: "application/json",
+        dataType:"json",
+        data:JSON.stringify(username),
+        success:function (data) {
+            console.log(data.data)
+            if (data.code==200){
+                console.log(1111)
+                var check_info=data.data;
+                $(".nodata").html(check_info);
+
+            }
+            else {
+                console.log(2222)
+                var nodata_html='<img src="../../../static/images/person-me-sale-nodata.png">'
+                nodata_html+='<p>您还没有卖的车</p>'
+                nodata_html+='<div class="nodata-btn">'
+                nodata_html+='<a href="http://127.0.0.1:5000/cars" target="_blank" class="btn">我要买车</a>'
+                nodata_html+='<a href="http://127.0.0.1:5000/owner " target="_blank" class="btn">我要卖车</a>'
+                nodata_html+='</div>'
+                $(".nodata").html(nodata_html)
+            }
+        }})
+    })
+
+//-------------------------------------------------------------------------------------------------------------
+
+        //以下是测试跨域代码
+    //     var a = {"a": "3333"};
+    // $("#test_cors").click(function () {
+    //     $.ajax({
+    //         url: "http://127.0.0.1:8000/beta/users/one/ ",
+    //         type: "post",
+    //         contentType: "application/json",
+    //         data: JSON.stringify(a),
+    //         dataType: "json",
+    //         success: function (data) {
+    //             if (data.code == 201) {
+    //                 alert(11111)
+    //                 console.log(result)
+    //             }
+    //         }
+    //     })
+    //     // alert(11111111111)
+    //
+    // })
+
+//------------------------------------------------------------------------------------------------------------
+        </script>
+
+
+<!-- end 根据需求引入js文件 -->
+<!--script>
+ var _hmt = _hmt || [];
+ (function() {
+ var hm = document.createElement('script');
+ hm.src = '//hm.baidu.com/hm.js?d381ec2f88158113b9b76f14c497ed48';
+ var s = document.getElementsByTagName('script')[0]; 
+ s.parentNode.insertBefore(hm, s);
+ })();
+</script>
+<script type="text/javascript" src="../../../static/js/pv.js"></script>
+<script type="text/javascript">
+function sendPV(){
+var pvTrack = new PVTrack();
+pvTrack.page=5001004;
+ pvTrack.site=123;
+ pvTrack.category=1390;
+ pvTrack.subcategory=15116;pvTrack.track();}
+sendPV();
+</script>
+<script language="javascript" type="text/javascript" src="../../../static/js/ahas_single.js"></script-->
+</body>
+</html>

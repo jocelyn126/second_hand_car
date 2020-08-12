@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test_api</title>
+
+</head>
+<body>
+
+<button id="test_cors">跨域测试</button>
+
+<script src="/static/js/jquery-3.5.0.min.js" type="text/javascript"></script>
+<script>
+    var a = {"a": "3333"};
+    $("#test_cors").click(function () {
+        $.ajax({
+            url: "http://127.0.0.1:8000/beta/users/one/ ",
+            type: "post",
+            contentType: "application/json",
+            data: JSON.stringify(a),
+            dataType: "json",
+            success: function (data) {
+                if (data.code == 201) {
+                    alert(11111)
+                    console.log(result)
+                }
+            }
+        })
+        // alert(11111111111)
+
+    })
+
+
+</script>
+</body>
+</html>
