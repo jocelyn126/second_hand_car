@@ -39,11 +39,32 @@ class UserCenterViews(View):
                 return JsonResponse({"code":200,"data":data})
             else:
                 print("没有卖车记录")
-                return JsonResponse({"code":10601,"data":None})
+                return JsonResponse({"code":10601,"error":"no data"})
+        elif post_data["tag"]=="modify_password":
+            #分两步走,1 校验旧密码
+
+            #2 存入新密码- 参考注册的密码散列存储和登录的签发token.
+            pass
+
+
 
     #修改密码：
     #添加校验登录状态的装饰器
+    @method_decorator(logging_check)
+    def put(self, request, username=None):
+        json_str = request.body
+        json_obj = json.loads(json_str)
+        sign = json_obj["sign"]
+        info = json_obj["info"]
+        nickname = json_obj["nickname"]
 
+        user = UserProfile.objects.get(username=username)
+        user.sign = sign
+        user.info = info
+        user.nickname = nickname
+
+        user.save()
+        return JsonResponse({"code": 200, "username": username})
         #与数据库核对密码，前端异步显示密码是否输入正确。
         #接收2次新密码，核对2次新密码是否一致
         #如一致，修改数据库密码

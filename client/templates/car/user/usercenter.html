@@ -2922,6 +2922,14 @@
         $("#UserName").text(username_token);
     })
 
+//------------------修改密码------------------
+    //---绑定点击修改密码, 动态生成修改密码区域.
+    //---函数绑定旧密码框onchange事件, ajax返回密码是否正确.如果不正确,锁死下面两个输入新密码的框 return false
+    //---前端绑定新密码框onchange事件, 前端校验两个新密码框的输入是否一致, 返回在最后一个输入框旁边, return false
+    //---提交按钮: 1. 旧密码错误,不能提交- if not 1() 2. 输入不一致,不能提交, if not 2() 3. 把新密码和token里的username提交给后端, 后端返回200和新token和version
+
+
+
 
     // ------------发生点击"我的卖车记录"时,执行下列函数------------
     $("#sell").click(function () {
@@ -2952,8 +2960,7 @@
                         console.log(dict_info);
                         //创建表格
 
-                        //创建表头失败
-
+                        //大哥, 创建表头失败
                         // nodata_html = '<tr>'
                         // nodata_html += '<td>序号</td>'
                         // nodata_html += '<td>车型</td>'
@@ -2971,9 +2978,6 @@
                         // nodata_html += '</tr>'
                         // $(".nodata").html(nodata_html)
                         createRow(i, dict_info);
-
-
-
                     });
 
 
