@@ -734,10 +734,10 @@
 <div class="header-content person-header ">
     <div class="header fn-clear">
         <form id="souform" name="soform" onkeydown="javascript:if(event.keyCode==13) return false;return true;"
-              action="//127.0.0.1/handler/searchclick.ashx?pvareaid=101025">
+              action="javascript:void(0)">
             <div class="search search01">
                 <div class="search-box">
-                    <input id="search2sc" name="kw" autocomplete="off" value="请输入车辆名称" data-toggle="search"
+                    <input id="search2sc" name="kw" autocomplete="off" placeholder="请输入车辆名称" data-toggle="search"
                            data-val="请输入关键字" type="text" class="search-text">
                 </div>
                 <a id="btnKeyword" href="javascript:void(0);" class="search-btn"><i class="iconfont">&#59658;</i></a>
@@ -2926,6 +2926,13 @@
         $("#UserName,#usename").html(username_token);
     });
 
+    //-------跳转搜索车辆------
+    $(".search-btn").click(function () {
+        var value=$("#search2sc").value
+        console.log(value);
+        // window.open("127.0.0.1:5000/cars?keyword="+value);
+    })
+
  //------------------修改密码------------------
     //1. ---绑定点击修改密码, 动态生成修改密码区域.
 $("#a_sale").click(function () {
@@ -2942,6 +2949,7 @@ $("#a_sale").click(function () {
             "tag":"check_password",
             "username":username_token
         }
+        //创建一个标记位,用于最后是否提交的依据.
         $.ajax({
             url: "http://127.0.0.1:8000/beta/users/" + username_token + "/",
             type: "post",
