@@ -17,6 +17,9 @@
           content="width=1300,initial-scale=1,minimum-scale=0.5,maximum-scale=1,user-scalable=no">
     <link rel="stylesheet" type="text/css" href="../../../static/css/base-windows.css">
     <script src="/static/js/jquery-3.5.0.min.js" type="text/javascript"></script>
+
+
+
     <!--script src="../../../static/js/hm.js"></script>
     <script language="javascript">
         function setCookie(name, value, option) { var str = name + '=' + escape(value); if (option) { if (option.expireHours) { var d = new Date(); d.setTime(d.getTime() + option.expireHours * 3600 * 1000); str += '; expires=' + d.toGMTString(); } if (option.path) str += '; path=' + option.path; else str += '; path=/'; if (option.domain) str += '; domain=' + option.domain; if (option.secure) str += '; true'; } document.cookie = str; }
@@ -1922,8 +1925,8 @@
         <div class="nav-main" id="nav-main">
             <ul>
                 <li class=""><a id="a_home" href="http://127.0.0.1:5000/index">首页</a>|</li>
-                <li class=""><a id="a_sale" href="https://127.0.0.1/user/modify/">账户设置</a>|</li>
-                <li class=""><a id="a_buy" href="https://127.0.0.1/notice/">消息</a><em id="messageNum"></em>
+                <li class=""><a id="a_sale" href="javascript:void(0)">修改密码</a>|</li>
+<!--                <li class=""><a id="a_buy" href="https://127.0.0.1/notice/">消息</a><em id="messageNum"></em>-->
                 </li>
             </ul>
         </div>
@@ -2915,18 +2918,56 @@
     // var username_url=window.location.pathname.split("/")[2];
 
 
-    //-------------------------------功能区----------------------------------
-    //大哥,这段代码执行不了改显示的用户名.
-    $(document).ready(function () {
-        $("#usename").innerText(username_token);
-        $("#UserName").text(username_token);
-    })
+    //===========================功能区===========================
 
-//------------------修改密码------------------
-    //---绑定点击修改密码, 动态生成修改密码区域.
-    //---函数绑定旧密码框onchange事件, ajax返回密码是否正确.如果不正确,锁死下面两个输入新密码的框 return false
+    //---------修改显示的用户名--------
+    $(document).ready(function () {
+
+        $("#UserName,#usename").html(username_token);
+    });
+
+ //------------------修改密码------------------
+    //1. ---绑定点击修改密码, 动态生成修改密码区域.
+$("#a_sale").click(function () {
+    var nodata_html='<div id="modify_pwd">';
+        nodata_html+='旧密码： <input type="text" id="old_pwd">';
+        nodata_html+='<span id="show"></span>';
+        nodata_html+='</div>';
+        $(".nodata").html(nodata_html)
+    //2. ---函数绑定旧密码框onchange事件, ajax返回密码是否正确.如果不正确,锁死下面两个输入新密码的框 return false
+    //这个函数只能写在动态生成网页的里面,不然就提前加载了.
+    $("#old_pwd").change(function (){
+        var post_data={
+            "old_pwd":this.value,
+            "tag":"check_password",
+            "username":username_token
+        }
+        $.ajax({
+            url: "http://127.0.0.1:8000/beta/users/" + username_token + "/",
+            type: "post",
+            contentType: "application/json",
+            dataType: "json",
+            data: JSON.stringify(post_data),
+            success: function (res){
+                if (res.code==200){
+                    $("#show").html("密码输入正确")
+                }
+                else{
+                    console.log(res.data)
+                    $("#show").html("密码错误")
+                }
+            }
+        })
+
+
+        // $("#show").html(old_pwd)
+    })
+})
+
+
     //---前端绑定新密码框onchange事件, 前端校验两个新密码框的输入是否一致, 返回在最后一个输入框旁边, return false
     //---提交按钮: 1. 旧密码错误,不能提交- if not 1() 2. 输入不一致,不能提交, if not 2() 3. 把新密码和token里的username提交给后端, 后端返回200和新token和version
+
 
 
 
@@ -2997,7 +3038,7 @@
 
     //-------------------------------------------------------------------------------------------------------------
 
-    //------------------工具区-------------------
+    //===========================工具区===========================
     function createRow(i, dict_info) {
         console.log(dict_info.cars__brand)
 
@@ -3068,7 +3109,7 @@
     }
 
 
-    //以下是测试跨域代码
+    //===========================以下是测试跨域代码===========================
     //     var a = {"a": "3333"};
     // $("#test_cors").click(function () {
     //     $.ajax({
