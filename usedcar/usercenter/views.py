@@ -69,28 +69,33 @@ class UserCenterViews(View):
             #3. 返回校验结果
             print(11111111,m.hexdigest)
             return JsonResponse({"code":200,"data":"The username or password is correct"})
+
         #2 存入新密码- 参考注册的密码散列存储和登录的签发token.
-            pass
+        elif post_data["tag"]=="submit_password":
+            username = post_data["username"]
+            new_pwd = post_data["new_pwd"]
+
+            try:
+                user = User.objects.filter(username=username)
+            except Exception as e:
+                print("--get user error is", e)
+                result = {
+                    "code": 10604,
+                    "error": "The username or password is error"
+                }
+                return JsonResponse(result)
+
+            m=hashlib.md5()
+            m.update(new_pwd.encode())
+
+            try:
+                user.update(password=m.hexdigest())
+            except Exception as e:
+                print("update user error is", e)
+                result = {"code": 10605, "error": "error"}
+                return JsonResponse(result)
+            return JsonResponse({"code":200,"data":"modify password success"})
 
 
 
-    #修改密码：
-    #添加校验登录状态的装饰器
-    # @method_decorator(logging_check)
-    # def put(self, request, username=None):
-    #     json_str = request.body
-    #     json_obj = json.loads(json_str)
-    #     sign = json_obj["sign"]
-    #     info = json_obj["info"]
-    #     nickname = json_obj["nickname"]
-    #
-    #     user = UserProfile.objects.get(username=username)
-    #     user.sign = sign
-    #     user.info = info
-    #     user.nickname = nickname
-    #
-    #     user.save()
-    #     return JsonResponse({"code": 200, "username": username})
-        #与数据库核对密码，前端异步显示密码是否输入正确。
-        #接收2次新密码，核对2次新密码是否一致
-        #如一致，修改数据库密码
+

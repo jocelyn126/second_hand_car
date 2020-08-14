@@ -2935,22 +2935,24 @@
     });
 
 
-    //-------跳转搜索车辆------
-    $(".search-btn").click(function () {
-        var value=$("#search2sc").value
-        console.log(value);
-        // window.open("127.0.0.1:5000/cars?keyword="+value);
-    })
-
-
  //------------------修改密码------------------
     //1. ---绑定点击修改密码, 动态生成修改密码区域.
+
 $("#a_sale").click(function () {
     var nodata_html='<div id="modify_pwd">';
         nodata_html+='旧密码： <input type="text" id="old_pwd">';
-        nodata_html+='<span id="show"></span>';
+        nodata_html+='<span id="show"></span><br>';
+        nodata_html+='新密码： <input type="text" id="new_pwd1"><br>';
+        nodata_html+='再次输入：<input type="text" id="new_pwd2"><span id="show2"></span><br>';
+        nodata_html+='<input id="submit" type="button" value="提交"><br>';
         nodata_html+='</div>';
+
         $(".nodata").html(nodata_html)
+
+    //创建一个标记位,用于最后是否提交的依据.
+        var sign1=0
+    var sign2=0
+
     //2. ---函数绑定旧密码框onchange事件, ajax返回密码是否正确.如果不正确,锁死下面两个输入新密码的框 return false
     //这个函数只能写在动态生成网页的里面,不然就提前加载了.
     $("#old_pwd").change(function (){
@@ -2959,7 +2961,7 @@ $("#a_sale").click(function () {
             "tag":"check_password",
             "username":username_token
         }
-        //创建一个标记位,用于最后是否提交的依据.
+
         $.ajax({
             url: "http://127.0.0.1:8000/beta/users/" + username_token + "/",
             type: "post",
@@ -2969,10 +2971,12 @@ $("#a_sale").click(function () {
             success: function (res){
                 if (res.code==200){
                     $("#show").html("密码输入正确")
+                    sign1=0
                 }
                 else{
                     console.log(res.data)
                     $("#show").html("密码错误")
+                    sign1=1
                 }
             }
         })
@@ -2980,11 +2984,56 @@ $("#a_sale").click(function () {
 
         // $("#show").html(old_pwd)
     })
+    //3. -----前端绑定新密码框onchange事件, 前端校验两个新密码框的输入是否一致, 返回在最后一个输入框旁边, return false
+    $("#new_pwd2").change(function (){
+        var password1=$("#new_pwd1").val()
+        var password2=$("#new_pwd2").val()
+        var check=password1!=password2?"两次密码输入不同":null
+        $("#show2").html(check)
+        if (check=="两次密码输入不同"){
+            sign2=1
+
+        }else{sign2=0}
+    // console.log(sign1)
+    // console.log(sign2)
+        // ---提交按钮: 1. 旧密码错误,不能提交- if not 1() 2. 输入不一致,不能提交, if not 2() 3. 把新密码和token里的username提交给后端, 后端返回200和新token和version
+        $("#submit").click(function () {
+            if (sign1==0 && sign2==0){
+                // console.log("00000000000")
+                var post_data={
+            "new_pwd":password2,
+            "tag":"submit_password",
+            "username":username_token
+                }
+                $.ajax({
+                    url: "http://127.0.0.1:8000/beta/users/" + username_token + "/",
+            type: "post",
+            contentType: "application/json",
+            dataType: "json",
+            data: JSON.stringify(post_data),
+            success: function (res){
+                        if (res.code==200){
+                            alert("密码修改成功!")
+                        }
+                        else {
+                            alert("密码修改失败,请稍后再试!")
+                        }
+            }
+                })
+            }
+            else{
+                alert("输入错误,请重新输入")
+            }
+        })
+
+    })
+
+
 })
 
 
-    //---前端绑定新密码框onchange事件, 前端校验两个新密码框的输入是否一致, 返回在最后一个输入框旁边, return false
-    //---提交按钮: 1. 旧密码错误,不能提交- if not 1() 2. 输入不一致,不能提交, if not 2() 3. 把新密码和token里的username提交给后端, 后端返回200和新token和version
+
+
 
 
 
