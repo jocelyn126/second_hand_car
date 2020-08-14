@@ -2926,6 +2926,14 @@
         $("#UserName,#usename").html(username_token);
     });
 
+    //------------搜索车辆后跳转搜索页面---------
+    $("#btnKeyword").click(function(){
+        var value=$("#search2sc").val();
+        //btnKeyword 标签中绑定了js方法包含本页面的url地址,因此,跳转不需要再写主路由.
+        location.href="/cars?keyword="+value;
+    });
+
+
  //------------------修改密码------------------
     //1. ---绑定点击修改密码, 动态生成修改密码区域.
 $("#a_sale").click(function () {
