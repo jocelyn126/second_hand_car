@@ -72,14 +72,14 @@
             <ul>
                 <li><a target="_blank" href="http://127.0.0.1:5000/index">&lt;&lt; 旧卖车首页</a></li>
                 <li><span>|</span></li>
-                <li><a id="buycar" target="_blank" href="https://127.0.0.1/hangzhou/list/#pvareaid=100992">我要买车</a></li>
+                <li><a id="buycar" target="_blank" href="http://127.0.0.1:5000/cars">我要买车</a></li>
                 <li><span>|</span></li>
-                <li><a target="_blank" id="aSaleCar" name="sale_car" href="https://127.0.0.1/car/sale/#pvareaid=100995">我要卖车</a>
+                <li><a target="_blank" id="aSaleCar" name="sale_car" href="http://127.0.0.1:5000/owner">我要卖车</a>
                 </li>
                 <li><span>|</span></li>
-                <li><a target="_blank" href="https://127.0.0.1/pinggu/#pvareaid=100998">估价</a></li>
+                <li><a target="_blank" href="/owner/analysis">估价</a></li>
                 <li><span>|</span></li>
-                <li><a id="needcar" target="_blank" href="https://127.0.0.1/buy/add/">求购</a></li>
+<!--                <li><a id="needcar" target="_blank" href="https://127.0.0.1/buy/add/">求购</a></li>-->
             </ul>
         </div>
         <div class="mini-right">
@@ -122,42 +122,42 @@
             </ul>
 
             <ul class="frs frs-login" id="nologin1">
-                <li class="frs-login">
-                    <div class="moreli-title">
-                        <span style="color:#606977;">商家：<a id="dealerLogin"
-                                                           href="https://127.0.0.1/login.html#pvareaid=101013?backurl=https://127.0.0.1/"
-                                                           target="_blank">登录</a><a
-                                href="https://127.0.0.1/register.html#pvareaid=101016" target="_blank">申请免费发车</a></span>
+<!--                <li class="frs-login">-->
+<!--                    <div class="moreli-title">-->
+<!--                        <span style="color:#606977;">商家：<a id="dealerLogin"-->
+<!--                                                           href="https://127.0.0.1/login.html#pvareaid=101013?backurl=https://127.0.0.1/"-->
+<!--                                                           target="_blank">登录</a><a-->
+<!--                                href="https://127.0.0.1/register.html#pvareaid=101016" target="_blank">申请免费发车</a></span>-->
 
-                    </div>
-                </li>
-                <li class="vl"></li>
+<!--                    </div>-->
+<!--                </li>-->
+<!--                <li class="vl"></li>-->
             </ul>
-            <ul class="frs">
-                <li class="moreli">
-                    <div class="moreli-title" id="mycarhome">
-                        <a href="javascript:;"><span>我的二手车之家</span><i
-                                class="iconfont iconfont-drop-down">&#59670;</i></a>
-                    </div>
-                    <!--更多切换层开始-->
-                    <div style="display: none;" id="mycarhomepanel" class="topchadiv topchadiv-dw04">
-                        <div class="topchadiv-top">
-                            <div class="topchadiv-top-con"></div>
-                        </div>
-                        <div class="topchadiv-box">
-                            <div class="topchadiv-con">
-                                <a id="minihead_caradd" href="https://127.0.0.1/car/sale/#pvareaid=101217">发布车源</a>
-                                <a href="https://127.0.0.1/car/auctionmanager/#pvareaid=101342"
-                                   id="hrefsellcar">我卖的车</a>
-                                <a href="https://127.0.0.1/collection/" id="mysave">我的收藏</a>
+<!--            <ul class="frs">-->
+<!--                <li class="moreli">-->
+<!--                    <div class="moreli-title" id="mycarhome">-->
+<!--                        <a href="javascript:;"><span>我的二手车之家</span><i-->
+<!--                                class="iconfont iconfont-drop-down">&#59670;</i></a>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash;更多切换层开始&ndash;&gt;-->
+<!--                    <div style="display: none;" id="mycarhomepanel" class="topchadiv topchadiv-dw04">-->
+<!--                        <div class="topchadiv-top">-->
+<!--                            <div class="topchadiv-top-con"></div>-->
+<!--                        </div>-->
+<!--                        <div class="topchadiv-box">-->
+<!--                            <div class="topchadiv-con">-->
+<!--                                <a id="minihead_caradd" href="https://127.0.0.1/car/sale/#pvareaid=101217">发布车源</a>-->
+<!--                                <a href="https://127.0.0.1/car/auctionmanager/#pvareaid=101342"-->
+<!--                                   id="hrefsellcar">我卖的车</a>-->
+<!--                                <a href="https://127.0.0.1/collection/" id="mysave">我的收藏</a>-->
 
-                            </div>
-                        </div>
-                    </div>
-                    <!--更多切换层结束-->
-                </li>
-                <li class="vl"></li>
-            </ul>
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                    &lt;!&ndash;更多切换层结束&ndash;&gt;-->
+<!--                </li>-->
+<!--                <li class="vl"></li>-->
+<!--            </ul>-->
             <ul class="frs frs-login" id="nologin" style="display: none;">
                 <li id="auto-header-login" class="frs-login">
                     <div class="moreli_title" id="divuserinfo">
@@ -172,7 +172,7 @@
                 <li>
                     <div class="moreli-title" style="color:#606977;">您好！&nbsp;<a class="reda" id="usename"
                                                                                  style="color:#ff5a37;" target="_self"
-                                                                                 href="https://127.0.0.1/car/auctionmanager/">CARFuns</a>&nbsp;<a
+                                                                                 href="#userLogo"></a>&nbsp;<a
                             id="aLogout" onclick="personalLoginOff()" href="javascript:void(0);">退出</a></div>
                 </li>
             </ul>
@@ -2615,22 +2615,22 @@
                     <h3 id="UserName">CARFuns</h3>
                 </li>
                 <li id="sell"><a href="javascript:void(0)"><i class="iconfont sell"></i>我的卖车记录</a></li>
-                <li class="comments-child "><a href="https://127.0.0.1/car/auctionmanager/">已成交</a></li>
-                <li class="comments-child "><a href="https://127.0.0.1/car/manager/">待成交</a></li>
-                <li><a href="javascript:void(0)"><i class="iconfont icon-dingdan"></i>我的订单</a></li>
-                <li class="comments-child "><a href="https://127.0.0.1/myorder/orderlist/">订单记录</a></li>
-                <li class="comments-child "><a href="https://127.0.0.1/caroffer/carofferindex/">询价记录</a></li>
-                <li class=""><a href="https://127.0.0.1/ticket/myticketlist/"><i class="iconfont icon-youhuiquan"></i>我的优惠券</a>
-                </li>
-                <li class=""><a href="https://127.0.0.1/collection/#pvareaid=103785"><i class="iconfont collection">&#59667;</i>我的收藏</a>
-                </li>
-                <li><a href="javascript:void(0)"><i class="iconfont comment-right"></i>我的评论</a></li>
-                <li id="commentType1" class="comments-child"><a
-                        href="https://127.0.0.1/comment/mycomment/?type=1">收到的评论</a></li>
-                <li id="commentType2" class="comments-child"><a
-                        href="https://127.0.0.1/comment/mycomment/?type=2">发表的评论</a></li>
-                <li class="" id="financialOrder"><a href="https://127.0.0.1/financial/list.html"><i
-                        class="iconfont"></i>贷款订单</a></li>
+                <li class="comments-child "><a href="https://127.0.0.1/car/auctionmanager/">浏览历史</a></li>
+                <li class="comments-child "><a href="https://127.0.0.1/car/manager/">智能机器人</a></li>
+<!--                <li><a href="javascript:void(0)"><i class="iconfont icon-dingdan"></i>我的订单</a></li>-->
+<!--                <li class="comments-child "><a href="https://127.0.0.1/myorder/orderlist/">订单记录</a></li>-->
+<!--                <li class="comments-child "><a href="https://127.0.0.1/caroffer/carofferindex/">询价记录</a></li>-->
+<!--                <li class=""><a href="https://127.0.0.1/ticket/myticketlist/"><i class="iconfont icon-youhuiquan"></i>我的优惠券</a>-->
+<!--                </li>-->
+<!--                <li class=""><a href="https://127.0.0.1/collection/#pvareaid=103785"><i class="iconfont collection">&#59667;</i>我的收藏</a>-->
+<!--                </li>-->
+<!--                <li><a href="javascript:void(0)"><i class="iconfont comment-right"></i>我的评论</a></li>-->
+<!--                <li id="commentType1" class="comments-child"><a-->
+<!--                        href="https://127.0.0.1/comment/mycomment/?type=1">收到的评论</a></li>-->
+<!--                <li id="commentType2" class="comments-child"><a-->
+<!--                        href="https://127.0.0.1/comment/mycomment/?type=2">发表的评论</a></li>-->
+<!--                <li class="" id="financialOrder"><a href="https://127.0.0.1/financial/list.html"><i-->
+<!--                        class="iconfont"></i>贷款订单</a></li>-->
                 <li class="left-nav-botinfo"><a href="javascript:void(0)"><i
                         class="iconfont bargaining">&#59714;</i></a>
                     <p>客服电话<br>
@@ -2899,45 +2899,52 @@
     // }
 
 
-    //---------------------------------------------我的JQ代码-----------------------------------------
+    //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++我的JQ代码+++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
     //-------1. 刷新或进入页面, 首先判断是否有车辆信息关联, 如果有,返回车辆信息页面并显示车辆审核状态,如果没有,返回默认页面引导进入买车或者卖车页面-----------------------------------------
     var token = window.localStorage.getItem('dnblog_token');
     //     var username_token = window.localStorage.getItem('dnblog_user');
-    //判断当前url里的username和token里的username是否一致,是否本人查看当前会员页
-    //取当前页面的url里的username
 
+    //取当前页面的url里的username
+    var username_url=window.location.pathname.split("/")[2];
     //测试变量
     var username_token = "momo";
 
-    //判断token保存的名字与地址栏用户输入的名字是否一致,不一致不允许进入别人的会员页
-    // if (username!=username_url){
-    //     window.location.href="127.0.0.1:5000/login"
-    // }
-    // var username_url=window.location.pathname.split("/")[2];
 
 
-    //===========================功能区===========================
 
-    //---------修改显示的用户名--------
+    //=======================================================功能区=======================================================
+    //-------------判断token保存的名字与地址栏用户输入的名字是否一致,不一致不允许进入别人的会员页
+     $(document).ready(function(){
+        if (username_token!=username_url){
+        location.href="/login"
+            }
+    })
+
+    //--------------------------------------------修改显示的用户名--------------------------------------------------
     $(document).ready(function () {
-
+        $(".nodata").html('<img src="http://127.0.0.1:8000/static/user_center_img.gif" height="250px" width="600px">')
         $("#UserName,#usename").html(username_token);
     });
 
-
-    //------------搜索车辆后跳转搜索页面---------
+    //------------------------------------------搜索车辆后跳转搜索页面---------------------------------------------------
     $("#btnKeyword").click(function(){
         var value=$("#search2sc").val();
         //btnKeyword 标签中绑定了js方法包含本页面的url地址,因此,跳转不需要再写主路由.
         location.href="/cars?keyword="+value;
     });
 
+//---------------------------------------退出登录, 清除本地存储-----------------------------------------------------
+    $("#aLogout").click(function(){
+        window.localStorage.clear()
+        location.href="/index";
+    })
 
- //------------------修改密码------------------
-    //1. ---绑定点击修改密码, 动态生成修改密码区域.
 
+ //------------------------------------------修改密码----------------------------------------------------
+
+//1. ---绑定点击修改密码, 动态生成修改密码区域.
 $("#a_sale").click(function () {
     var nodata_html='<div id="modify_pwd">';
         nodata_html+='旧密码： <input type="text" id="old_pwd">';
@@ -2948,6 +2955,12 @@ $("#a_sale").click(function () {
         nodata_html+='</div>';
 
         $(".nodata").html(nodata_html)
+
+    //-----工具区------
+    function checkPassword(password) {
+        var pattern=/^(\w){6,20}$/
+        return pattern.test(password)
+    }
 
     //创建一个标记位,用于最后是否提交的依据.
         var sign1=0
@@ -2990,13 +3003,21 @@ $("#a_sale").click(function () {
         var password2=$("#new_pwd2").val()
         var check=password1!=password2?"两次密码输入不同":null
         $("#show2").html(check)
-        if (check=="两次密码输入不同"){
+        if (password2==""){
             sign2=1
-
-        }else{sign2=0}
+            $("#show2").html("密码不能为空")
+        }
+        else if (check=="两次密码输入不同"){
+            sign2=1
+        }
+        else if (!checkPassword(password2)){
+            sign2=1
+            $("#show2").html("只能输入6-20个字母、数字、下划线")
+        }
+        else{sign2=0}
     // console.log(sign1)
     // console.log(sign2)
-        // ---提交按钮: 1. 旧密码错误,不能提交- if not 1() 2. 输入不一致,不能提交, if not 2() 3. 把新密码和token里的username提交给后端, 后端返回200和新token和version
+        // 4. ---提交按钮: 1. 旧密码错误,不能提交- if not 1() 2. 输入不一致,不能提交, if not 2() 3. 把新密码和token里的username提交给后端, 后端返回200和新token和version
         $("#submit").click(function () {
             if (sign1==0 && sign2==0){
                 // console.log("00000000000")
@@ -3025,21 +3046,11 @@ $("#a_sale").click(function () {
                 alert("输入错误,请重新输入")
             }
         })
-
     })
+});
 
 
-})
-
-
-
-
-
-
-
-
-
-    // ------------发生点击"我的卖车记录"时,执行下列函数------------
+    // -----------------------------------------发生点击"我的卖车记录"时,执行下列函数------------------------------------------------------
     $("#sell").click(function () {
         //组织post_data
         var post_data = {
@@ -3095,7 +3106,7 @@ $("#a_sale").click(function () {
                     nodata_html += '<p>您还没有卖的车</p>'
                     nodata_html += '<div class="nodata-btn">'
                     nodata_html += '<a href="http://127.0.0.1:5000/cars" target="_blank" class="btn">我要买车</a>'
-                    nodata_html += '<a href="http://127.0.0.1:5000/owner " target="_blank" class="btn">我要卖车</a>'
+                    nodata_html += '<a href="http://127.0.0.1:5000/owner" target="_blank" class="btn">我要卖车</a>'
                     nodata_html += '</div>'
                     $(".nodata").html(nodata_html)
                 }
